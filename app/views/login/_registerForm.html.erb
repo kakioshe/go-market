@@ -1,0 +1,87 @@
+<div class="row">
+	<div class="col-md-4 mx-auto">
+            <%= form_for :users, url: help_path, :html => {:class => 'needs-validation', :novalidate => true} do |f| %>
+            	<div class="row">
+            		<div class="col-md-12 mb-3">
+
+            			<div class="form-row">
+    						<div class="col-md-6 mb-3">
+		            			<label for="inputFirstName">First Name</label>
+							    <input type="text" class="form-control" id="inputFirstName" placeholder="First Name" required>
+							    <div class="invalid-feedback">
+									Invalid input
+	      						</div>
+	      					</div>
+
+    						<div class="col-md-6 mb-3">
+		            			<label for="inputLastName">Last Name</label>
+							    <input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
+							    <div class="invalid-feedback">
+									Invalid input
+	      						</div>
+	      					</div>
+						</div>
+
+            			<div class="form-group">
+	            			<label for="inputEmail">Email address</label>
+						    <input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+						    <div class="invalid-feedback">
+								Please provide a valid email.
+      						</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputPassword">Password</label>
+							<input type="password" class="form-control" id="inputPassword" placeholder="Password" data-error="Password is invalid" required>
+						    <%= text_field_tag "address1", params["address1"], class: "form-control", type: 'password', required: true, placeholder:"Address, Line 1" %>
+						    <div class="invalid-feedback">
+								Password is incorrect
+      						</div>
+						</div>
+
+            			<div class="form-row">
+    						<div class="col-md-6 mb-3">
+		            			<label for="address1">Address</label>
+							    <%= text_field_tag "address1", params["address1"], class: "form-control", type: 'text', required: true, placeholder:"Address, Line 1" %>
+							    <div class="invalid-feedback">
+									Invalid input
+	      						</div>
+	      					</div>
+
+    						<div class="col-md-6 mb-3">
+		            			<label for="address2">Address, Line 2</label>
+							    <%= text_field_tag "address2", params["address2"], class: "form-control", type: 'text', required: true, placeholder:"Address, Line 2" %>
+							    <div class="invalid-feedback">
+									Invalid input
+	      						</div>
+	      					</div>
+						</div>
+
+            			<div class="form-row">
+    						<div class="col-md-6 mb-3">
+		            			<label for="suburb">Suburb</label>
+							    <%= text_field_tag "suburb", params["suburb"], class: "form-control", type: 'text', required: true %>
+
+							    <div class="invalid-feedback">
+									Invalid input
+	      						</div>
+	      					</div>
+
+    						<div class="col-md-6 mb-3">
+		            			<label for="inputAddress2">Address, Line 2</label>
+							    <input type="text" class="form-control" id="inputAddress2" placeholder="Address 2" required>
+							    <div class="invalid-feedback">
+									Invalid input
+	      						</div>
+	      					</div>
+						</div>
+
+
+					</div>
+				</div>
+				<button class="btn btn-primary" type="submit">Submit form</button>
+
+			<% end %>
+	</div>
+</div>
+
