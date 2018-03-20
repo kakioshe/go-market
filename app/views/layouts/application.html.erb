@@ -9,35 +9,37 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-expand-lg navbar-light bg-light">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to 'Devise Demo', root_path, class: 'navbar-brand' %>
-        </div>
-        <div id="navbar">
-          <ul class="nav navbar-nav">
-            <li><%= link_to 'Home', root_path %></li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
+          <%= link_to root_path do%>
+            <%= image_tag('logo-04.png', :alt => "logo", :style => "width:15%") %>
+          <% end %>
+          <input type="text" placeholder="Search for Products, Brands and more" name="" class="nav-search-bar rounded-left">
+          <button type="button" class="nav-btn">All Category</button>
+          <button type="button" class="nav-btn nav-btn-search rounded-right">Search</button>
+
+          <div class="nav-plus text-right p-2">
             <% if user_signed_in? %>
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                  <%= current_user.firstName %>
-                  <span class="caret"></span>
-                </a>
-                  <li><%= link_to 'Profile', edit_user_registration_path %></li>
-                  <li><%= link_to 'Log out', destroy_user_session_path, method: :delete %></li>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= current_user.firstName %>
+                <span class="caret"></span>
+              </a>
+                <%= link_to 'Profile', edit_user_registration_path %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
             <% else %>
-              <li><%= link_to 'Log In', new_user_session_path %></li>
-              <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+              <%= link_to 'Log In', new_user_session_path, { :class => "login-btn" } %>
+              <%= link_to 'Sign Up', new_user_registration_path %>
             <% end %>
-          </ul>
+          </div>
         </div>
       </div>
     </nav>
+
     <div class="container">
       <% flash.each do |key, value| %>
         <div class="alert alert-<%= key %>">
