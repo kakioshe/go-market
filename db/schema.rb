@@ -15,6 +15,12 @@ ActiveRecord::Schema.define(version: 20180324032927) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: :cascade do |t|
+    t.string "title", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "delayed_jobs", force: :cascade do |t|
     t.integer "priority", default: 0, null: false
     t.integer "attempts", default: 0, null: false
@@ -28,6 +34,33 @@ ActiveRecord::Schema.define(version: 20180324032927) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
+  end
+
+  create_table "product_categories", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_product_categories_on_category_id"
+    t.index ["product_id"], name: "index_product_categories_on_product_id"
+  end
+
+  create_table "product_variants", force: :cascade do |t|
+    t.string "title", null: false
+    t.decimal "price", precision: 15, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_product_variants_on_product_id"
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.integer "availability", null: false
+    t.decimal "price", precision: 15, scale: 2, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -66,4 +99,7 @@ ActiveRecord::Schema.define(version: 20180324032927) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "product_categories", "categories"
+  add_foreign_key "product_categories", "products"
+  add_foreign_key "product_variants", "products"
 end

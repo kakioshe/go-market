@@ -1,0 +1,15 @@
+<br/>
+
+<br/>
+<br/>
+<br/>
+<h1>HALO</h1>
+<br/>
+
+<%= form_for @product do |f| %>
+  Title: <%= f.text_field :title %><br/>
+  Description: <%= f.text_area :description %><br/>
+  Availability: <%= f.number_field :availability %><br/>
+  Price: <%= f.number_field :price %><br/>
+  <%= f.submit %>
+<% end %>
