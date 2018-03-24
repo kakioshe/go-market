@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180324044002) do
+ActiveRecord::Schema.define(version: 20180324053704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "carts", force: :cascade do |t|
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "users_id"
+    t.bigint "products_id"
+    t.index ["products_id"], name: "index_carts_on_products_id"
+    t.index ["users_id"], name: "index_carts_on_users_id"
+  end
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
@@ -36,24 +46,6 @@ ActiveRecord::Schema.define(version: 20180324044002) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
-  create_table "product_categories", force: :cascade do |t|
-    t.bigint "product_id", null: false
-    t.bigint "category_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category_id"], name: "index_product_categories_on_category_id"
-    t.index ["product_id"], name: "index_product_categories_on_product_id"
-  end
-
-  create_table "product_variants", force: :cascade do |t|
-    t.string "title", null: false
-    t.decimal "price", precision: 15, scale: 2, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.bigint "product_id", null: false
-    t.index ["product_id"], name: "index_product_variants_on_product_id"
-  end
-
   create_table "products", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -61,6 +53,12 @@ ActiveRecord::Schema.define(version: 20180324044002) do
     t.decimal "price", precision: 15, scale: 2, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "picture"
+    t.text "maps"
+    t.bigint "stores_id"
+    t.bigint "categories_id"
+    t.index ["categories_id"], name: "index_products_on_categories_id"
+    t.index ["stores_id"], name: "index_products_on_stores_id"
   end
 
   create_table "stores", force: :cascade do |t|
@@ -68,6 +66,19 @@ ActiveRecord::Schema.define(version: 20180324044002) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "status"
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "products_id"
+    t.bigint "users_id"
+    t.bigint "stores_id"
+    t.index ["products_id"], name: "index_transactions_on_products_id"
+    t.index ["stores_id"], name: "index_transactions_on_stores_id"
+    t.index ["users_id"], name: "index_transactions_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -108,8 +119,12 @@ ActiveRecord::Schema.define(version: 20180324044002) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
-  add_foreign_key "product_categories", "categories"
-  add_foreign_key "product_categories", "products"
-  add_foreign_key "product_variants", "products"
+  add_foreign_key "carts", "products", column: "products_id"
+  add_foreign_key "carts", "users", column: "users_id"
+  add_foreign_key "products", "categories", column: "categories_id"
+  add_foreign_key "products", "stores", column: "stores_id"
+  add_foreign_key "transactions", "products", column: "products_id"
+  add_foreign_key "transactions", "stores", column: "stores_id"
+  add_foreign_key "transactions", "users", column: "users_id"
   add_foreign_key "users", "stores", column: "stores_id"
 end
