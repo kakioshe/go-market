@@ -18,6 +18,12 @@
   font-size: 80%;
 }
 
+#nav {
+  -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
+}
+
 .alert-alert {
   @extend .alert-warning;
 }
@@ -161,7 +167,7 @@
 }
 
 #nav-form {
-  width: 70%
+  width: 80%
 }
 
 .nav-attribute, .nav-attribute::before {
