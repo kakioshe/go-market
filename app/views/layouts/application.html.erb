@@ -18,12 +18,14 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
   </head>
 
-  <body>
+  <body id="override-bootstrap" style="font-family: 'Roboto', sans-serif; font-family: 'Open Sans', sans-serif;">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="navbar-brand" style="width:30%">
+      <div class="navbar-brand" style="width:20%">
         <%= link_to root_path do%>
           <%= image_tag('logo-04.png', :alt => "logo", :style => "width:45%", :class => "ml-5") %>
         <% end %>
@@ -34,11 +36,12 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        <form class="form-inline my-2 my-lg-0" style="width:70%;">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search for Products, Brands and more" aria-label="Search" style="width:60%;">
-
+        <form class="form-inline my-2 my-lg-0" id="nav-form">
+          <!-- search form -->
+          <input class="nav-form-search mr-sm-2 " type="search" placeholder="Search for Products, Brands and more" aria-label="Search">
+          <!-- category button -->
           <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="nav-btn-allcategory dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               All Categories
             </button>
             <div class="dropdown-menu">
@@ -49,7 +52,7 @@
               <a class="dropdown-item" href="#">Separated link</a>
             </div>
           </div>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <button class="my-2 my-sm-0 nav-btn-search" type="submit">Search</button>
         </form>
 
         <ul class="navbar-nav mr-auto ">
@@ -69,12 +72,14 @@
 
           <% else %>
 
-          <li class="nav-item">
-            <%= link_to 'Sign In', new_user_session_path %>
+          <li class="nav-item" style="margin-right:10px">
+            <%= link_to 'Sign In', new_user_session_path, {:class => "nav-attribute"} %>
           </li>
 
-          <li class="nav-item">
-            <%= link_to 'Sign Up', new_user_registration_path %>
+          <div class="verticalLine"></div>
+
+          <li class="nav-item btn-sign-up">
+            <%= link_to 'Sign Up', new_user_registration_path, {:class => "nav-attribute"} %>
           </li>
 
           <% end %>
