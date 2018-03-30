@@ -1,18 +1,25 @@
 class ProductsController < ApplicationController
   def new
     @product = Product.new
+    3.times { @product.pictures.build }
   end
 
   def create
     @product = Product.new(product_param)
-    if @product.save
-      redirect_to new_products_path
-    end
+        if @product.save
+          redirect_to @product, :notice => "Successfully created product."
+        else
+          render :action => 'new'
+        end
+  end
+
+  def show
+    @product = Product.find(params[:id])
   end
 
   private
 
   def product_param
-    params.require(:product).permit(:title, :description, :availability, :price)
+    params.require(:product).permit(:title, :description, :availability, :price, pictures_attributes: [:image])
   end
 end

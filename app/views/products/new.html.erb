@@ -1,15 +1,50 @@
-<br/>
 
-<br/>
-<br/>
-<br/>
-<h1>HALO</h1>
-<br/>
+<div>
+  <p id="cp-title">Create New Product</h1>
+  <br/>
+  <%= form_for @product, :html => { :multipart => true } do |f| %>
+  <div class="row">
+    <div class="col-sm-3">Poduct Name: </div>
+    <div class="col-sm-9">: <%= f.text_field :title %></div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">Poduct Picture: </div>
+    <div class="col-sm-9">:
+      <div class="row">
 
-<%= form_for @product do |f| %>
-  Title: <%= f.text_field :title %><br/>
-  Description: <%= f.text_area :description %><br/>
-  Availability: <%= f.number_field :availability %><br/>
-  Price: <%= f.number_field :price %><br/>
-  <%= f.submit %>
-<% end %>
+
+        <%= f.fields_for :pictures, @product.picture do |picture_field| %>
+        <div class="col-md-4 cp-div-pic">
+          <img src='#' id='pic-uploaded'>
+          <div class="cp-pic-button">
+            <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
+            <i class='fa fa-camera'></i>
+	          <h3>Choose your picture</h3>
+	          <div class='clearfix'></div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">Availability: </div>
+    <div class="col-sm-9">: <%= f.text_field :availability %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">Price: </div>
+    <div class="col-sm-9">: <%= f.text_field :price %></div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-3">Description </div>
+    <div class="col-sm-9">: <%= f.text_area :description %></div>
+  </div>
+    <%= f.submit %>
+
+  <% end %>
+
+</div>
