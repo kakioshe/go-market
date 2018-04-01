@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :pictures
   end
+
+
+get '/catalogue', to: 'products#index'
 end
