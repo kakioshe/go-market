@@ -297,14 +297,14 @@
   height: 200px;
   position : relative;
   width: 100%;
-  float : left;
   overflow : hidden;
   text-align:center;
   line-height:200px;
 }
 
 #cat-desc {
-  padding: 5% 3%;
+  padding: 5% 8%;
+  position: relative;
   border-left: 1px solid #aaa;
   border-right: 1px solid #aaa;
   border-bottom: 1px solid #aaa;
@@ -312,6 +312,7 @@
 }
 
 #cat-desc p {margin: 0}
+.cat-desc-title {font-weight: 700}
 
 @media (max-width: 575.98px) {
   #cat-card {max-width: 48%; margin-top: 3%}
