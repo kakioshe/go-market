@@ -3,23 +3,25 @@
   <p id="cp-title">Create New Product</h1>
   <br/>
   <%= form_for @product, :html => { :multipart => true } do |f| %>
-  <div class="row">
-    <div class="col-sm-3">Poduct Name: </div>
-    <div class="col-sm-9">: <%= f.text_field :title %></div>
+  <div class="row cp-form-row">
+    <div class="col-sm-3 cp-form-name">Poduct Name </div>
+    <div class="col-sm-9"><%= f.text_field :title, class: 'cp-text-field'%></div>
   </div>
-  <div class="row">
-    <div class="col-sm-3">Poduct Picture: </div>
-    <div class="col-sm-9">:
+  <div class="row cp-form-row">
+    <div class="col-sm-3 cp-form-name">Poduct Picture </div>
+    <div class="col-sm-9">
       <div class="row">
 
 
         <%= f.fields_for :pictures, @product.picture do |picture_field| %>
         <div class="col-md-4 cp-div-pic">
-          <img src='#' id='pic-uploaded'>
+          <div class="cp-div-picupload">
+            <img src='#' id='pic-uploaded' class="cp-pic-uploaded">
+          </div>
           <div class="cp-pic-button">
             <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
             <i class='fa fa-camera'></i>
-	          <h3>Choose your picture</h3>
+	          <div class="cp-choose-pic">Choose your picture</div>
 	          <div class='clearfix'></div>
           </div>
         </div>
@@ -29,22 +31,23 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-sm-3">Availability: </div>
-    <div class="col-sm-9">: <%= f.text_field :availability %></div>
+  <div class="row cp-form-row">
+    <div class="col-sm-3 cp-form-name">Price </div>
+    <div class="col-sm-3"><%= f.text_field :price, class: 'cp-text-field' %></div>
+    <div class="col-sm-3 cp-form-name">Availability</div>
+    <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1" %></div>
   </div>
 
-  <div class="row">
-    <div class="col-sm-3">Price: </div>
-    <div class="col-sm-9">: <%= f.text_field :price %></div>
+  <div class="row cp-form-row">
+    <div class="col-sm-3 cp-form-name">Description </div>
+    <div class="col-sm-9"><%= f.text_area :description, class: 'cp-text-field' %></div>
   </div>
-
-  <div class="row">
-    <div class="col-sm-3">Description </div>
-    <div class="col-sm-9">: <%= f.text_area :description %></div>
-  </div>
-    <%= f.submit %>
+    <%= f.submit :class => 'cp-submit' %>
 
   <% end %>
+
+  <div class="coba">
+    <button name="button" class="cobacoba">Click me</button>
+  </div>
 
 </div>

@@ -23,11 +23,13 @@
   opacity: 0;
 }
 
-.cp-div-pic img {
-  width: 400px;
-  height: 350px;
-  display: none;
-  margin: auto;
+.cp-div-pic {
+  width: 50%;
+}
+
+.cp-div-pic::after {
+  content: "";
+  display: block;
 }
 
 .cp-div-pic .cp-pic-button {
@@ -36,15 +38,17 @@
   position: relative;
   text-align: center;
   padding: 10px 30px;
-  border: 3px dashed black;
   background-color: #f1f1f1;
-  border-radius: 5px;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  border-radius: 0px 0px 5px 5px;
+  cursor: pointer;
 }
 
 .cp-div-pic .cp-pic-button:hover {
   background-color: #263238;
   color: #aaa;
-  border: 3px solid #263238;
 }
 
 .cp-div-pic .cp-pic-button:hover i {
@@ -53,16 +57,73 @@
 
 .cp-div-pic .cp-pic-button #cp-picture {
   width: 100%;
-  height: 100%;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.cp-div-pic .cp-pic-button i{
-  float: left;
-  font-size: 2.5em;
-  margin-right: 15px;
-  color: #263238;
+
+.cp-div-picupload {
+  width: 100%;
+  height: 200px;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+  border-radius: 5px 5px 0px 0px;
 }
+
+.cp-div-picupload img {
+  object-fit: fill;
+  margin: auto;
+  height: 200px;
+  max-width: 100%;
+  width: auto;
+  display:none;
+}
+
+.cp-text-field {
+  border-radius:5px;
+  width: 100%;
+  padding: .375rem .75rem;
+  border: 1px solid #ced4da;
+  background-clip: padding-box;
+  transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.cp-text-field:focus{
+  border-color: #f07e4a;
+  outline: 0 none;
+}
+
+.cp-submit {
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 0px solid transparent;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  background-image: linear-gradient(to left, #f07e4a, #f0b84b);
+  color: white;
+  cursor: pointer;
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  opacity: 1;
+  float: right;
+  -webkit-box-shadow: 3px 3px 18px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 3px 3px 18px 0px rgba(0,0,0,0.25);
+  box-shadow: 3px 3px 18px 0px rgba(0,0,0,0.25);
+}
+
+.cp-submit:focus{
+  border-color: #f07e4a;
+  outline: 0 none;
+}
+
+.cp-form-name { font-weight: 700; font-size: 120%}
+.cp-form-row { margin-bottom: 2%;}
+.cp-choose-pic { font-weight: 400; font-style: italic;}
