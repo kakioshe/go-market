@@ -1,13 +1,36 @@
-<h2>Listing Products</h2>
+<div id="small-page" style="margin-top: 10%">
+	<p id="page-title">Catalogue</p>
 
-<p><%= link_to "New Product", new_product_path %></p>
-<hr />
+	<p><%= link_to "New Product", new_product_path %></p>
 
-<% for product in @products %>
-<div class="products">
-	<h2><%= link_to product.title, product_path(product) %></h2>
-	<p>
-		<%= product.description %>
-	</p>
+	<% @products.each_slice(4) do |group_product| %>
+	<div class="row">
+		<% group_product.each do |each_product| %>
+
+				<div class="col-6 col-sm-3" id="cat-card">
+					<%= link_to product_path(each_product) do %>
+					<div id="cat-div-image">
+						<% pic = [] %>
+						<% for picture in each_product.pictures %>
+		          <% pic << picture %>
+		        <% end %>
+
+		        <% if pic === [] %>
+		          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+		        <% else %>
+		          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
+		        <% end %>
+					</div>
+					<div id="cat-desc">
+						<p><%= each_product.title %></p>
+						<p>$ <%= each_product.price %> </p>
+						<p>Deco Deco Shop </p>
+						<p>Toowong, 2 km</p>
+					</div>
+					<% end %>
+				</div>
+
+		<% end %>
+	</div>
+	<% end %>
 </div>
-<% end %>

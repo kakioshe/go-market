@@ -272,9 +272,53 @@
 }
 
 @media (max-width: 575.98px) {
-  #small-page { margin: 0 3%}
+  #small-page { margin: 0 4%}
   #pd-div-price { height: 20%}
   #pd-div-addtocart { height: 20%}
   #pd-div-seller { height: 20%}
   #pd-div-sellerinfo { height: 200%}
+}
+
+//Catalogue
+
+#cat-card {
+  padding: 0px 5px;
+  margin-top: 1.5%;
+  margin-left: 1%;
+  max-width: 23%;
+}
+
+#cat-div-image {
+  background-color: #f1f1f1;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-top: 1px solid #aaa;
+  border-radius: 10px 10px 0px 0px;
+  height: 200px;
+  position : relative;
+  width: 100%;
+  float : left;
+  overflow : hidden;
+  text-align:center;
+  line-height:200px;
+}
+
+#cat-desc {
+  padding: 5% 3%;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#cat-desc p {margin: 0}
+
+@media (max-width: 575.98px) {
+  #cat-card {max-width: 48%; margin-top: 3%}
+}
+
+#cat-front-image {
+  max-width: 100%;
+  max-height: 200px;
+  vertical-align:middle;
 }
