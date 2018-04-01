@@ -21,4 +21,17 @@ $(document).on('turbolinks:load', function(){
   $('.cobacoba').click( function() {
     alert( $('#pic-uploaded').attr('src') );
   });
+
+
+});
+
+jQuery(document).ready(function() {
+  // commands go here
+  $('.pd-image-small').click( function (){
+    var index=$(this).index();
+    var targetedsrc = $("img", this).prop("src");
+    $('#pd-clicked-image').attr('src', targetedsrc);
+    $('.pd-div-image').css('display','table-cell')
+    event.preventDefault();
+  });
 });

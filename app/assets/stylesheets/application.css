@@ -26,6 +26,12 @@
   box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
 }
 
+#page-title {
+  margin-bottom: 5%;
+  font-size: 250%;
+  font-weight: 700;
+}
+
 .alert-alert {
   @extend .alert-warning;
 }

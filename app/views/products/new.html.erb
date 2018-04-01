@@ -1,6 +1,6 @@
 
-<div>
-  <p id="cp-title">Create New Product</h1>
+<div style="margin-top: 10%">
+  <p id="page-title">Create New Product</h1>
   <br/>
   <%= form_for @product, :html => { :multipart => true } do |f| %>
   <div class="row cp-form-row">
@@ -20,7 +20,6 @@
           </div>
           <div class="cp-pic-button">
             <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
-            <i class='fa fa-camera'></i>
 	          <div class="cp-choose-pic">Choose your picture</div>
 	          <div class='clearfix'></div>
           </div>

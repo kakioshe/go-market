@@ -1,26 +1,53 @@
-<h1>Product</h1>
+<div id="small-page" style="margin-top: 10%">
 
-<p>
-  <strong>Title:</strong>
-  <%= @product.title %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="pd-div-image">
+        <%= image_tag( @product.pictures[0].image.url, id: 'pd-clicked-image', class: 'pd-clicked-image') %>
+      </div>
 
-<ul>
-	<% for picture in @product.pictures %>
-		<%= link_to image_tag(picture.image.url) %>
-	<% end %>
-</ul>
+      <div class="row" style="padding: 5%">
+        <% for picture in @product.pictures %>
+      		<div class="col-4 pd-image-small" id="pd-div-image-small">
+            <%= link_to image_tag(picture.image.url, id: 'pd-image') %>
+          </div>
+      	<% end %>
+      </div>
+    </div>
 
-<p>
-  <%= link_to "Edit", edit_product_path(@product) %> |
-  <%= link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete %> |
-  <%= link_to "View All", products_path %>
-</p>
+    <div class="col-sm-5">
+
+      <p id="page-title"><%= @product.title %></p>
+      <p>
+        <%= @product.description %>
+
+        <p>
+          <%= link_to "Edit", edit_product_path(@product) %> |
+          <%= link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete %> |
+          <%= link_to "View All", products_path %>
+        </p>
+      </p>
+    </div>
+
+    <div class="col-sm-3">
+      <div id="pd-div-price">
+        $ <%= @product.price %>
+      </div>
+      <div id="pd-div-addtocart">
+        ADD TO CART
+      </div>
+
+      <div id="pd-div-seller">
+        seller information
+      </div>
+      <div id="pd-div-sellerinfo">
+        ADD TO CART
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</div>

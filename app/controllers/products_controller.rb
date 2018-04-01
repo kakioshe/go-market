@@ -15,6 +15,10 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @pictureslink = []
+    for picture in @product.pictures
+      @pictureslink << picture.image.url
+    end
   end
 
   def index
