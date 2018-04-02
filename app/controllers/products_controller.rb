@@ -22,15 +22,28 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.all
+    @product = Product.all
   end
 
   def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    puts @product.price.to_i
+    if @product.update(product_param)
+      redirect_to @product, :notice  => "Successfully updated product."
+    else
+      Rails.logger.info(@product.price)
+      Rails.logger.info(@product.errors.messages.inspect)
+      render :action => 'edit'
+    end
   end
 
   private
 
   def product_param
-    params.require(:product).permit(:title, :description, :availability, :price, pictures_attributes: [:image])
+    params.require(:product).permit(:title, :description, :availability, :price, pictures_attributes: [:product_id, :id, :image])
   end
 end
