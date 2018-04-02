@@ -8,7 +8,7 @@
 		<% group_product.each do |each_product| %>
 
 				<div class="col-6 col-sm-3" id="cat-card">
-					<%= link_to product_path(each_product) do %>
+					<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
 					<div id="cat-div-image">
 						<% pic = [] %>
 						<% for picture in each_product.pictures %>
