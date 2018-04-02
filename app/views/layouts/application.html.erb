@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -20,9 +21,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i,800" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+
   </head>
 
-  <body id="override-bootstrap" style="font-family: 'Open Sans', sans-serif;">
+  <body id="override-bootstrap">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
       <div class="navbar-brand" style="width:27%">
@@ -73,7 +77,7 @@
           <% else %>
 
           <li class="nav-item" style="margin-right:10px">
-            <%= link_to 'Sign In', new_user_session_path, {:class => "nav-attribute"} %>
+            <%= link_to 'Log In', new_user_session_path, {:class => "nav-attribute"} %>
           </li>
 
           <div class="verticalLine"></div>
