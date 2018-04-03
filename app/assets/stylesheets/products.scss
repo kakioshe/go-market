@@ -58,6 +58,10 @@
   left: 0;
 }
 
+.cp-picture-field {
+  display: none;
+}
+
 
 .cp-div-picupload {
   width: 100%;
@@ -74,7 +78,10 @@
   height: 200px;
   max-width: 100%;
   width: auto;
-  display:none;
+}
+
+.cp-miss-pic {
+  display: none;
 }
 
 .cp-text-field {
@@ -260,9 +267,17 @@
   border-radius: 10px;
   background-color: white;
   border: 1px solid #aaa;
-  display: table-cell;
   text-align: center;
-  vertical-align: middle;
+  position: relative;
+}
+
+.pd-div-image img {
+  position: absolute;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .pd-clicked-image  {

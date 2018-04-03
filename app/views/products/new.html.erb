@@ -14,13 +14,15 @@
 
 
         <%= f.fields_for :pictures, @product.picture do |picture_field| %>
-        <div class="col-md-4 cp-div-pic">
+        <div class="col-md-4 cp-div-pic cp-div-remove">
           <div class="cp-div-picupload">
-            <img src='#' id='pic-uploaded' class="cp-pic-uploaded">
+            <img src='#' id='pic-uploaded' class="cp-pic-uploaded cp-miss-pic">
           </div>
           <div class="cp-pic-button">
-            <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
-	          <div class="cp-choose-pic">Choose your picture</div>
+            <div class="">
+              <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
+            </div>
+            <div class="cp-choose-pic">Choose your picture</div>
 	          <div class='clearfix'></div>
           </div>
         </div>

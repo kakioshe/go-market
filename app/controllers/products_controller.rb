@@ -27,6 +27,17 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    pic = []
+    for picture in @product.pictures
+      pic << picture
+    end
+
+    iteration = 3-pic.count
+    i = 0
+    while i < iteration
+      @product.pictures.build
+      i+=1
+    end
   end
 
   def update
