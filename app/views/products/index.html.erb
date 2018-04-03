@@ -1,14 +1,14 @@
-<div id="small-page" style="margin-top: 10%">
+<div id="small-page">
 	<p id="page-title">Catalogue</p>
 
 	<p><%= link_to "New Product", new_product_path %></p>
 
-	<% @products.each_slice(4) do |group_product| %>
+	<% @product.each_slice(4) do |group_product| %>
 	<div class="row">
 		<% group_product.each do |each_product| %>
 
 				<div class="col-6 col-sm-3" id="cat-card">
-					<%= link_to product_path(each_product) do %>
+					<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
 					<div id="cat-div-image">
 						<% pic = [] %>
 						<% for picture in each_product.pictures %>
