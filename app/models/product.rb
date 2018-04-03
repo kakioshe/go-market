@@ -4,6 +4,6 @@ class Product < ApplicationRecord
 
   has_many :product_categories
   has_many :categories, through: :product_categories
-  has_many :pictures
+  has_many :pictures, :dependent => :destroy
   accepts_nested_attributes_for :pictures, :allow_destroy => true
 end
