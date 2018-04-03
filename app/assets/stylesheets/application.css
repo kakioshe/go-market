@@ -27,6 +27,7 @@
 }
 
 #page-title {
+  margin-top: 5%;
   margin-bottom: 5%;
   font-size: 250%;
   font-weight: 700;
@@ -176,6 +177,16 @@
 
 #nav-form {
   width: 80%
+}
+
+.footer{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefef;
+  text-align: center;
 }
 
 .nav-attribute, .nav-attribute::before {
