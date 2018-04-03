@@ -24,6 +24,8 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+
   </head>
 
   <body id="override-bootstrap">
@@ -67,7 +69,7 @@
               <%= current_user.firstName %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Profile', edit_user_registration_path %>
+              <%= link_to 'Profile', user_path(current_user.id) %>
               <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
