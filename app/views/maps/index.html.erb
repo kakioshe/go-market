@@ -1,0 +1,55 @@
+<% content_for :top_content do %>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100vh;
+      }
+      /* Optional: Makes the sample page fill the window. */
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var brisbane = {lat: -27.4698, lng: 153.0251};
+        var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 12,
+         center: brisbane
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var infoWindow = new google.maps.InfoWindow();
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          var marker = new google.maps.Marker({
+            position: location,
+            label: location.label
+          });
+          google.maps.event.addListener(marker, 'click', function(evt) {
+            infoWindow.setContent(location.info);
+            infoWindow.open(map, marker);
+          })
+          return marker;
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+           {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+        }
+        var locations = [
+        {lat: -27.484760, lng: 152.992868, label:"Test", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br />Just testing"},
+        {lat: -27.482114, lng: 152.996837, label:"Hello", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br /> Heyy!"},
+        {lat: -27.482029, lng: 153.004090, label:"Info", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br />FYI"},
+        {lat: -27.495360, lng: 153.012149, label:"Abcd", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br />alphabet"}
+        ]
+        google.maps.event.addDomListener(window, "load", initMap);
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initMap"
+    async defer></script>
+<% end %>

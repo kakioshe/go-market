@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/maps', to: 'maps#index'
+
   resource :products
 
   devise_for :users
