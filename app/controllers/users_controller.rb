@@ -17,13 +17,5 @@ class UsersController < ApplicationController
 			@flag = false
 		end
 
-		if @user.stores_id != nil && @user.stores_id != ""
-			@store_flag = true
-			@stores = Store.find(@user.stores_id)
-
-		else
-			@store_flag = false
-		end
-
 	end
 end

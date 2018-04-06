@@ -70,8 +70,11 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <%= link_to 'Profile', user_path(current_user.id), :class => "dropdown-item" %>
+
               <% if current_user.stores_id==nil or current_user.stores_id=="" %>
                 <%= link_to 'Create a store', new_store_path, :class => "dropdown-item" %>
+              <% else %>
+                <%= link_to 'Manage store', store_path(current_user.stores_id), :class => "dropdown-item" %>
               <% end %>
 
 
