@@ -63,3 +63,34 @@
   color: black;
   width: 10%;
 }
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+#section-footer{
+    left: 0 ; right: 0; bottom: 0;
+    padding-top: 2vh !important;
+    padding-bottom: 1vh !important;
+    background-color: #e9ecef;
+    color: black;
+    flex-shrink: 0;
+}
+#section-footer ul{
+  list-style-type: none;
+}
+#section-footer li:first-child {
+    font-weight: bold;
+}
+#section-footer ul.social-media li {
+    display: inline;
+    font-size: 2em;
+    margin: 0.2em;
+}
+#section-footer ul.social-media li:first-child {
+    display: block;
+    font-size: 1em;
+}
+.body-container{
+  flex: 1;
+}

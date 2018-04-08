@@ -18,84 +18,136 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
+    <div class="body-container">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="navbar-brand" style="width:30%">
+          <%= link_to root_path do%>
+            <%= image_tag('logo-04.png', :alt => "logo", :style => "width:45%", :class => "ml-5") %>
+          <% end %>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="navbar-brand" style="width:30%">
-        <%= link_to root_path do%>
-          <%= image_tag('logo-04.png', :alt => "logo", :style => "width:45%", :class => "ml-5") %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <form class="form-inline my-2 my-lg-0" style="width:70%;">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search for Products, Brands and more" aria-label="Search" style="width:60%;">
+
+            <div class="btn-group">
+              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Categories
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <a class="dropdown-item" href="#">Something else here</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Separated link</a>
+              </div>
+            </div>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+
+          <ul class="navbar-nav mr-auto ">
+            <% if user_signed_in? %>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <%= current_user.firstName %>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <%= link_to 'Profile', edit_user_registration_path %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>
+
+            <% else %>
+
+            <li class="nav-item">
+              <%= link_to 'Sign In', new_user_session_path %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to 'Sign Up', new_user_registration_path %>
+            </li>
+
+            <% end %>
+
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container">
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>">
+            <%= value %>
+          </div>
         <% end %>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <%= yield :top_content %>
 
-        <form class="form-inline my-2 my-lg-0" style="width:70%;">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search for Products, Brands and more" aria-label="Search" style="width:60%;">
-
-          <div class="btn-group">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              All Categories
-            </button>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
-            </div>
-          </div>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-
-        <ul class="navbar-nav mr-auto ">
-          <% if user_signed_in? %>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= current_user.firstName %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%= link_to 'Profile', edit_user_registration_path %>
-              <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-
-          <% else %>
-
-          <li class="nav-item">
-            <%= link_to 'Sign In', new_user_session_path %>
-          </li>
-
-          <li class="nav-item">
-            <%= link_to 'Sign Up', new_user_registration_path %>
-          </li>
-
-          <% end %>
-
-        </ul>
+      <div class="container">
+          <h1><%= yield :header %></h1>
       </div>
-    </nav>
 
-    <div class="container">
-      <% flash.each do |key, value| %>
-        <div class="alert alert-<%= key %>">
-          <%= value %>
-        </div>
-      <% end %>
-    </div>
-
-    <%= yield :top_content %>
-
-    <div class="container">
-        <h1><%= yield :header %></h1>
       <%= yield %>
     </div>
+
+    <section id="section-footer">
+  		<div class="container">
+  			<div class="row">
+  				<div class="col-md-3">
+            <ul>
+              <li>Go Market</li>
+              <li>About us</li>
+              <li>Career</li>
+              <li>Blog</li>
+              <li>Store</li>
+              <li>Our activity</li>
+              <li>Contact support</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul>
+              <li>Buy</li>
+              <li>Buy at GoMarket</li>
+              <li>How to buy</li>
+              <li>Checkout</li>
+              <li>Refund</li>
+              <li>Hot list</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul>
+              <li>Sell</li>
+              <li>How to sell</li>
+              <li>Gold merchant</li>
+              <li>Promotion</li>
+              <li>Transfer</li>
+            </ul>
+          </div>
+          <div class="col-md-3">
+            <ul class="social-media">
+              <li>Don't forget to visit us at</li>
+              <li><i class="fab fa-instagram"></i></li>
+              <li><i class="fab fa-facebook"></i></li>
+              <li><i class="fab fa-twitter"></i></li>
+              <li><i class="fab fa-youtube"></i></li>
+            </ul>
+          </div>
+  			</div>
+  		</div>
+  	</section>
+
+    <!-- Font awesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
   </body>
 </html>
