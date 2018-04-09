@@ -13,6 +13,7 @@
 			</div>
 		</div>
 		<hr>
+
     	<% if @flag %>
 			<p><i class="fa fa-envelope"></i> <%= @email %></p>
 			<p><i class="fa fa-phone"></i> <%= @phone %></p>
@@ -22,10 +23,6 @@
 			<p> Please update your personal information 
 				<%= link_to 'here'.html_safe, edit_user_registration_path %> </p>
 		<% end %>
-		
-
-		
-
 
 	</div>
 </div>

@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 			@flag = true
 			@email = @user.email
 			@phone = @user.phone
+			@storeid = @user.stores_id
 			if @user.address2 != nil && @user.address2 != ""
 				@address = @user.address1+", "+@user.address2+", "+@user.suburb+", "+@user.city+", "+@user.state
 			else
