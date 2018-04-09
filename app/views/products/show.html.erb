@@ -1,0 +1,63 @@
+<div id="small-page">
+
+<% pic = [] %>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="pd-div-image">
+        <% for picture in @product.pictures %>
+          <% pic << picture %>
+        <% end %>
+
+        <% if pic === [] %>
+          <%= image_tag( "products/p-camera.png", id: 'pd-clicked-image', class: 'pd-clicked-image') %>
+        <% else %>
+          <%= image_tag( @product.pictures[0].image.url, id: 'pd-clicked-image', class: 'pd-clicked-image') %>
+        <% end %>
+
+      </div>
+
+      <div class="row" style="padding: 5%">
+        <% for picture in @product.pictures %>
+      		<div class="col-4 pd-image-small" id="pd-div-image-small">
+            <%= link_to image_tag(picture.image.url, id: 'pd-image') %>
+          </div>
+      	<% end %>
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+
+      <p id="page-title"><%= @product.title %></p>
+      <p>
+        <%= @product.description %>
+
+        <p>
+          <%= link_to "Edit", edit_product_path(@product) %> |
+          <%= link_to "Destroy", @product, :confirm => 'Are you sure?', :method => :delete %> |
+          <%= link_to "View All", "/catalogue" %>
+        </p>
+      </p>
+    </div>
+
+    <div class="col-sm-3">
+      <div id="pd-div-price">
+        $ <%= @product.price %>
+      </div>
+      <div id="pd-div-addtocart">
+        ADD TO CART
+      </div>
+
+      <div id="pd-div-seller">
+        seller information
+      </div>
+      <div id="pd-div-sellerinfo">
+        ADD TO CART
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</div>
