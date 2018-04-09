@@ -7,6 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
+
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
@@ -21,10 +22,10 @@
 
   </head>
 
-  <body>
+  <body id="override-bootstrap">
     <div class="body-container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="navbar-brand" style="width:30%">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" id="nav">
+        <div class="navbar-brand" style="width:27%">
           <%= link_to root_path do%>
             <%= image_tag('logo-04.png', :alt => "logo", :style => "width:45%", :class => "ml-5") %>
           <% end %>
@@ -35,11 +36,12 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <form class="form-inline my-2 my-lg-0" style="width:70%;">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search for Products, Brands and more" aria-label="Search" style="width:60%;">
-
+          <form class="form-inline my-2 my-lg-0" id="nav-form">
+            <!-- search form -->
+            <input class="nav-form-search mr-sm-2 " type="search" placeholder="Search for Products, Brands and more" aria-label="Search">
+            <!-- category button -->
             <div class="btn-group">
-              <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button type="button" class="nav-btn-allcategory dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Categories
               </button>
               <div class="dropdown-menu">
@@ -50,7 +52,7 @@
                 <a class="dropdown-item" href="#">Separated link</a>
               </div>
             </div>
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <button class="my-2 my-sm-0 nav-btn-search" type="submit">Search</button>
           </form>
 
           <ul class="navbar-nav mr-auto ">
@@ -61,21 +63,31 @@
                 <%= current_user.firstName %>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <%= link_to 'Profile', edit_user_registration_path %>
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+                <%= link_to 'Profile', user_path(current_user.id), :class => "dropdown-item" %>
+
+                <% if current_user.stores_id==nil or current_user.stores_id=="" %>
+                  <%= link_to 'Create a store', new_store_path, :class => "dropdown-item" %>
+                <% else %>
+                  <%= link_to 'Manage store', store_path(current_user.stores_id), :class => "dropdown-item" %>
+                <% end %>
+
+
+
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Something else here</a>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "dropdown-item"  %>
               </div>
             </li>
 
             <% else %>
 
-            <li class="nav-item">
-              <%= link_to 'Sign In', new_user_session_path %>
+            <li class="nav-item" style="margin-right:10px">
+              <%= link_to 'Log In', new_user_session_path, {:class => "nav-attribute"} %>
             </li>
 
-            <li class="nav-item">
-              <%= link_to 'Sign Up', new_user_registration_path %>
+            <div class="verticalLine"></div>
+
+            <li class="nav-item btn-sign-up">
+              <%= link_to 'Sign Up', new_user_registration_path, {:class => "nav-attribute"} %>
             </li>
 
             <% end %>
@@ -96,11 +108,10 @@
 
       <div class="container">
           <h1><%= yield :header %></h1>
+        <%= yield %>
       </div>
 
-      <%= yield %>
     </div>
-
     <section id="section-footer">
   		<div class="container">
   			<div class="row">

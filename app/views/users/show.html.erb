@@ -1,0 +1,29 @@
+<div class="row user-form">
+	<div class="col-md-4">
+        <%= image_tag('default_profile_picture.jpg', :alt => "profile picture", :style => "display: inline", :class => "img-frame") %>
+    </div>
+
+    <div class="col-md-8 user-information">
+    	<div class="row">
+    		<div class="col-md-10">
+				<h1> <%= @name %></h1>
+			</div>
+			<div class="col-md-2 right-align">
+				<%= link_to '<i class="fa fa-cog" style="color:#c8cace; font-size:1.5em;"></i>'.html_safe, edit_user_registration_path %>
+			</div>
+		</div>
+		<hr>
+
+    	<% if @flag %>
+			<p><i class="fa fa-envelope"></i> <%= @email %></p>
+			<p><i class="fa fa-phone"></i> <%= @phone %></p>
+			<p><i class="fa fa-home"></i> <%= @address %> </p>
+
+		<% else %>
+			<p> Please update your personal information 
+				<%= link_to 'here'.html_safe, edit_user_registration_path %> </p>
+		<% end %>
+
+	</div>
+</div>
+
