@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     3.times { @product.pictures.build }
+    @category = Category.all
   end
 
   def create
