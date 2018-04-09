@@ -1,54 +1,15 @@
+<br/>
 
-<div id="small-page">
-  <p id="page-title">Create New Product</p>
-  <br/>
-  <%= form_for @product, :html => { :multipart => true } do |f| %>
-  <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Poduct Name </div>
-    <div class="col-sm-9"><%= f.text_field :title, class: 'cp-text-field'%></div>
-  </div>
-  <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Poduct Picture </div>
-    <div class="col-sm-9">
-      <div class="row">
+<br/>
+<br/>
+<br/>
+<h1>HALO</h1>
+<br/>
 
-
-        <%= f.fields_for :pictures, @product.picture do |picture_field| %>
-        <div class="col-md-4 cp-div-pic cp-div-remove">
-          <div class="cp-div-picupload">
-            <img src='#' id='pic-uploaded' class="cp-pic-uploaded cp-miss-pic">
-          </div>
-          <div class="cp-pic-button">
-            <div class="">
-              <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
-            </div>
-            <div class="cp-choose-pic">Choose your picture</div>
-	          <div class='clearfix'></div>
-          </div>
-        </div>
-        <% end %>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Price </div>
-    <div class="col-sm-3"><%= f.text_field :price, class: 'cp-text-field' %></div>
-    <div class="col-sm-3 cp-form-name">Availability</div>
-    <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1" %></div>
-  </div>
-
-  <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Description </div>
-    <div class="col-sm-9"><%= f.text_area :description, class: 'cp-text-field' %></div>
-  </div>
-    <%= f.submit :class => 'cp-submit' %>
-
-  <% end %>
-
-  <div class="coba">
-    <button name="button" class="cobacoba">Click me</button>
-  </div>
-
-</div>
+<%= form_for @product do |f| %>
+  Title: <%= f.text_field :title %><br/>
+  Description: <%= f.text_area :description %><br/>
+  Availability: <%= f.number_field :availability %><br/>
+  Price: <%= f.number_field :price %><br/>
+  <%= f.submit %>
+<% end %>

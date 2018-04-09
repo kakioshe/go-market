@@ -1,9 +1,7 @@
-<div class="row user-form">
+<% header "Sign in" %>
+
+<div class="row">
   <div class="col-md-4 mx-auto">
-
-    <h1>Log In</h1>
-    <p>or <%= link_to 'create a new account', new_user_registration_path%></p>
-
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
     <div class="row">

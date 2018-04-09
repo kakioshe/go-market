@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180330143450) do
+ActiveRecord::Schema.define(version: 20180324053704) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,17 +44,6 @@ ActiveRecord::Schema.define(version: 20180330143450) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
-  end
-
-  create_table "pictures", force: :cascade do |t|
-    t.bigint "product_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["product_id"], name: "index_pictures_on_product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -132,7 +121,6 @@ ActiveRecord::Schema.define(version: 20180330143450) do
 
   add_foreign_key "carts", "products", column: "products_id"
   add_foreign_key "carts", "users", column: "users_id"
-  add_foreign_key "pictures", "products"
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "stores", column: "stores_id"
   add_foreign_key "transactions", "products", column: "products_id"
