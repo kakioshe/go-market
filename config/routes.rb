@@ -13,4 +13,5 @@ Rails.application.routes.draw do
 get '/catalogue', to: 'products#index'
 resources :users, only: [:show]
 resources :stores, only: [:create, :new, :show]
+resource :store, only: [:edit, :update]
 end

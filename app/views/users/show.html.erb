@@ -8,9 +8,12 @@
     		<div class="col-md-10">
 				<h1> <%= @name %></h1>
 			</div>
+
+			<% if current_user.id==@user.id %>
 			<div class="col-md-2 right-align">
 				<%= link_to '<i class="fa fa-cog" style="color:#c8cace; font-size:1.5em;"></i>'.html_safe, edit_user_registration_path %>
 			</div>
+			<% end %>
 		</div>
 		<hr>
 
@@ -20,8 +23,13 @@
 			<p><i class="fa fa-home"></i> <%= @address %> </p>
 
 		<% else %>
-			<p> Please update your personal information 
-				<%= link_to 'here'.html_safe, edit_user_registration_path %> </p>
+
+			<% if current_user.id==@user.id %>
+				<p> Please update your personal information 
+					<%= link_to 'here'.html_safe, edit_user_registration_path %> </p>
+			<% else %>
+				<p> This user hasn't updated their information </p>
+			<% end %>
 		<% end %>
 
 	</div>
