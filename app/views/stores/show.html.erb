@@ -1,25 +1,49 @@
 
 
 <div class="row">
-	<div class="col-md-3" id="seller-card">
-		<div id="title-information">
-			<p> Seller Information </p>
-		</div>
-
-		<%= image_tag( "products/p-camera.png", id: 'seller-card-picture') %>
-		<div id="store-information">
-			<p id="store-name"><%= @store.name.upcase %></p>
-			<p id="store-location">Danau UI</p>
-			<p id="store-description"><%= @store.description %></p>
-
-			<% if current_user.stores_id==@store.id %>
-				<div class="col-md-2 right-align-card">
-					<%= link_to 'edit', edit_store_path, {:id => 'edit-link'} %>
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12" id="seller-card">
+				<div id="title-information">
+					<p> Seller Information </p>
 				</div>
-			<% end %>
+
+				<%= image_tag( "products/p-camera.png", id: 'seller-card-picture') %>
+				<div id="store-information">
+					<p id="store-name"><%= @store.name.upcase %></p>
+					<p id="store-location">Danau UI</p>
+					<p id="store-description"><%= @store.description %></p>
+
+					<% if current_user.stores_id==@store.id %>
+						<div class="col-md-2 right-align-card">
+							<%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
+						</div>
+					<% end %>
+				</div>
+			</div>
 		</div>
+
+		<% if current_user.stores_id==@store.id %>
+			<div class="row">
+				<div class="col-md-12 mx-auto">
+					<%= link_to new_product_path, {:id => 'button-link'} do %>
+						<div class="store-button">
+							<p> Add a New Product </p>
+						</div>
+					<% end %>
+
+					<%= link_to root_path, {:id => 'button-link'} do %>
+						<div class="store-button">
+							<p> Transaction History </p>
+						</div>
+					<% end %>
+
+				</div>
+			</div>
+		<% end %>
 	</div>
 
+	
 	<div class="col-md-8">
 		<div class="row">
 			<div class="col-md-8" id="title-item">

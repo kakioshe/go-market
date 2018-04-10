@@ -5,6 +5,7 @@
 
 #store-information {
 	margin-left:2em;
+	margin-right:1.5em;
 }
 
 #seller-card {
@@ -51,4 +52,24 @@
 
 #edit-link {
 	font-weight: 700!important;
+	color: black;
+}
+
+.store-button {
+	background-image: linear-gradient(to right, #27a8e1, #0173bc);
+	padding:10px;
+	margin: 10px 0px 10px 0px;
+	border-radius: 10px;
+	text-align: center;
+	width: 100%;
+}
+
+#button-link {
+	font-weight: 800;
+	font-size: 1em;
+	color:white;
+	}
+
+#button-link p{	
+	margin:0px !important;
 }
