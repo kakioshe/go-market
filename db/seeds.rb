@@ -6,11 +6,22 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.create(title:'Furniture');
-Category.create(title:'Fashion');
-Category.create(title:'Office & Stationary');
-Category.create(title:'Foods & Drinks');
-Category.create(title:'Kitchen tools');
-Category.create(title:'Tools');
-Category.create(title:'Automative');
-Category.create(title:'Hobby');
+Picture.delete_all
+Product.delete_all
+
+
+Category.delete_all
+	Category.create(title:'Furniture')
+	Category.create(title:'Fashion')
+	Category.create(title:'Office & Stationary')
+	Category.create(title:'Foods & Drinks')
+	Category.create(title:'Kitchen tools')
+	Category.create(title:'Tools')
+	Category.create(title:'Automative')
+	Category.create(title:'Hobby')
+
+OrderStatus.delete_all
+	OrderStatus.create! id: 1, name: "In Progress"
+	OrderStatus.create! id: 2, name: "Placed"
+	OrderStatus.create! id: 3, name: "Shipped"
+	OrderStatus.create! id: 4, name: "Cancelled"
