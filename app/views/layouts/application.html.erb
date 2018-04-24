@@ -39,9 +39,13 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <form class="form-inline my-2 my-lg-0" id="nav-form">
+          <!--<form class="form-inline my-2 my-lg-0" id="nav-form"> -->
             <!-- search form -->
-            <input class="nav-form-search mr-sm-2 " type="search" placeholder="Search for Products, Brands and more" aria-label="Search">
+            <%= form_tag catalogue_path, :class => "form-inline my-2 my-lg-0", :id => "nav-form", method: :get do %>
+              <%= text_field_tag :term, params[:term], class: "nav-form-search mr-sm-2", :placeholder => "Search for Products, Brands and more" %>
+
+
+            <!-- <input class="nav-form-search mr-sm-2 " type="text" placeholder="Search for Products, Brands and more" aria-label="Search"> -->
             <!-- category button -->
             <div class="btn-group">
               <button type="button" class="nav-btn-allcategory dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,8 +59,10 @@
                 <a class="dropdown-item" href="#">Separated link</a>
               </div>
             </div>
-            <button class="my-2 my-sm-0 nav-btn-search" type="submit">Search</button>
-          </form>
+            <!-- <button class="my-2 my-sm-0 nav-btn-search" type="submit">Search</button> -->
+            <%= submit_tag 'Search', class: "my-2 my-sm-0 nav-btn-search" %>
+           <% end %>
+          <!-- </form>-->
 
           <ul class="navbar-nav mr-auto ">
             <% if user_signed_in? %>

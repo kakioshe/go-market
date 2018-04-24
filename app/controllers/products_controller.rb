@@ -1,4 +1,13 @@
 class ProductsController < ApplicationController
+
+  def index
+    @product = if params[:term]
+      Product.where('title LIKE ?', "%#{params[:term]}%")
+    else
+      @product = Product.all
+    end
+  end
+
   def new
     @product = Product.new
     3.times { @product.pictures.build }
@@ -7,11 +16,11 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_param)
-        if @product.save
-          redirect_to @product, :notice => "Successfully created product."
-        else
-          render :action => 'new'
-        end
+    if @product.save
+      redirect_to @product, :notice => "Successfully created product."
+    else
+      render :action => 'new'
+    end
   end
 
   def show
@@ -20,10 +29,6 @@ class ProductsController < ApplicationController
     for picture in @product.pictures
       @pictureslink << picture.image.url
     end
-  end
-
-  def index
-    @product = Product.all
   end
 
   def edit
@@ -58,6 +63,7 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to "/catalogue", :notice => "Successfully destroyed product."
   end
+
 
   private
 
