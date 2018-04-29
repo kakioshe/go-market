@@ -9,6 +9,8 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  get :search, controller: :pages
+
 
 get '/catalogue', to: 'products#index'
 resources :users, only: [:show]

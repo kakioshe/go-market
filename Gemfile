@@ -59,3 +59,6 @@ gem 'jquery-rails'
 
 #paperclip
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+
+#ransack
+gem 'ransack', github: 'activerecord-hackery/ransack'

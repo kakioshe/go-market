@@ -13,3 +13,8 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 Rails.application.config.assets.precompile += %w( product-js.js )
+Rails.application.config.assets.precompile += %w( jquery.easy-autocomplete.js )
+Rails.application.config.assets.precompile += %w( search.js )
+
+Rails.application.config.assets.precompile += %w( easy-autocomplete.css )
+Rails.application.config.assets.precompile += %w( easy-autocomplete.min.css )

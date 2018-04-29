@@ -11,6 +11,8 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require easy-autocomplete
+ *= require easy-autocomplete.themes
  *= require_self
  */
 
@@ -28,6 +30,10 @@ body {
   -webkit-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
   -moz-box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
   box-shadow: 0px 5px 30px 0px rgba(0,0,0,0.2);
+}
+
+.easy-autocomplete{
+  width: 60% !important;
 }
 
 
@@ -115,7 +121,7 @@ body {
 
 .nav-form-search {
   border-radius:10px 0px 0px 10px;
-  width: 60%;
+  width: 100%;
   padding: .375rem .75rem;
   border: 1px solid #ced4da;
   background-clip: padding-box;
