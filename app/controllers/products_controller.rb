@@ -64,6 +64,17 @@ class ProductsController < ApplicationController
     redirect_to "/catalogue", :notice => "Successfully destroyed product."
   end
 
+  def showcategory
+    @category = Category.find(params[:id])
+    @product = Product.all
+    @prod_cat = []
+    for product in @product
+      if product["categories_id"].to_s == params[:id].to_s
+        @prod_cat << product
+      end
+    end
+  end
+
 
   private
 
