@@ -7,7 +7,7 @@ document.addEventListener("turbolinks:load", function() {
     },
     categories: [
       {listLocation: "products", header: "<b>PRODUCTS<b>"},
-      {listLocation: "categories", header: "<b>ATEGORIES<b>"}
+      {listLocation: "categories", header: "<b>CATEGORIES<b>"}
     ],
     list: {
       onChooseEvent: function() {
