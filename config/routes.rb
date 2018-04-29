@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
 
 get '/catalogue', to: 'products#index'
-get '/category/:id', to: 'products#showcategory'
+get '/category/:id', to: 'products#showcategory', as: :category
 resources :users, only: [:show]
 resources :stores, only: [:create, :new, :show]
 end

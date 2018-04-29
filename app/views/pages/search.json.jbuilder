@@ -8,5 +8,6 @@ end
 json.categories do
   json.array!(@categories) do |category|
     json.name category.title
+    json.url category_path(category.id)
   end
 end
