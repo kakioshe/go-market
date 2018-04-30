@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @order_item = current_order.order_items.new
     @pictureslink = []
     for picture in @product.pictures
       @pictureslink << picture.image.url
@@ -24,6 +25,7 @@ class ProductsController < ApplicationController
 
   def index
     @product = Product.all
+    @order_item = current_order.order_items.new
   end
 
   def edit
@@ -62,6 +64,6 @@ class ProductsController < ApplicationController
   private
 
   def product_param
-    params.require(:product).permit(:title, :description, :availability, :price, :categories_id, :stores_id, pictures_attributes: [:product_id, :id, :image])
+    params.require(:product).permit(:title, :description, :availability, :price, :categories_id, :stores_id, pictures_attributes: [:product_id, :id, :image], active: true)
   end
 end

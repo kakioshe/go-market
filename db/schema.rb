@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180421061413) do
+ActiveRecord::Schema.define(version: 20180423020644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,9 +68,9 @@ ActiveRecord::Schema.define(version: 20180421061413) do
     t.decimal "subtotal", precision: 15, scale: 2
     t.decimal "shipping", precision: 15, scale: 2
     t.decimal "total", precision: 15, scale: 2
-    t.bigint "order_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "order_status_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
@@ -96,6 +96,7 @@ ActiveRecord::Schema.define(version: 20180421061413) do
     t.text "maps"
     t.bigint "stores_id"
     t.bigint "categories_id"
+    t.boolean "active"
     t.index ["categories_id"], name: "index_products_on_categories_id"
     t.index ["stores_id"], name: "index_products_on_stores_id"
   end
@@ -162,7 +163,6 @@ ActiveRecord::Schema.define(version: 20180421061413) do
   add_foreign_key "carts", "users", column: "users_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
-  add_foreign_key "orders", "order_statuses"
   add_foreign_key "pictures", "products"
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "stores", column: "stores_id"

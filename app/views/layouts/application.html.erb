@@ -2,10 +2,9 @@
 <html>
   <head>
     <title>GoMarket</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 
     <!-- Latest compiled and minified CSS -->
@@ -23,6 +22,8 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,700i,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
 
+
+    <%= csrf_meta_tags %>
   </head>
 
   <body id="override-bootstrap">
@@ -76,6 +77,8 @@
 
 
 
+                <div class="dropdown-divider"></div>
+                <span class="cart-text"><%= render 'layouts/cart_text' %></span>
                 <div class="dropdown-divider"></div>
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "dropdown-item"  %>
               </div>
