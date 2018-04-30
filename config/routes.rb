@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'order_items/create'
+
+  get 'order_items/update'
+
+  get 'order_items/destroy'
+
+  get 'carts/show'
+
   resource :products
 
   devise_for :users
@@ -16,4 +24,7 @@ get '/catalogue', to: 'products#index'
 get '/category/:id', to: 'products#showcategory', as: :category
 resources :users, only: [:show]
 resources :stores, only: [:create, :new, :show]
+resource :store, only: [:edit, :update]
+resource :cart, only: [:show]
+resources :order_items, only: [:create, :update, :destroy]
 end

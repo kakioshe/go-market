@@ -8,6 +8,8 @@
     <div class="col-sm-9"><%= f.text_field :title, class: 'cp-text-field'%></div>
   </div>
 
+  <%= f.hidden_field :stores_id, value: current_user.stores_id %>
+
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Poduct Category </div>
     <div class="col-sm-9">
