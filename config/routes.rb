@@ -17,8 +17,11 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  get :search, controller: :pages
+
 
 get '/catalogue', to: 'products#index'
+get '/category/:id', to: 'products#showcategory', as: :category
 resources :users, only: [:show]
 resources :stores, only: [:create, :new, :show]
 resource :store, only: [:edit, :update]
