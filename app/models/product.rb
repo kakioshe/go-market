@@ -5,7 +5,8 @@ class Product < ApplicationRecord
   has_many :pictures, :dependent => :destroy
   accepts_nested_attributes_for :pictures, :allow_destroy => true
 
-  default_scope { where(active: true) }
+  scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
   
   validates :title, presence: true
 

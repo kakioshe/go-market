@@ -27,4 +27,6 @@ resources :stores, only: [:create, :new, :show]
 resource :store, only: [:edit, :update]
 resource :cart, only: [:show]
 resources :order_items, only: [:create, :update, :destroy]
+get '/products/:id/deactivate', to: 'products#deactivate'
+get '/products/:id/activate', to: 'products#activate'
 end

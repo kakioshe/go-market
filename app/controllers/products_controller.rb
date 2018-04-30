@@ -2,10 +2,12 @@ class ProductsController < ApplicationController
 
   def index
     @product = if params[:term]
-      Product.where('title LIKE ?', "%#{params[:term]}%")
+      Product.active.where('title LIKE ?', "%#{params[:term]}%")
     else
-      @product = Product.all
+      @product = Product.active.all
     end
+
+    @order_item = current_order.order_items.new
   end
 
   def new
@@ -30,11 +32,6 @@ class ProductsController < ApplicationController
     for picture in @product.pictures
       @pictureslink << picture.image.url
     end
-  end
-
-  def index
-    @product = Product.all
-    @order_item = current_order.order_items.new
   end
 
   def edit
@@ -81,6 +78,17 @@ class ProductsController < ApplicationController
     end
   end
 
+  def deactivate
+    @product = Product.find(params[:id])
+    @product.update_column(:active, false)
+    redirect_to store_url
+  end
+
+  def activate
+    @product = Product.find(params[:id])
+    @product.update_column(:active, true)
+    redirect_to store_url
+  end
 
   private
 

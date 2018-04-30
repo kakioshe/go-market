@@ -15,7 +15,8 @@ class StoresController < ApplicationController
 
 	def show
 		@store = Store.find(params[:id])
-		@store_products = Product.where(stores_id: @store.id).all
+		@store_products = Product.active.where(stores_id: @store.id).all
+		@store_inactive = Product.inactive.where(stores_id: @store.id).all
 	end
 
 
