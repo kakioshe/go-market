@@ -12,15 +12,16 @@
 					<div id="cat-div-image">
 						<% pic = [] %>
 						<% for picture in each_product.pictures %>
-		          <% pic << picture %>
-		        <% end %>
+				          <% pic << picture %>
+				        <% end %>
 
-		        <% if pic === [] %>
-		          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
-		        <% else %>
-		          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
-		        <% end %>
+				        <% if pic === [] %>
+				          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+				        <% else %>
+				          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
+				        <% end %>
 					</div>
+					
 					<div id="cat-desc">
 						<p class="cat-desc-title"><%= each_product.title %></p>
 						<p class="cat-desc-price">$ <%= each_product.price %> </p>

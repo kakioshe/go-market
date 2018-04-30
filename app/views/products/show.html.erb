@@ -1,3 +1,8 @@
+<div class="error-text">
+
+</div>
+
+
 <div id="small-page">
 
   <p style="margin-top:5%;"> </p>
@@ -41,18 +46,29 @@
     </div>
 
     <div class="col-sm-3">
-      <div id="pd-div-price">
-        $ <%= @product.price %>
-      </div>
-      <div id="pd-div-addtocart">
-        ADD TO CART
-      </div>
+      <%= form_for @order_item, remote: true do |f| %>
+
+        <div class="input-group" id="pd-div-price">
+          <div class="cart-price">
+            <div> price </div>
+            $ <%= @product.price %>
+          </div>
+          <div class="text-left cart-quantity"> quantity </div>
+          <%= f.number_field :quantity, value: 1, class: "form-control quantity-form", min: 1 %>
+          <div class="input-group-btn" id="pd-div-addtocart">
+            <%= f.hidden_field :product_id, value: @product.id %>
+            <%= f.hidden_field :order_status_id, value: 1 %>
+            <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+          </div>
+        </div>
+      <%end%>
+
 
       <div id="pd-div-seller">
         seller information
       </div>
       <div id="pd-div-sellerinfo">
-        ADD TO CART
+        Change This
       </div>
     </div>
 
