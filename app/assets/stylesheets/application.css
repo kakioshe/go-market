@@ -359,3 +359,24 @@ h1{
 .item-row{
   padding-bottom: 20px;
 }
+
+/* Error CSS */
+
+.error-button {
+  border: 1px solid black;
+  width: 20%;
+  padding: 1% 4%;
+  height: 60px;
+  border-radius: 5px;
+
+}
+
+.error-button a{
+  text-decoration: none;
+  color: black;
+}
+
+.error-button a:hover{
+  text-decoration: none;
+  color: black;
+}

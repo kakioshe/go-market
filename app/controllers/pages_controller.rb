@@ -8,6 +8,14 @@ class PagesController < ApplicationController
     @categories = Category.ransack(title_cont: params[:q]).result(distinct: true).limit(3)
   end
 
+ def not_found
+    render(:status => 404)
+  end
+
+  def internal_server_error
+    render(:status => 500)
+  end
+
   private
   def force_json
     request.format = :json
