@@ -5,6 +5,7 @@ class ProductsController < ApplicationController
       Product.where('title LIKE ?', "%#{params[:term]}%")
     else
       @product = Product.all
+      @order_item = current_order.order_items.new
     end
   end
 
@@ -30,11 +31,6 @@ class ProductsController < ApplicationController
     for picture in @product.pictures
       @pictureslink << picture.image.url
     end
-  end
-
-  def index
-    @product = Product.all
-    @order_item = current_order.order_items.new
   end
 
   def edit
