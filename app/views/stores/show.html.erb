@@ -50,6 +50,7 @@
 				<p> Your Products </p>
 			</div>
 		</div>
+
 		<div class="row">
 			<div class="col-md-12">
 
@@ -83,5 +84,56 @@
 				<% end %>
 			</div>
 		</div>
+
+
+		<% if current_user.stores_id==@store.id %>
+
+			<% if @store_inactive.exists? %>
+				<hr />
+				
+				<div class="row">
+					<div class="col-md-8" id="title-item">
+						<p> Inactive Products </p>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-12">
+
+						<% @store_inactive.each_slice(4) do |group_product| %>
+							<div class="row">
+								<% group_product.each do |each_product| %>
+
+										<div class="col-6 col-sm-3" id="cat-card">
+											<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
+											<div id="cat-div-image">
+												<% pic = [] %>
+												<% for picture in each_product.pictures %>
+										          <% pic << picture %>
+										        <% end %>
+
+										        <% if pic === [] %>
+										          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+										        <% else %>
+										          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
+										        <% end %>
+											</div>
+											
+											<div id="cat-desc">
+												<p class="cat-desc-title"><%= each_product.title %></p>
+												<p class="cat-desc-price">$ <%= each_product.price %> </p>
+											</div>
+											<% end %>
+										</div>
+								<% end %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			<% end %>
+
+		<% end %>
+
+
 	</div>
 </div>
