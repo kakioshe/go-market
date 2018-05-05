@@ -32,6 +32,15 @@
 			<% end %>
 		<% end %>
 
+		<% if current_user.id==@user.id %>
+			<p> Transaction History </p>
+
+			<% @transactions.each do |order| %>
+				<p><%= order.subtotal %> <%= order.order_status_id %></p>
+			<% end %>
+
+
+		<% end %>
 	</div>
 </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423020644) do
+ActiveRecord::Schema.define(version: 20180505031508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,10 @@ ActiveRecord::Schema.define(version: 20180423020644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "order_status_id"
+    t.string "payment_no"
+    t.bigint "user_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -116,6 +119,8 @@ ActiveRecord::Schema.define(version: 20180423020644) do
     t.bigint "products_id"
     t.bigint "users_id"
     t.bigint "stores_id"
+    t.string "title"
+    t.string "buyer"
     t.index ["products_id"], name: "index_transactions_on_products_id"
     t.index ["stores_id"], name: "index_transactions_on_stores_id"
     t.index ["users_id"], name: "index_transactions_on_users_id"
@@ -163,6 +168,7 @@ ActiveRecord::Schema.define(version: 20180423020644) do
   add_foreign_key "carts", "users", column: "users_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "pictures", "products"
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "stores", column: "stores_id"

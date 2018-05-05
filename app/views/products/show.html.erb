@@ -37,16 +37,18 @@
       <p>
         <%= @product.description %>
 
+      <% if current_user.stores_id==@product.stores_id %>
         <p>
           <%= link_to "Edit", edit_product_path(@product) %> |
 
           <% if @product.active == true %>
-            <%= link_to "Deactivate", controller: "products", action: "deactivate", id: @product %> |
+            <%= link_to "Deactivate", controller: "products", action: "deactivate", id: @product %> 
           <% else %>
-            <%= link_to "Activate", controller: "products", action: "activate", id: @product %> |
+            <%= link_to "Activate", controller: "products", action: "activate", id: @product %> 
           <% end %>
-          <%= link_to "View All", "/catalogue" %>
         </p>
+
+      <% end %>
       </p>
     </div>
 

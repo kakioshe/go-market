@@ -31,14 +31,15 @@ class StoresController < ApplicationController
     	end
 	end
 
+	def history
+		@store = Store.find(current_user.stores_id)
+		@transaction = Transaction.where(stores_id: current_user.stores_id).all
+	end
+
 	private
 
 		def stores_params
 			params.require(:stores).permit(:name, :description)
-		end
-
-		def store_params
-			params.require(:store).permit(:name, :description)
 		end
 
 end

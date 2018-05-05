@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	def show 
 		@user = User.find(params[:id])
+		@transactions = Order.where(:user_id => @user.id).all
 		@name = @user.firstName+" "+@user.lastName
 		if @user.address1 != nil && @user.address1 != ""
 			@flag = true

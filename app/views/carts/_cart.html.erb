@@ -21,5 +21,6 @@
 	<% end %>
 	<hr />
 	<p class="text-right"> Total Price	: <%= number_to_currency current_order.subtotal %> </p>
+	<%= link_to "Checkout", transactions_checkout_url %>
 <% end %>
 

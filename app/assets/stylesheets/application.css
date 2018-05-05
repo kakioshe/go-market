@@ -380,3 +380,12 @@ h1{
   text-decoration: none;
   color: black;
 }
+
+.transaction-history{
+  width: 100%;
+}
+
+.transaction-title{
+  font-size: 1.2em;
+  font-weight: 700;
+}
