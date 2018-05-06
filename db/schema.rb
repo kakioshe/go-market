@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180423020644) do
+ActiveRecord::Schema.define(version: 20180506010440) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,12 @@ ActiveRecord::Schema.define(version: 20180423020644) do
     t.index ["priority", "run_at"], name: "delayed_jobs_priority"
   end
 
+  create_table "item_statuses", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "order_items", force: :cascade do |t|
     t.bigint "product_id"
     t.bigint "order_id"
@@ -54,6 +60,7 @@ ActiveRecord::Schema.define(version: 20180423020644) do
     t.decimal "total_price", precision: 15, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "status"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
@@ -71,7 +78,10 @@ ActiveRecord::Schema.define(version: 20180423020644) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "order_status_id"
+    t.string "payment_no"
+    t.bigint "user_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "pictures", force: :cascade do |t|
@@ -109,13 +119,17 @@ ActiveRecord::Schema.define(version: 20180423020644) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "status"
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "products_id"
     t.bigint "users_id"
     t.bigint "stores_id"
+    t.string "title"
+    t.string "buyer"
+    t.bigint "order_id"
+    t.string "status"
+    t.index ["order_id"], name: "index_transactions_on_order_id"
     t.index ["products_id"], name: "index_transactions_on_products_id"
     t.index ["stores_id"], name: "index_transactions_on_stores_id"
     t.index ["users_id"], name: "index_transactions_on_users_id"
@@ -163,9 +177,11 @@ ActiveRecord::Schema.define(version: 20180423020644) do
   add_foreign_key "carts", "users", column: "users_id"
   add_foreign_key "order_items", "orders"
   add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "users"
   add_foreign_key "pictures", "products"
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "stores", column: "stores_id"
+  add_foreign_key "transactions", "orders"
   add_foreign_key "transactions", "products", column: "products_id"
   add_foreign_key "transactions", "stores", column: "stores_id"
   add_foreign_key "transactions", "users", column: "users_id"
