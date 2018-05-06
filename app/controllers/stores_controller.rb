@@ -33,7 +33,18 @@ class StoresController < ApplicationController
 
 	def history
 		@store = Store.find(current_user.stores_id)
-		@transaction = Transaction.where(stores_id: current_user.stores_id).all
+		@transaction = Transaction.where(stores_id: current_user.stores_id).all.order('id DESC')
+	end
+
+	def execute
+		@order = Order.find(params[:order_id])
+		@item = @order.order_items.find_by(product_id: params[:product])
+		@transaction = Transaction.find_by(order_id: params[:order_id])
+		
+		@item.update!(status: "Shipped")
+		@transaction.update!(status: "Shipped")
+		redirect_to store_history_path
+
 	end
 
 	private

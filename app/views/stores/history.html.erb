@@ -37,19 +37,25 @@
       <div class="col-md-12">
         <table class="transaction-history">
           <tr>
+            <td class="transaction-title text-center"> Order ID </td>
             <td class="transaction-title text-center"> Item Name </td>
             <td class="transaction-title text-center"> Quantity </td>
             <td class="transaction-title text-center"> Buyer </td>
             <td class="transaction-title text-center"> Status </td>
+            <td class="transaction-title text-center"> Action </td>
           </tr>
         <% @transaction.each do |transaction| %>
           <div class="row">
             <div class="col-12">
               <tr>
+                <td class="transaction-item text-center"> <%= transaction.order_id %> </td>
                 <td class="transaction-item text-center"> <%= transaction.title %> </td>
                 <td class="transaction-item text-center"> <%= transaction.quantity %> </td>
                 <td class="transaction-item text-center"> <%= transaction.buyer %> </td>
                 <td class="transaction-item text-center"> <%= transaction.status %> </td>
+                <% if transaction.status=="Paid" %>
+                  <td class="transaction-item text-center"> <%= link_to "Action", store_history_execute_path(:order_id => transaction.order_id, :product => transaction.products_id), method: :post %> </td>
+                <% end %>
               </tr>
             </div>
           </div>

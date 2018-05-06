@@ -15,18 +15,24 @@
 
 					<table class="transaction-history">
 						<tr>
+							<td class="transaction-title text-center"> Order ID </td>
 							<td class="transaction-title text-center"> Item Name </td>
 							<td class="transaction-title text-center"> Item Price </td>
 							<td class="transaction-title text-center"> Quantity </td>
 							<td class="transaction-title text-center"> Status </td>
+							<td></td>
 						</tr>
 					<% @transactions.each do |order| %>
 						<% order.order_items.each do |item| %>
 						<tr>
+							<td class="transaction-item text-center"> <%= item.order_id %></td>
 							<td class="transaction-item text-center"> <%= item.product.title %></td>
 							<td class="transaction-item text-center"> <%= item.unit_price %></td>
 							<td class="transaction-item text-center"> <%= item.quantity %></td>
 							<td class="transaction-item text-center"> <%= item.status %></td>
+							<% if item.status=="Shipped" %>
+								<td class="transaction-item text-center"> <%= link_to "Arrived?", user_history_execute_path(:order_id => item.order_id, :product => item.product_id), method: :post %></td>
+							<% end%>
 						</tr>
 						<% end %>
 					<% end %>

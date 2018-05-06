@@ -19,7 +19,7 @@ class TransactionController < ApplicationController
 		@order = current_order
 		@order.order_items.each do |order|
 			@buyer = current_user.firstName + " " + current_user.lastName
-			@transaction = Transaction.new(status: "Paid", quantity: order.quantity, products_id: order.product_id, users_id: @order.user_id, stores_id: order.product.stores_id, title: order.product.title, buyer: @buyer)
+			@transaction = Transaction.new(status: "Paid", quantity: order.quantity, products_id: order.product_id, users_id: @order.user_id, stores_id: order.product.stores_id, title: order.product.title, buyer: @buyer, order_id: @order.id)
 			@transaction.save
 			order.update!(status: "Paid")
 		end
