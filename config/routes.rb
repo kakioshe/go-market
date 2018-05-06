@@ -34,6 +34,7 @@ get '/products/:id/activate', to: 'products#activate'
 get '/transactions/checkout', to: 'transaction#checkout'
 get '/transactions/execute', to: 'transaction#finish'
 get '/store/history', to: 'stores#history'
+get '/user/history', to: 'users#history'
 
   match "404", :to => "pages#not_found", :via => :all
   match "500", :to => "pages#internal_server_error", :via => :all
