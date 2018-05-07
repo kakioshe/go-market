@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @product = if params[:term]
-      Product.active.where('title LIKE ?', "%#{params[:term]}%")
+      Product.active.where('title LIKE ?', "%#{params[:term]}%").order(params[:sort])
     else
       @product = Product.active.all
     end
