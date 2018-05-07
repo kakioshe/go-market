@@ -28,6 +28,14 @@
       </div>
     </div>
 
+    <%= link_to store_path(current_user.stores_id), {:id => 'button-link'} do %>
+      <div class="store-button">
+        <p> Manage Store </p>
+      </div>
+    <% end %>
+
+    
+
   </div>
 
 
@@ -58,9 +66,12 @@
                 <td class="transaction-item text-center"> <%= transaction.quantity %> </td>
                 <td class="transaction-item text-center"> <%= transaction.buyer %> </td>
                 <td class="transaction-item text-center"> <%= transaction.status %> </td>
+                <td class="transaction-item text-center">
                 <% if transaction.status=="Paid" %>
-                  <td class="transaction-item text-center"> <%= link_to "Action", store_history_execute_path(:order_id => transaction.order_id, :product => transaction.products_id), method: :post %> </td>
-                <% end %>
+                  <%= link_to "Action", store_history_execute_path(:order_id => transaction.order_id, :product => transaction.products_id), method: :post %>
+                <% else %>
+                  Done
+                <% end %> </td>
               </tr>
             </div>
           </div>
