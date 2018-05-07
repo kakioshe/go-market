@@ -389,3 +389,12 @@ h1{
   font-size: 1.2em;
   font-weight: 700;
 }
+
+.profile-picture{
+  width: 100%;
+}
+
+.information{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}

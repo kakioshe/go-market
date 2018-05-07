@@ -4,21 +4,21 @@
   <br/>
   <%= form_for @product, :html => { :multipart => true } do |f| %>
   <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Poduct Name </div>
-    <div class="col-sm-9"><%= f.text_field :title, class: 'cp-text-field'%></div>
+    <div class="col-sm-3 cp-form-name">Product Name </div>
+    <div class="col-sm-9"><%= f.text_field :title, class: 'cp-text-field', required: true%></div>
   </div>
 
   <%= f.hidden_field :stores_id, value: current_user.stores_id %>
 
   <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Poduct Category </div>
+    <div class="col-sm-3 cp-form-name">Product Category </div>
     <div class="col-sm-9">
-      <%= f.collection_select(:categories_id, Category.all, :id, :title, {}, class: "custom-select") %>
+      <%= f.collection_select(:categories_id, Category.all, :id, :title, {:selected => @category.second}, class: "custom-select") %>
     </div>
   </div>
 
   <div class="row cp-form-row">
-    <div class="col-sm-3 cp-form-name">Poduct Picture </div>
+    <div class="col-sm-3 cp-form-name">Product Picture </div>
     <div class="col-sm-9">
       <div class="row">
 
@@ -44,14 +44,14 @@
 
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Price </div>
-    <div class="col-sm-3"><%= f.text_field :price, class: 'cp-text-field' %></div>
+    <div class="col-sm-3"><%= f.text_field :price, class: 'cp-text-field', required: true %></div>
     <div class="col-sm-3 cp-form-name">Availability</div>
-    <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1" %></div>
+    <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1", required: true %></div>
   </div>
 
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Description </div>
-    <div class="col-sm-9"><%= f.text_area :description, class: 'cp-text-field' %></div>
+    <div class="col-sm-9"><%= f.text_area :description, class: 'cp-text-field', required: true %></div>
 
   </div>
     <%= f.submit :class => 'cp-submit' %>
