@@ -36,4 +36,18 @@ class UsersController < ApplicationController
 		redirect_to user_history_path
 
 	end
+
+
+	def receipt
+		@invoice = Order.find(params[:order_id])
+		@user = User.find(@invoice.user_id)
+		respond_to do |format|
+	      format.pdf do
+	        render pdf: "invoice",
+	               template: "users/receipt.pdf.erb",
+	               locals: {:invoice => @invoice, :user => @user}
+	      end
+	    end
+	end
+
 end
