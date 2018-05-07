@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180507023414) do
+ActiveRecord::Schema.define(version: 20180507043214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -126,6 +126,8 @@ ActiveRecord::Schema.define(version: 20180507023414) do
     t.bigint "stores_id"
     t.string "title"
     t.string "buyer"
+    t.bigint "order_id"
+    t.index ["order_id"], name: "index_transactions_on_order_id"
     t.index ["products_id"], name: "index_transactions_on_products_id"
     t.index ["stores_id"], name: "index_transactions_on_stores_id"
     t.index ["users_id"], name: "index_transactions_on_users_id"
@@ -182,6 +184,7 @@ ActiveRecord::Schema.define(version: 20180507023414) do
   add_foreign_key "pictures", "products"
   add_foreign_key "products", "categories", column: "categories_id"
   add_foreign_key "products", "stores", column: "stores_id"
+  add_foreign_key "transactions", "orders"
   add_foreign_key "transactions", "products", column: "products_id"
   add_foreign_key "transactions", "stores", column: "stores_id"
   add_foreign_key "transactions", "users", column: "users_id"
