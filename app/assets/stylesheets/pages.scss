@@ -13,7 +13,7 @@
 .h-text-1 .main{font-weight: 700;}
 .h-text-c .main, .h-text-cat .main{font-weight: 700; font-size: 130%;}
 
-.h-text-cat .col-md-3{margin-top: 2%;}
+.h-text-cat .col-3{margin-top: 2%;}
 
 .h-text-cat a {
   text-decoration: none;
@@ -134,6 +134,9 @@
 
 @media (max-width: 575.98px) {
   #h-cat-card {max-width: 48%; margin-top: 3%}
+  .h-text-cat img{width: 100px;}
+  .h-text-cat .cat-border {font-size: 80%}
+
 }
 
 #cat-front-image {
