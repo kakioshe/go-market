@@ -1,35 +1,36 @@
 
 
-<div class="row">
+<div class="row" style="margin-top:5%;">
 	<div class="col-md-3">
 		<div class="row">
 			<div class="col-md-12" id="seller-card">
-				<div id="title-information">
-					<p> Seller Information </p>
+				<div id="st-info">
+					Seller Information
 				</div>
 
 
-				<% if @store.avatar? %>
-			      <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
-			    <% else %>
-				<%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
-			    <% end %>
-				<div id="store-information">
-					<p id="store-name"><%= @store.name.upcase %></p>
-					<p id="store-location">Danau UI</p>
-					<p id="store-description"><%= @store.description %></p>
+				<div id="st-storeinfo">
+					<% if @store.avatar? %>
+				      <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+				    <% else %>
+					<%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
+				    <% end %>
+					<div id="store-information">
+						<p id="store-name"><%= @store.name.upcase %></p>
+						<p id="store-description"><%= @store.description %></p>
 
-					<% if current_user.stores_id==@store.id %>
-						<div class="col-md-2 right-align-card">
-							<%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
-						</div>
-					<% end %>
+						<% if current_user.stores_id==@store.id %>
+							<div class="col-md-2 right-align-card">
+								<%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
+							</div>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<% if current_user.stores_id==@store.id %>
-			<div class="row">
+			<div class="row" style="margin-top:5%;">
 				<div class="col-md-12 mx-auto">
 					<%= link_to new_product_path, {:id => 'button-link'} do %>
 						<div class="store-button">
@@ -48,7 +49,7 @@
 		<% end %>
 	</div>
 
-	
+
 	<div class="col-md-8">
 		<div class="row">
 			<div class="col-md-8" id="title-item">
@@ -63,24 +64,24 @@
 					<div class="row">
 						<% group_product.each do |each_product| %>
 
-								<div class="col-6 col-sm-3" id="cat-card">
-									<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
-									<div id="cat-div-image">
+								<div class="col-6 col-sm-3" id="s-cat-card">
+									<%= link_to product_path(each_product), {:id => 's-cat-product-card'} do %>
+									<div id="s-cat-div-image">
 										<% pic = [] %>
 										<% for picture in each_product.pictures %>
 								          <% pic << picture %>
 								        <% end %>
 
 								        <% if pic === [] %>
-								          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+								          <%= image_tag( "products/p-camera.png", id: 's-cat-front-image') %>
 								        <% else %>
-								          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
+								          <%= image_tag( each_product.pictures[0].image.url, id: 's-cat-front-image') %>
 								        <% end %>
 									</div>
-									
-									<div id="cat-desc">
-										<p class="cat-desc-title"><%= each_product.title %></p>
-										<p class="cat-desc-price">$ <%= each_product.price %> </p>
+
+									<div id="s-cat-desc">
+										<p class="s-cat-desc-title"><%= each_product.title %></p>
+										<p class="s-cat-desc-price">$ <%= each_product.price %> </p>
 									</div>
 									<% end %>
 								</div>
@@ -95,7 +96,7 @@
 
 			<% if @store_inactive.exists? %>
 				<hr />
-				
+
 				<div class="row">
 					<div class="col-md-8" id="title-item">
 						<p> Inactive Products </p>
@@ -109,24 +110,24 @@
 							<div class="row">
 								<% group_product.each do |each_product| %>
 
-										<div class="col-6 col-sm-3" id="cat-card">
-											<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
-											<div id="cat-div-image">
+										<div class="col-6 col-sm-3" id="s-cat-card">
+											<%= link_to product_path(each_product), {:id => 's-cat-product-card'} do %>
+											<div id="s-cat-div-image">
 												<% pic = [] %>
 												<% for picture in each_product.pictures %>
 										          <% pic << picture %>
 										        <% end %>
 
 										        <% if pic === [] %>
-										          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+										          <%= image_tag( "products/p-camera.png", id: 's-cat-front-image') %>
 										        <% else %>
 										          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
 										        <% end %>
 											</div>
-											
-											<div id="cat-desc">
-												<p class="cat-desc-title"><%= each_product.title %></p>
-												<p class="cat-desc-price">$ <%= each_product.price %> </p>
+
+											<div id="s-cat-desc">
+												<p class="s-cat-desc-title"><%= each_product.title %></p>
+												<p class="s-cat-desc-price">$ <%= each_product.price %> </p>
 											</div>
 											<% end %>
 										</div>

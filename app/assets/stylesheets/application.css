@@ -33,7 +33,7 @@ body {
   color: #f07e4a;
 }
 
-.dropdown-menu {
+.profile .dropdown-menu {
   left: -150% !important;
   font-size: 100%
 }

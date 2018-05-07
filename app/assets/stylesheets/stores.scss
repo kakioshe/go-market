@@ -2,6 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#st-info {
+  margin-top: 10%;
+	padding: 10%;
+  max-width: 100%;
+  position: relative;
+  border: 1px solid transparent;
+  height: 7%;
+  border-radius: 10px 10px 0px 0px;
+  background: linear-gradient(to left,#f07e4a, #f0b84b);
+  background-clip: padding-box;
+  display: flex;
+  padding-left: 3%;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  font-size: 120%;
+  color: white;
+
+}
+
+#st-info::after {
+  position: absolute;
+  background: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
+  top: -2px; bottom: -2px;
+  left: -2px; right: -2px;
+  content: '';
+  z-index: -1;
+  border-radius: 10px 10px 0px 0px;
+}
+
+#st-storeinfo {
+  max-width: 100%;
+  border-radius: 0px 0px 10px 10px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+  background: white;
+  position: relative;
+  height: 80%;
+  padding: 5% 0%;
+  text-align: left;
+}
+
+#st-storeinfo::after {
+  position: absolute;
+  background: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
+  top: -2px; bottom: -2px;
+  left: -2px; right: -2px;
+  content: '';
+  z-index: -1;
+  border-radius: 0px 0px 10px 10px;
+
+}
 
 #store-information {
 	margin-left:2em;
@@ -9,7 +61,7 @@
 	padding-top: 20px;
 }
 
-#seller-card {
+#seller-card-temp {
 	border-radius: 15px 15px 15px 15px;
 	border-color: #ef7b48;
 	border-size:1px;
@@ -34,14 +86,14 @@
 }
 
 #store-name {
-	font-weight: 800;
+	font-weight: 700;
 	margin-bottom: 0px;
-	font-size: 1.25em;
+	font-size:130%;
 }
 
 #title-item {
-	font-weight: 800;
-	font-size: 1.5em;
+	font-weight: 700;
+	font-size: 200%;
 }
 
 .right-align-card {
@@ -66,11 +118,71 @@
 }
 
 #button-link {
-	font-weight: 800;
-	font-size: 1em;
+	font-weight: 700;
+	font-size: 100%;
 	color:white;
+	text-decoration: none;
 	}
 
-#button-link p{	
+#button-link p{
 	margin:0px !important;
+}
+
+#s-cat-card {
+  padding: 0px 0px;
+  margin-top: 1.5%;
+  margin-left: 2%;
+  max-width: 20%;
+  border: 1px solid #dddcdc;
+  border-radius: 10px 10px 10px 10px;
+  box-shadow:0 1px 11px 0 rgba(0,0,0,.1);
+
+  -webkit-transition: all 250ms ease-out;
+   -moz-transition: all 250ms ease-out;
+    -ms-transition: all 250ms ease-out;
+     -o-transition: all 250ms ease-out;
+        transition: all 250ms ease-out;
+}
+
+//cat card in store
+
+#s-cat-card:hover {
+  transform: scale(1.02);
+  box-shadow:0 1px 11px 0 rgba(0,0,0,.2);
+}
+
+#s-cat-div-image {
+  background-color: #f1f1f1;
+  border-radius: 10px 10px 0px 0px;
+  height: 150px;
+  position : relative;
+  width: 100%;
+  overflow : hidden;
+  text-align:center;
+  line-height:200px;
+}
+
+#s-cat-desc {
+  padding: 5% 8%;
+  position: relative;
+  border-radius: 0px 0px 10px 10px;
+}
+
+#s-cat-desc p {margin: 0}
+.s-cat-desc-title {font-weight: 700}
+
+@media (max-width: 575.98px) {
+  #s-cat-card {max-width: 48%; margin-top: 3%}
+}
+
+#s-cat-front-image {
+  max-width: 100%;
+  max-height: 200px;
+  vertical-align:middle;
+}
+
+#s-cat-product-card {
+  color: inherit;
+  text-decoration: none;
+
 }
