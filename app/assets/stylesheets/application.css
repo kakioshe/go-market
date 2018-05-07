@@ -22,6 +22,22 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+.cart-text a {
+  text-decoration: none;
+  color: #f07e4a;
+}
+
+.cart-text a:hover{
+  text-decoration: none;
+  font-weight: 700;
+  color: #f07e4a;
+}
+
+.dropdown-menu {
+  left: -150% !important;
+  font-size: 100%
+}
+
 #override-bootstrap {
   font-size: 80%;
 }
@@ -33,7 +49,7 @@ body {
 }
 
 .easy-autocomplete{
-  width: 70% !important;
+  width: 80% !important;
 }
 
 
@@ -221,7 +237,7 @@ body{
 }
 
 #nav-form {
-  width: 70%
+  width: 55%
 }
 
 .footer{
