@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
+
   resource :products
 
   devise_for :users
@@ -22,14 +23,20 @@ Rails.application.routes.draw do
 
 get '/catalogue', to: 'products#index'
 get '/category/:id', to: 'products#showcategory', as: :category
+get '/carts/checkout', to: 'carts#checkout'
 resources :users, only: [:show]
 resources :stores, only: [:create, :new, :show]
 resource :store, only: [:edit, :update]
 resource :cart, only: [:show]
-resources :order_items, only: [:create, :update, :destroy]
+resources :order_items, only: [:create, :update, :destroy], defaults: { format: 'js' }
 get '/products/:id/deactivate', to: 'products#deactivate'
 get '/products/:id/activate', to: 'products#activate'
-
+get '/transactions/checkout', to: 'transaction#checkout'
+get '/transactions/execute', to: 'transaction#finish'
+get '/store/history', to: 'stores#history'
+get '/user/history', to: 'users#history'
+post '/store/history/execute', to: 'stores#execute'
+post '/user/history/execute', to: 'users#execute'
   match "404", :to => "pages#not_found", :via => :all
   match "500", :to => "pages#internal_server_error", :via => :all
 end

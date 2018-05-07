@@ -5,6 +5,10 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :confirmable,
          :lockable
 
+	  has_attached_file :avatar
+
+	  validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+
   	def send_devise_notification(notification, *args)
 	  devise_mailer.send(notification, self, *args).deliver_later
 	end

@@ -271,9 +271,6 @@ body{
 }
 
 
-.user-form {
-  padding-top: 50px;
-}
 
 h1{
   font-family: 'lato', sans-serif !important;
@@ -379,4 +376,22 @@ h1{
 .error-button a:hover{
   text-decoration: none;
   color: black;
+}
+
+.transaction-history{
+  width: 100%;
+}
+
+.transaction-title{
+  font-size: 1.2em;
+  font-weight: 700;
+}
+
+.profile-picture{
+  width: 100%;
+}
+
+.information{
+  padding-top: 50px;
+  padding-bottom: 50px;
 }

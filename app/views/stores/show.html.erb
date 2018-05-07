@@ -8,7 +8,12 @@
 					<p> Seller Information </p>
 				</div>
 
-				<%= image_tag( "products/p-camera.png", id: 'seller-card-picture') %>
+
+				<% if @store.avatar? %>
+			      <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+			    <% else %>
+				<%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
+			    <% end %>
 				<div id="store-information">
 					<p id="store-name"><%= @store.name.upcase %></p>
 					<p id="store-location">Danau UI</p>
@@ -32,7 +37,7 @@
 						</div>
 					<% end %>
 
-					<%= link_to root_path, {:id => 'button-link'} do %>
+					<%= link_to store_history_path, {:id => 'button-link'} do %>
 						<div class="store-button">
 							<p> Transaction History </p>
 						</div>

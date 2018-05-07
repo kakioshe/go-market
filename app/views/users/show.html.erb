@@ -1,6 +1,11 @@
+<div class="container information">
 <div class="row user-form">
 	<div class="col-md-4">
-        <%= image_tag('default_profile_picture.jpg', :alt => "profile picture", :style => "display: inline", :class => "img-frame") %>
+		<% if @user.avatar? %>
+	      <%= image_tag(@user.avatar.url, :class => "profile-picture") %>
+	    <% else %>
+          <%= image_tag('default_profile_picture.jpg', :alt => "profile picture", :style => "display: inline", :class => "img-frame") %>
+	    <% end %>
     </div>
 
     <div class="col-md-8 user-information">
@@ -34,4 +39,4 @@
 
 	</div>
 </div>
-
+</div>

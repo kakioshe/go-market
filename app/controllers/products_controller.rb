@@ -19,6 +19,7 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_param)
     if @product.save
+      @product.update_column(:active, true)
       redirect_to @product, :notice => "Successfully created product."
     else
       render :action => 'new'
@@ -81,18 +82,18 @@ class ProductsController < ApplicationController
   def deactivate
     @product = Product.find(params[:id])
     @product.update_column(:active, false)
-    redirect_to store_url
+    redirect_to product_url(@product.id)
   end
 
   def activate
     @product = Product.find(params[:id])
     @product.update_column(:active, true)
-    redirect_to store_url
+    redirect_to product_url(@product.id)
   end
 
   private
 
   def product_param
-    params.require(:product).permit(:title, :description, :availability, :price, :categories_id, :stores_id, pictures_attributes: [:product_id, :id, :image], active: true)
+    params.require(:product).permit(:title, :description, :availability, :price, :categories_id, :stores_id, pictures_attributes: [:product_id, :id, :image])
   end
 end
