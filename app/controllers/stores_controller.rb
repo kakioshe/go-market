@@ -1,10 +1,13 @@
 class StoresController < ApplicationController
 
 	def new 
+		if current_user.stores_id?
+			redirect_to store_path(current_user.stores_id)
+		end
 	end
 
 	def create
-		@stores = Store.new(stores_params)
+		@stores = Store.new(add_store_params)
 		if @stores.save
 			User.update(current_user.id, :stores_id => @stores.id)
 			redirect_to root_path
@@ -26,7 +29,7 @@ class StoresController < ApplicationController
 
 	def update
     	@stores = Store.find_by(id:current_user.stores_id)
-    	if @stores.update(store_params)
+    	if @stores.update(stores_params)
     		redirect_to @stores
     	end
 	end
@@ -50,7 +53,11 @@ class StoresController < ApplicationController
 	private
 
 		def stores_params
-			params.require(:stores).permit(:name, :description)
+			params.require(:store).permit(:name, :description, :avatar)
+		end
+
+		def add_store_params
+			params.require(:stores).permit(:name, :description, :avatar)
 		end
 
 end
