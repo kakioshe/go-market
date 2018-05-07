@@ -2,8 +2,17 @@
 	<p id="page-title">Catalogue</p>
 
 	<p><%= link_to "New Product", new_product_path %></p>
-	<p><%= link_to "catalogue", :sort => "title" %></p>
-	<p><a href="<%= request.original_url+"&sort=title" %>">Sort by title</a></p>
+	<p>
+		<%= @sort_url  %>
+	</p>
+	<p>
+		<%= @sort_url  %>
+	</p>
+
+
+	<p><a href="<%= @sort_url+"&sort=title" %>">Sort by title</a></p>
+	<p><a href="<%= @sort_url+"&sort=price" %>">Sort by price</a></p>
+	<p><a href="<%= @sort_url+"&sort=availability" %>">Sort by availability</a></p>
 
 
 	<% @product.each_slice(4) do |group_product| %>
