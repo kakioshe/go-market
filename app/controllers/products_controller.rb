@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
     @product = if params[:term]
       Product.active.where('title LIKE ?', "%#{params[:term]}%").order(params[:sort])
     else
-      @product = Product.active.all
+      @product = Product.active.all.order(params[:sort])
     end
 
     @order_item = current_order.order_items.new
