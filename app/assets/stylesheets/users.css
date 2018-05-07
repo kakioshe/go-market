@@ -18,14 +18,7 @@
   box-shadow: 0 0 0 0 !important
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-    outline: none !important;
-}
-
-a {
+.user-form a {
   text-decoration: none;
   color: #f07e4a;
   font-weight: 400;
@@ -36,15 +29,15 @@ a {
       transition: all 250ms ease-out;
 }
 
-a:hover {text-decoration: none; color: #f07e4a; font-weight: 700;}
+.user-form a:hover {text-decoration: none; color: #f07e4a; font-weight: 700;}
 
-input[type=submit] {
+.user-form input[type=submit] {
   background: linear-gradient(to left, #3284C7, #45B7E7);
   border-color: none;
   color: white;
 }
 
-.alert-notice {
+.user-form .alert-notice {
 
   margin-top: 5%;
   color: #155724;
