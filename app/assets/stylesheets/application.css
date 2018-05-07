@@ -271,9 +271,6 @@ body{
 }
 
 
-.user-form {
-  padding-top: 50px;
-}
 
 h1{
   font-family: 'lato', sans-serif !important;
@@ -388,4 +385,13 @@ h1{
 .transaction-title{
   font-size: 1.2em;
   font-weight: 700;
+}
+
+.profile-picture{
+  width: 100%;
+}
+
+.information{
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
