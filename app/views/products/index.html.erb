@@ -2,6 +2,18 @@
 	<p id="page-title">Catalogue</p>
 
 	<p><%= link_to "New Product", new_product_path %></p>
+	<p>
+		<%= @sort_url  %>
+	</p>
+	<p>
+		<%= @sort_url  %>
+	</p>
+
+
+	<p><a href="<%= @sort_url+"&sort=title" %>">Sort by title</a></p>
+	<p><a href="<%= @sort_url+"&sort=price" %>">Sort by price</a></p>
+	<p><a href="<%= @sort_url+"&sort=availability" %>">Sort by availability</a></p>
+
 
 	<% @product.each_slice(4) do |group_product| %>
 	<div class="row">
@@ -21,7 +33,7 @@
 				          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
 				        <% end %>
 					</div>
-					
+
 					<div id="cat-desc">
 						<p class="cat-desc-title"><%= each_product.title %></p>
 						<p class="cat-desc-price">$ <%= each_product.price %> </p>
