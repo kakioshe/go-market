@@ -25,9 +25,8 @@ class TransactionController < ApplicationController
 		end
 		@order.update!(order_status_id: 2)
 		session.delete(:order_id)
-		redirect_to root_url
+		redirect_to user_history_path
 	end
-
 
 	private
 		def new_paypal

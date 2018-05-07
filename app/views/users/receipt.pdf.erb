@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <%= wicked_pdf_stylesheet_link_tag "pdf" -%>
+    <%= wicked_pdf_javascript_include_tag "number_pages" %>
+    <style type="text/css">
+    	.receipt-table{
+    		width: 100%;
+    		text-align: center;
+    	}
+    	.transaction-title{
+    		font-weight: 700;
+    	}
+
+    	.text-right {
+    		width: 100%;
+    		text-align: right;
+    	}
+    </style>
+  </head>
+  <body onload='number_pages'>
+    <div id="header">
+      <%= wicked_pdf_image_tag 'logo-04.png', :width => "150" %>
+      <hr />
+    </div>
+    <div id="content">
+    	<p> Name: <%= user.firstName %> <%= user.lastName %> </p>
+    	<p> Date: <%= invoice.created_at.strftime("%Y-%m-%d %H:%M") %></p>
+    	<p> Paypal No: <%= invoice.payment_no %> </p>
+    	<p> Address: <%= user.address1 %>,<% if user.address2? %><%= user.address2 %>,<%end%> <%= user.suburb %>, <%= user.city %>, <%= user.state %> </p>
+    	<p> Your order: </p>
+
+    	<table class="receipt-table">
+    		<tr>
+    			<td class="transaction-title">Product ID</td>
+    			<td class="transaction-title">Product Name</td>
+    			<td class="transaction-title">Product Price</td>
+    			<td class="transaction-title">Quantity</td>
+    			<td class="transaction-title">Total</td>
+    		</tr>
+
+			<% invoice.order_items.each do |item| %>
+	    	<tr>
+	    		<td> <%= item.product_id %> </td> 
+	    		<td> <%= item.product.title %> </td> 
+	    		<td> <%= item.unit_price %> </td> 
+	    		<td> <%= item.quantity %> </td> 
+	    		<td> <%= item.total_price %> </td> 
+	    	</tr>
+	    	<% end %>
+	    </table>
+	    <hr />
+	    <p class="text-right"> Total Price: <%= invoice.subtotal %> AUD </p>
+
+    </div>
+  </body>
+</html>

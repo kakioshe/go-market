@@ -1,10 +1,25 @@
 class ProductsController < ApplicationController
 
   def index
-    @product = if params[:term]
-      Product.active.where('title LIKE ?', "%#{params[:term]}%")
+    if params[:term]
+      @product = Product.active.where('title LIKE ?', "%#{params[:term]}%")
     else
       @product = Product.active.all
+    end
+    if params[:sort]
+      if Product.column_names.include?(params[:sort])
+        @product = @product.order(params[:sort])
+      end
+    end
+    @sort_url = request.original_url
+    if @sort_url[-9..-1] == 'catalogue'
+      @sort_url = request.original_url+'?'
+    elsif @sort_url.include? "availability"
+      @sort_url.slice! "&sort=availability"
+    elsif @sort_url.include? "price"
+      @sort_url.slice! "&sort=price"
+    elsif @sort_url.include? "title"
+      @sort_url.slice! "&sort=title"
     end
 
     @order_item = current_order.order_items.new
