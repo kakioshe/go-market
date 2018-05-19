@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
     if params[:sort]
       if Product.column_names.include?(params[:sort])
         @product = @product.order(params[:sort])
+        @sort_name = params[:sort]
       end
     end
     @sort_url = request.original_url

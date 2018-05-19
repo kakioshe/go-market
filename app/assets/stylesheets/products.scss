@@ -211,6 +211,7 @@
 	font-size: 100%;
 	color:white;
 	text-decoration: none;
+  width: 100%;
 	}
 
 #p-button-link p, .de-ac p{
@@ -340,8 +341,10 @@
 
 }
 
+#small-page { margin: 5% 4%}
+
 @media (max-width: 575.98px) {
-  #small-page { margin: 0 4%}
+  #small-page { margin: 3% 4%}
   #pd-div-price { height: 20%}
   #pd-div-addtocart { height: 20%}
   #pd-div-seller { height: 20%}
@@ -349,6 +352,25 @@
 }
 
 //Catalogue
+
+.sort-dropdown button, .sort-dropdown button:focus,.sort-dropdown button:active  {
+  background: linear-gradient(to left, #f07e4a, #f0b84b) !important;
+  color: white;
+  font-weight: 700;
+  font-size: 100%;
+  outline: none;
+  box-shadow: 0 0 0 0;
+  width: 200px;
+}
+
+.sort-dropdown {float: right; margin-top: 2%;}
+
+.sort-dropdown ul{width: 200px;}
+
+.sort-dropdown ul a {
+  font-size: 100%;
+  padding: 0 10%;
+}
 
 #cat-card {
   padding: 0px 0px;
