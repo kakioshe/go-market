@@ -46,12 +46,13 @@
     <div class="main">Categories</div>
 
     <div class="row" style="margin-top:0%;">
+
       <div class="col-3">
         <a href="/category/1"><div class="cat-border">
           <%= image_tag( "category/category-01.png", class: 'h-why-img') %>
           Furniture
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
       <div class="col-3">
         <a href="/category/2"><div class="cat-border">
@@ -64,43 +65,43 @@
         <a href="/category/3"><div class="cat-border">
           <%= image_tag( "category/category-03.png", class: 'h-why-img') %>
           Office & Stationary
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
       <div class="col-3">
         <a href="/category/4"><div class="cat-border">
           <%= image_tag( "category/category-04.png", class: 'h-why-img') %>
           Foods & Drink
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
       <div class="col-3">
         <a href="/category/5"><div class="cat-border">
           <%= image_tag( "category/category-05.png", class: 'h-why-img') %>
           Kitchen Tools
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
       <div class="col-3">
         <a href="/category/6"><div class="cat-border">
           <%= image_tag( "category/category-06.png", class: 'h-why-img') %>
           Tools
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
       <div class="col-3">
         <a href="/category/7"><div class="cat-border">
           <%= image_tag( "category/category-07.png", class: 'h-why-img') %>
           Automative
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
       <div class="col-3">
         <a href="/category/8"><div class="cat-border">
           <%= image_tag( "category/category-08.png", class: 'h-why-img') %>
           Hobby
-        </div>
-      </div></a>
+        </div></a>
+      </div>
 
     </div>
   </div>
@@ -112,71 +113,30 @@
       <div class="col-11">
 
         <section class="horizontal-scroll">
+          <% @product.each do |each_product| %>
           <div class="hc-item">
+            <%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
           	<div id="h-cat-div-image">
+            <% pic = [] %>
+						<% for picture in each_product.pictures %>
+		          <% pic << picture %>
+		        <% end %>
+		        <% if pic === [] %>
+		          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+		        <% else %>
+		          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
+		        <% end %>
             </div>
             <div id="h-cat-desc">
-    					<p class="h-cat-desc-title">title</p>
-    					<p class="h-cat-desc-price">$ price </p>
+    					<p class="h-cat-desc-title"><%= each_product.title %></p>
+    					<p class="h-cat-desc-price">$ <%= each_product.price %> </p>
     					<p>Deco Deco Shop </p>
     					<p>Toowong, 2 km</p>
     				</div>
+            <% end %>
           </div>
 
-          <div class="hc-item">
-          	<div id="h-cat-div-image">
-            </div>
-            <div id="h-cat-desc">
-    					<p class="h-cat-desc-title">title</p>
-    					<p class="h-cat-desc-price">$ price </p>
-    					<p>Deco Deco Shop </p>
-    					<p>Toowong, 2 km</p>
-    				</div>
-          </div>
-
-          <div class="hc-item">
-          	<div id="h-cat-div-image">
-            </div>
-            <div id="h-cat-desc">
-    					<p class="h-cat-desc-title">title</p>
-    					<p class="h-cat-desc-price">$ price </p>
-    					<p>Deco Deco Shop </p>
-    					<p>Toowong, 2 km</p>
-    				</div>
-          </div>
-
-          <div class="hc-item">
-          	<div id="h-cat-div-image">
-            </div>
-            <div id="h-cat-desc">
-    					<p class="h-cat-desc-title">title</p>
-    					<p class="h-cat-desc-price">$ price </p>
-    					<p>Deco Deco Shop </p>
-    					<p>Toowong, 2 km</p>
-    				</div>
-          </div>
-
-          <div class="hc-item">
-          	<div id="h-cat-div-image">
-            </div>
-            <div id="h-cat-desc">
-    					<p class="h-cat-desc-title">title</p>
-    					<p class="h-cat-desc-price">$ price </p>
-    					<p>Deco Deco Shop </p>
-    					<p>Toowong, 2 km</p>
-    				</div>
-          </div>
-
-          <div class="hc-item">
-          	<div id="h-cat-div-image">
-            </div>
-            <div id="h-cat-desc">
-    					<p class="h-cat-desc-title">title</p>
-    					<p class="h-cat-desc-price">$ price </p>
-    					<p>Deco Deco Shop </p>
-    					<p>Toowong, 2 km</p>
-    				</div>
-          </div>
+          <% end %>
 
         </section>
 
