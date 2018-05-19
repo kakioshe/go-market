@@ -22,6 +22,22 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+.cart-text a {
+  text-decoration: none;
+  color: #f07e4a;
+}
+
+.cart-text a:hover{
+  text-decoration: none;
+  font-weight: 700;
+  color: #f07e4a;
+}
+
+.profile .dropdown-menu {
+  left: -150% !important;
+  font-size: 100%
+}
+
 #override-bootstrap {
   font-size: 80%;
 }
@@ -33,7 +49,7 @@ body {
 }
 
 .easy-autocomplete{
-  width: 60% !important;
+  width: 80% !important;
 }
 
 
@@ -72,7 +88,8 @@ body {
 
 
 .nav-btn-allcategory {
-  border-radius: 0px;
+  border-radius: 10px !important;
+  margin-right: 20px;
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -120,17 +137,17 @@ body {
   opacity: 1;
 }
 
-.nav-form-search {
-  border-radius:10px 0px 0px 10px;
+.nav-form-search, .easy-autocomplete input {
+  border-radius:10px 0px 0px 10px !important;
   width: 100%;
   padding: .375rem .75rem;
-  border: 1px solid #ced4da;
+  border: 1px solid #ced4da !important;
   background-clip: padding-box;
   transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.nav-form-search:focus{
-  border-color: #f07e4a;
+.nav-form-search:focus, .easy-autocomplete input:focus{
+  border-color: #f07e4a !important;
   outline: 0 none;
 }
 
@@ -220,7 +237,7 @@ body{
 }
 
 #nav-form {
-  width: 80%
+  width: 55%
 }
 
 .footer{
@@ -328,6 +345,7 @@ h1{
   font-weight: 800 !important;
   width: 100%;
   border-color: transparent !important;
+  border-radius: 10px;
 }
 
 .cart-price{
@@ -350,7 +368,7 @@ h1{
 .cart-item{
   padding-top:50px;
   padding-bottom: 50px;
-  
+
 }
 
 .item-row{

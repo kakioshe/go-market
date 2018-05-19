@@ -32,42 +32,61 @@
     </div>
 
     <div class="col-sm-5">
+      <% if current_user.stores_id==@product.stores_id %>
+        <p>
+          <div class="row">
+            <div class="col-6">
+              <%= link_to edit_product_path(@product), {:id => 'p-button-link'} do %>
+    						<div class="product-button">
+    							<p> Edit Product </p>
+    						</div>
+    					<% end %>
+            </div>
+            <div class="col-6">
+              <% if @product.active == true %>
+                <div class="de-ac">
+                  <%= link_to controller: "products", action: "deactivate", id: @product do %>
+                  <div class="product-button">
+      							<p> Deactivate </p>
+      						</div>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="de-ac">
+                  <%= link_to controller: "products", action: "activate", id: @product do %>
+                  <div class="product-button">
+      							<p> Activate </p>
+      						</div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </p>
+      <% end %>
 
       <p id="page-title"><%= @product.title %></p>
       <p>
         <%= @product.description %>
 
-      <% if current_user.stores_id==@product.stores_id %>
-        <p>
-          <%= link_to "Edit", edit_product_path(@product) %> |
 
-          <% if @product.active == true %>
-            <%= link_to "Deactivate", controller: "products", action: "deactivate", id: @product %> 
-          <% else %>
-            <%= link_to "Activate", controller: "products", action: "activate", id: @product %> 
-          <% end %>
-        </p>
-
-      <% end %>
       </p>
     </div>
 
     <div class="col-sm-3">
-      <%= form_for @order_item, remote: true do |f| %>
 
-        <div class="input-group" id="pd-div-price">
-          <div class="cart-price">
-            <div> price </div>
-            $ <%= @product.price %>
-          </div>
-          <div class="text-left cart-quantity"> quantity </div>
-          <%= f.number_field :quantity, value: 1, class: "form-control quantity-form", min: 1 %>
-          <div class="input-group-btn" id="pd-div-addtocart">
-            <%= f.hidden_field :product_id, value: @product.id %>
-            <%= f.hidden_field :order_status_id, value: 1 %>
-            <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
-          </div>
-        </div>
+
+
+      <%= form_for @order_item, remote: true do |f| %>
+      <div id="pd-div-price">
+        <div class="pd-price-txt">$ <%= @product.price %></div>
+        Quantity: <%= f.number_field :quantity, value: 1, class: "form-control quantity-form", min: 1 %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :order_status_id, value: 1 %>
+      </div>
+      <div id="pd-div-addtocart">
+        <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+      </div>
       <%end%>
 
 

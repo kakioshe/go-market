@@ -43,6 +43,23 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
+          <!-- category button -->
+            <div class="btn-group">
+              <button type="button" class="nav-btn-allcategory dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Categories
+              </button>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/category/1">Furniture</a>
+                <a class="dropdown-item" href="/category/2">Fashion</a>
+                <a class="dropdown-item" href="/category/3">Office & Stationary</a>
+                <a class="dropdown-item" href="/category/4">Foods & Drinks</a>
+                <a class="dropdown-item" href="/category/5">Kitchen Tools</a>
+                <a class="dropdown-item" href="/category/6">Tools</a>
+                <a class="dropdown-item" href="/category/7">Automative</a>
+                <a class="dropdown-item" href="/category/8">Hobby</a>
+              </div>
+            </div>
+
           <!--<form class="form-inline my-2 my-lg-0" id="nav-form"> -->
             <!-- search form -->
             <%= form_tag catalogue_path, :class => "form-inline my-2 my-lg-0", :id => "nav-form", method: :get do %>
@@ -50,25 +67,15 @@
 
 
             <!-- <input class="nav-form-search mr-sm-2 " type="text" placeholder="Search for Products, Brands and more" aria-label="Search"> -->
-            <!-- category button -->
-            <div class="btn-group">
-              <button type="button" class="nav-btn-allcategory dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                All Categories
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Separated link</a>
-              </div>
-            </div>
+
             <!-- <button class="my-2 my-sm-0 nav-btn-search" type="submit">Search</button> -->
             <%= submit_tag 'Search', class: "my-2 my-sm-0 nav-btn-search" %>
            <% end %>
           <!-- </form>-->
 
-          <ul class="navbar-nav mr-auto ">
+          <%= render 'layouts/cart_text' %>
+
+          <ul class="navbar-nav mr-auto profile">
             <% if user_signed_in? %>
 
             <li class="nav-item dropdown">
@@ -87,8 +94,6 @@
                 <%= link_to 'My Orders', user_history_path, :class => "dropdown-item"  %>
 
 
-                <div class="dropdown-divider"></div>
-                <span class="cart-text"><%= render 'layouts/cart_text' %></span>
                 <div class="dropdown-divider"></div>
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, :class => "dropdown-item"  %>
               </div>

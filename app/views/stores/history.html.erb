@@ -1,31 +1,44 @@
 
 
-<div class="row">
+<div class="row" style="margin-top:5%;">
   <div class="col-md-3">
     <div class="row">
       <div class="col-md-12" id="seller-card">
-        <div id="title-information">
-          <p> Seller Information </p>
+        <div id="st-info">
+          Seller Information
         </div>
 
-        <%= image_tag( "products/p-camera.png", id: 'seller-card-picture') %>
-        <div id="store-information">
-          <p id="store-name"><%= @store.name.upcase %></p>
-          <p id="store-location">Danau UI</p>
-          <p id="store-description"><%= @store.description %></p>
-
-          <% if current_user.stores_id==@store.id %>
-            <div class="col-md-2 right-align-card">
-              <%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
-            </div>
+        <div id="st-storeinfo">
+          <% if @store.avatar? %>
+          <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+          <% else %>
+          <%= image_tag( "products/p-camera.png", id: 'seller-card-picture') %>
           <% end %>
+          <div id="store-information">
+            <p id="store-name"><%= @store.name.upcase %></p>
+            <p id="store-description"><%= @store.description %></p>
+
+            <% if current_user.stores_id==@store.id %>
+              <div class="col-md-2 right-align-card">
+                <%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
+              </div>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
 
+    <%= link_to store_path(current_user.stores_id), {:id => 'button-link'} do %>
+      <div class="store-button">
+        <p> Manage Store </p>
+      </div>
+    <% end %>
+
+    
+
   </div>
 
-  
+
   <div class="col-md-8">
     <div class="row">
       <div class="col-md-8" id="title-item">
@@ -53,14 +66,17 @@
                 <td class="transaction-item text-center"> <%= transaction.quantity %> </td>
                 <td class="transaction-item text-center"> <%= transaction.buyer %> </td>
                 <td class="transaction-item text-center"> <%= transaction.status %> </td>
+                <td class="transaction-item text-center">
                 <% if transaction.status=="Paid" %>
-                  <td class="transaction-item text-center"> <%= link_to "Action", store_history_execute_path(:order_id => transaction.order_id, :product => transaction.products_id), method: :post %> </td>
-                <% end %>
+                  <%= link_to "Action", store_history_execute_path(:order_id => transaction.order_id, :product => transaction.products_id), method: :post %>
+                <% else %>
+                  Done
+                <% end %> </td>
               </tr>
             </div>
           </div>
         <% end %>
-      </table> 
+      </table>
 
       </div>
     </div>
