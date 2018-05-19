@@ -1,16 +1,31 @@
 <div id="small-page">
 	<p id="page-title">Catalogue</p>
 
-	<p><%= link_to "New Product", new_product_path %></p>
-	<p><a href="<%= @sort_url+"&sort=title" %>">Sort by title</a></p>
-	<p><a href="<%= @sort_url+"&sort=price" %>">Sort by price</a></p>
-	<p><a href="<%= @sort_url+"&sort=availability" %>">Sort by availability</a></p>
+	<div class="dropdown sort-dropdown">
+		<button class="btn btn-default dropdown-toggle" type="button" id="sortDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+			Sort by <%= @sort_name %>
+			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu sort-dropdown-menu" aria-labelledby="sortDropdown">
+			<a href="<%= @sort_url+"&sort=title" %>" data-value="title" class="dropdown-item">Sort by Title</a>
+			<a href="<%= @sort_url+"&sort=price" %>" data-value="price" class="dropdown-item">Sort by price</a>
+			<a href="<%= @sort_url+"&sort=availability" %>" data-value="sort by availability" class="dropdown-item">Sort by availability</a>
+		</ul>
+	</div>
 
+	<div class="row" style="width:40%;">
+		<% if user_signed_in? and current_user.stores_id? %>
+			<%= link_to new_product_path, {:id => 'p-button-link'} do %>
+				<div class="store-button">
+					<p> Add a New Product </p>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 
 	<% @product.each_slice(4) do |group_product| %>
 	<div class="row">
 		<% group_product.each do |each_product| %>
-
 				<div class="col-6 col-sm-3" id="cat-card">
 					<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
 					<div id="cat-div-image">
@@ -18,7 +33,6 @@
 						<% for picture in each_product.pictures %>
 				          <% pic << picture %>
 				        <% end %>
-
 				        <% if pic === [] %>
 				          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
 				        <% else %>

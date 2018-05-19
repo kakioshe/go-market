@@ -11,7 +11,44 @@
 }
 
 .h-text-1 .main{font-weight: 700;}
-.h-text-c .main{font-weight: 700; font-size: 130%;}
+.h-text-c .main, .h-text-cat .main{font-weight: 700; font-size: 130%;}
+
+.h-text-cat .col-3{margin-top: 2%;}
+
+.h-text-cat a {
+  text-decoration: none;
+  color: black;
+}
+
+.h-text-cat a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.h-text-cat .cat-border {
+  border: 1px solid #0071bc;
+  border-radius: 10px;
+  padding: 5%;
+  text-align: center;
+  font-size: 150%;
+  text-decoration: none;
+  -webkit-transition: all 250ms ease-out;
+   -moz-transition: all 250ms ease-out;
+    -ms-transition: all 250ms ease-out;
+     -o-transition: all 250ms ease-out;
+        transition: all 250ms ease-out;
+}
+
+.h-text-cat .cat-border:hover{
+  transform: scale(1.05);
+}
+
+.h-text-cat img{
+  width: 150px;
+  margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
 
 .h-text-1 { font-size: 120%; margin-top: 2%; margin-bottom: 1%;}
 .h-text-c {  margin-top: 2%; margin-bottom: 1%; padding: 0}
@@ -97,6 +134,9 @@
 
 @media (max-width: 575.98px) {
   #h-cat-card {max-width: 48%; margin-top: 3%}
+  .h-text-cat img{width: 100px;}
+  .h-text-cat .cat-border {font-size: 80%}
+
 }
 
 #cat-front-image {

@@ -1,8 +1,11 @@
-<div class="row user-form">
-  <div class="col-md-4 mx-auto">
+<%= stylesheet_link_tag "users.css" %>
 
+<div class="row user-form">
+  <div class="col-md-6 mx-auto">
     <h1>Create an Account</h1>
-    <p>or <%= link_to 'sign in', new_user_session_path%> to your account </p>
+    <p>or 
+
+    <%= render "devise/shared/links" %>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
@@ -64,7 +67,6 @@
       <%= f.submit "Sign up", class: 'btn btn-primary' %>
     <% end %>
 
+
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

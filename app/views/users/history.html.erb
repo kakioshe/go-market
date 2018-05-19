@@ -1,6 +1,6 @@
 <div class="container information">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-3">
 	        <%= image_tag('default_profile_picture.jpg', :alt => "profile picture", :style => "display: inline", :class => "img-frame") %>
 	    </div>
 
@@ -10,7 +10,6 @@
 		        <p> Transaction History </p>
 		      </div>
 		    </div>
-			<hr />
 				<% if current_user.id==@user.id %>
 
 					<table class="transaction-history">
@@ -44,4 +43,3 @@
 		</div>
 	</div>
 </div>
-
