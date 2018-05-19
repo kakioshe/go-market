@@ -1,0 +1,45 @@
+<div class="container information">
+	<div class="row">
+		<div class="col-md-3">
+	        <%= image_tag('default_profile_picture.jpg', :alt => "profile picture", :style => "display: inline", :class => "img-frame") %>
+	    </div>
+
+	    <div class="col-md-8">
+	    	<div class="row">
+		      <div class="col-md-8" id="title-item">
+		        <p> Transaction History </p>
+		      </div>
+		    </div>
+				<% if current_user.id==@user.id %>
+
+					<table class="transaction-history">
+						<tr>
+							<td class="transaction-title text-center"> Order ID </td>
+							<td class="transaction-title text-center"> Item Name </td>
+							<td class="transaction-title text-center"> Item Price </td>
+							<td class="transaction-title text-center"> Quantity </td>
+							<td class="transaction-title text-center"> Status </td>
+							<td class="transaction-title text-center"> Invoice </td>
+							<td></td>
+						</tr>
+					<% @transactions.each do |order| %>
+						<% order.order_items.each do |item| %>
+						<tr>
+							<td class="transaction-item text-center"> <%= item.order_id %></td>
+							<td class="transaction-item text-center"> <%= item.product.title %></td>
+							<td class="transaction-item text-center"> <%= item.unit_price %></td>
+							<td class="transaction-item text-center"> <%= item.quantity %></td>
+							<td class="transaction-item text-center"> <%= item.status %></td>
+							<td class="transaction-item text-center"> <%= link_to 'Invoice', user_receipt_url(order_id: item.order_id, :format => :pdf)  %> </td>
+
+							<% if item.status=="Shipped" %>
+								<td class="transaction-item text-center"> <%= link_to "Arrived?", user_history_execute_path(:order_id => item.order_id, :product => item.product_id), method: :post %></td>
+							<% end%>
+						</tr>
+						<% end %>
+					<% end %>
+					</table>
+			<% end %>
+		</div>
+	</div>
+</div>

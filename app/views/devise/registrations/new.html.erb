@@ -1,27 +1,32 @@
-<% header "Sign Up" %>
+<%= stylesheet_link_tag "users.css" %>
 
-<div class="row">
-  <div class="col-md-4 mx-auto">
+<div class="row user-form">
+  <div class="col-md-6 mx-auto">
+    <h1>Create an Account</h1>
+    <p>or 
+
+    <%= render "devise/shared/links" %>
+
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="row">
         <div class="col-md-12 mb-3">
 
-          <div class="form-group">
-            <%= f.label :firstName %>
-            <%= f.text_field :firstName, class: 'form-control', required: true %>
-            <div class="invalid-feedback">
-              Invalid input
+          <div class="form-row">
+            <div class="col-md-6 mb-3">
+              <%= f.label :firstName, "First Name" %>
+              <%= f.text_field :firstName, class: 'form-control', required: true %>
+              <div class="invalid-feedback">
+                Invalid input
+              </div>
             </div>
-          </div>
-
-
-          <div class="form-group">
-            <%= f.label :lastName %>
-            <%= f.text_field :lastName, class: 'form-control', required: true %>
-            <div class="invalid-feedback">
-              Invalid input
+            <div class="col-md-6 mb-3">
+              <%= f.label :lastName, "Surname" %>
+              <%= f.text_field :lastName, class: 'form-control', required: true %>
+              <div class="invalid-feedback">
+                Invalid input
+              </div>
             </div>
           </div>
 
@@ -50,61 +55,10 @@
           </div>
 
           <div class="form-group">
-            <%= f.label :password_confirmation %>
+            <%= f.label :password_confirmation, "Password Confirmation" %>
             <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control', required: true %>
           </div>
 
-          <div class="form-group">
-            <%= f.label :address1 %>
-            <%= f.text_field :address1, class: 'form-control', required: true %>
-            <div class="invalid-feedback">
-              Invalid input
-            </div>
-          </div>
-
-          <div class="form-group">
-            <%= f.label :address2 %>
-            <%= f.text_field :address2, class: 'form-control', required: true %>
-            <div class="invalid-feedback">
-              Invalid input
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="col-md-6 mb-3">
-              <%= f.label :suburb %>
-              <%= f.text_field :suburb, class: 'form-control', required: true %>
-              <div class="invalid-feedback">
-                Invalid input
-              </div>
-            </div>
-
-            <div class="col-md-6 mb-3">
-              <%= f.label :city %>
-              <%= f.text_field :city, class: 'form-control', required: true %>
-              <div class="invalid-feedback">
-                Invalid input
-              </div>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="col-md-9 mb-3">
-              <%= f.label :state %>
-              <%= f.text_field :state, class: 'form-control', required: true %>
-              <div class="invalid-feedback">
-                Invalid input
-              </div>
-            </div>
-
-            <div class="col-md-3 mb-3">
-              <%= f.label :zip %>
-              <%= f.number_field :zip, class: 'form-control', required: true %>
-              <div class="invalid-feedback">
-                Invalid input
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -113,7 +67,6 @@
       <%= f.submit "Sign up", class: 'btn btn-primary' %>
     <% end %>
 
+
   </div>
 </div>
-
-<%= render "devise/shared/links" %>

@@ -1,0 +1,106 @@
+<div class="error-text">
+
+</div>
+
+
+<div id="small-page">
+
+  <p style="margin-top:5%;"> </p>
+<% pic = [] %>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="pd-div-image">
+        <% for picture in @product.pictures %>
+          <% pic << picture %>
+        <% end %>
+
+        <% if pic === [] %>
+          <%= image_tag( "products/p-camera.png", id: 'pd-clicked-image', class: 'pd-clicked-image') %>
+        <% else %>
+          <%= image_tag( @product.pictures[0].image.url, id: 'pd-clicked-image', class: 'pd-clicked-image') %>
+        <% end %>
+
+      </div>
+
+      <div class="row" style="padding: 5%">
+        <% for picture in @product.pictures %>
+      		<div class="col-4 pd-image-small" id="pd-div-image-small">
+            <%= link_to image_tag(picture.image.url, id: 'pd-image') %>
+          </div>
+      	<% end %>
+      </div>
+    </div>
+
+    <div class="col-sm-5">
+      <% if current_user.stores_id==@product.stores_id %>
+        <p>
+          <div class="row">
+            <div class="col-6">
+              <%= link_to edit_product_path(@product), {:id => 'p-button-link'} do %>
+    						<div class="product-button">
+    							<p> Edit Product </p>
+    						</div>
+    					<% end %>
+            </div>
+            <div class="col-6">
+              <% if @product.active == true %>
+                <div class="de-ac">
+                  <%= link_to controller: "products", action: "deactivate", id: @product do %>
+                  <div class="product-button">
+      							<p> Deactivate </p>
+      						</div>
+                  <% end %>
+                </div>
+              <% else %>
+                <div class="de-ac">
+                  <%= link_to controller: "products", action: "activate", id: @product do %>
+                  <div class="product-button">
+      							<p> Activate </p>
+      						</div>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </p>
+      <% end %>
+
+      <p id="page-title"><%= @product.title %></p>
+      <p>
+        <%= @product.description %>
+
+
+      </p>
+    </div>
+
+    <div class="col-sm-3">
+
+
+
+      <%= form_for @order_item, remote: true do |f| %>
+      <div id="pd-div-price">
+        <div class="pd-price-txt">$ <%= @product.price %></div>
+        Quantity: <%= f.number_field :quantity, value: 1, class: "form-control quantity-form", min: 1 %>
+        <%= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :order_status_id, value: 1 %>
+      </div>
+      <div id="pd-div-addtocart">
+        <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+      </div>
+      <%end%>
+
+
+      <div id="pd-div-seller">
+        seller information
+      </div>
+      <div id="pd-div-sellerinfo">
+        Change This
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+</div>

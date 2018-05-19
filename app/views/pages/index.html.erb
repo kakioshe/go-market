@@ -1,5 +1,5 @@
-<% content_for :top_content do %>
-  <div class="jumbotron">
+
+  <!-- <div class="jumbotron">
     <div class="container">
       <h1>Welcome!</h1>
       <p>Register to get started.</p>
@@ -8,5 +8,220 @@
         <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
       </p>
     </div>
+  </div> -->
+<% content_for :top_content do %>
+<div class="container" style="margin-top:2%;">
+  <div id="carouselExampleControls" class="carousel slide carousel-banner" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <%= image_tag( "homepage/banner-01.png", class: 'd-block w-100') %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag( "homepage/banner-02.png", class: 'd-block w-100') %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag( "homepage/banner-03.png", class: 'd-block w-100') %>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </div>
+
+  <div class="h-text-1">
+    <div class="main">What items do you want?</div>
+    <div class="context">We have thousands of items available. Search in the map below!</div>
+  </div>
+
+  <div style="">
+    <%= image_tag( "homepage/maps-section-04.png", class: 'd-block w-100 h-img-map') %>
+  </div>
+
+  <div class="h-text-cat" style="margin-top:5%">
+    <div class="main">Categories</div>
+
+    <div class="row" style="margin-top:0%;">
+      <div class="col-3">
+        <a href="/category/1"><div class="cat-border">
+          <%= image_tag( "category/category-01.png", class: 'h-why-img') %>
+          Furniture
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/2"><div class="cat-border">
+          <%= image_tag( "category/category-02.png", class: 'h-why-img') %>
+          Fashion
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/3"><div class="cat-border">
+          <%= image_tag( "category/category-03.png", class: 'h-why-img') %>
+          Office & Stationary
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/4"><div class="cat-border">
+          <%= image_tag( "category/category-04.png", class: 'h-why-img') %>
+          Foods & Drink
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/5"><div class="cat-border">
+          <%= image_tag( "category/category-05.png", class: 'h-why-img') %>
+          Kitchen Tools
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/6"><div class="cat-border">
+          <%= image_tag( "category/category-06.png", class: 'h-why-img') %>
+          Tools
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/7"><div class="cat-border">
+          <%= image_tag( "category/category-07.png", class: 'h-why-img') %>
+          Automative
+        </div>
+      </div></a>
+
+      <div class="col-3">
+        <a href="/category/8"><div class="cat-border">
+          <%= image_tag( "category/category-08.png", class: 'h-why-img') %>
+          Hobby
+        </div>
+      </div></a>
+
+    </div>
+  </div>
+
+  <div class="h-text-c" style="margin-top:5%;">
+    <div class="main">Catalogue</div>
+    <div class="context">Dozens of catalogues!</div>
+    <div class="row" style="margin-top:2%;">
+      <div class="col-11">
+
+        <section class="horizontal-scroll">
+          <div class="hc-item">
+          	<div id="h-cat-div-image">
+            </div>
+            <div id="h-cat-desc">
+    					<p class="h-cat-desc-title">title</p>
+    					<p class="h-cat-desc-price">$ price </p>
+    					<p>Deco Deco Shop </p>
+    					<p>Toowong, 2 km</p>
+    				</div>
+          </div>
+
+          <div class="hc-item">
+          	<div id="h-cat-div-image">
+            </div>
+            <div id="h-cat-desc">
+    					<p class="h-cat-desc-title">title</p>
+    					<p class="h-cat-desc-price">$ price </p>
+    					<p>Deco Deco Shop </p>
+    					<p>Toowong, 2 km</p>
+    				</div>
+          </div>
+
+          <div class="hc-item">
+          	<div id="h-cat-div-image">
+            </div>
+            <div id="h-cat-desc">
+    					<p class="h-cat-desc-title">title</p>
+    					<p class="h-cat-desc-price">$ price </p>
+    					<p>Deco Deco Shop </p>
+    					<p>Toowong, 2 km</p>
+    				</div>
+          </div>
+
+          <div class="hc-item">
+          	<div id="h-cat-div-image">
+            </div>
+            <div id="h-cat-desc">
+    					<p class="h-cat-desc-title">title</p>
+    					<p class="h-cat-desc-price">$ price </p>
+    					<p>Deco Deco Shop </p>
+    					<p>Toowong, 2 km</p>
+    				</div>
+          </div>
+
+          <div class="hc-item">
+          	<div id="h-cat-div-image">
+            </div>
+            <div id="h-cat-desc">
+    					<p class="h-cat-desc-title">title</p>
+    					<p class="h-cat-desc-price">$ price </p>
+    					<p>Deco Deco Shop </p>
+    					<p>Toowong, 2 km</p>
+    				</div>
+          </div>
+
+          <div class="hc-item">
+          	<div id="h-cat-div-image">
+            </div>
+            <div id="h-cat-desc">
+    					<p class="h-cat-desc-title">title</p>
+    					<p class="h-cat-desc-price">$ price </p>
+    					<p>Deco Deco Shop </p>
+    					<p>Toowong, 2 km</p>
+    				</div>
+          </div>
+
+        </section>
+
+      </div>
+
+      <div class="col-1 hc-see-more" onclick="window.location.href = '/catalogue'">
+        see
+        <br/>more
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="row" style="margin:10% 0%">
+    <div class="col-sm-3">
+      <div class="h-text-1">
+        <div class="main">You have your own industry?</div>
+        <div class="context">Register your home industry here!</div>
+        <div class="h-btn-register">
+          <%= link_to 'FREE REGISTER', new_user_registration_path, class: 'h-btn-register-text' %>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <%= image_tag( "homepage/why-gomarket-06.png", class: 'h-why-img') %>
+      <div class="h-text-1" style="text-align:center">
+        <div class="main">EASY</div>
+        <div class="context"></div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <%= image_tag( "homepage/why-gomarket-07.png", class: 'h-why-img') %>
+      <div class="h-text-1" style="text-align:center">
+        <div class="main">PRACTICAL</div>
+        <div class="context"></div>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <%= image_tag( "homepage/why-gomarket-08.png", class: 'h-why-img') %>
+      <div class="h-text-1" style="text-align:center">
+        <div class="main">MORE MARKET</div>
+        <div class="context"></div>
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>

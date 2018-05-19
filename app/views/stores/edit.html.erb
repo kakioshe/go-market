@@ -1,0 +1,68 @@
+<div class="container information">
+<div class="user-form">
+  <h4> Update Information </h4>
+  <hr />
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+    <%= form_for @stores, url:'/store', method: :patch do |f| %>
+
+
+        <div class="form-group">
+
+          <% if @stores.avatar? %>
+          <%= f.label :avatar, "Store Picture" %>
+          <div class="cp-div-pic cp-div-remove">
+            <div class="cp-div-picupload">
+              <%= image_tag image_url(@stores.avatar.url), :class => "cp-remove-pic cp-picture cp-pic-uploaded", :id => "pic-uploaded" %>
+            </div>
+            <div class="cp-pic-button">
+              <div class="cp-picture_field">
+                  <%= f.file_field(:avatar, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
+              </div>
+              <div class="cp-choose-pic">Change Picture</div>
+              <div class='clearfix'></div>
+            </div>
+          </div>
+                
+
+          <% else %>
+
+          <%= f.label :avatar, "Store Picture" %>
+                <div class="cp-div-pic cp-div-remove">
+                  <div class="cp-div-picupload">
+                    <img src='#' id='pic-uploaded' class="cp-pic-uploaded cp-miss-pic">
+                  </div>
+                  <div class="cp-pic-button">
+                    <div class="">
+                      <%= f.file_field(:avatar, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
+                    </div>
+                    <div class="cp-choose-pic">Choose your picture</div>
+                      <div class='clearfix'></div>
+                  </div>
+                </div>
+          <% end %>
+          
+        </div>
+
+        
+        <%= f.label :name, "Store Name" %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
+            <div class="invalid-feedback">
+                Invalid Input
+            </div>
+
+
+        <%= f.label :description, "Store Description" %>
+        <%= f.text_area :description, :rows => 10, style: 'width:100%;', class: 'form-control', required: true %>
+            <div class="invalid-feedback">
+                Invalid Input
+            </div>
+
+        <br />
+        <%= f.submit "Update", class: 'btn btn-primary' %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+</div>
