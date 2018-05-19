@@ -1,9 +1,8 @@
 <div class="container information">
-<div class="user-form">
-  <h4> Update Information </h4>
-  <hr />
+<div class="user-form add-store">
+  <p id="page-title">Update Information</p>
   <div class="row">
-    <div class="col-md-6 mx-auto">
+    <div class="col-md-12 mb-3">
     <%= form_for @stores, url:'/store', method: :patch do |f| %>
 
 
@@ -23,7 +22,7 @@
               <div class='clearfix'></div>
             </div>
           </div>
-                
+
 
           <% else %>
 
@@ -41,10 +40,10 @@
                   </div>
                 </div>
           <% end %>
-          
+
         </div>
 
-        
+
         <%= f.label :name, "Store Name" %>
         <%= f.text_field :name, class: 'form-control', required: true %>
             <div class="invalid-feedback">
