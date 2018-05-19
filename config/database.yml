@@ -23,8 +23,8 @@ default: &default
 
 development:
   <<: *default
-  database: go-market_development
-  username: gomarket
+  database: <%= ENV['GOMARKET_DATABASE_NAME'] %>
+  username: <%= ENV['GOMARKET_DATABASE_USERNAME'] %>
   password: <%= ENV['GOMARKET_DATABASE_PASSWORD'] %>
 
   # The specified database role being used to connect to postgres.

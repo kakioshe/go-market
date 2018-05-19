@@ -32,7 +32,7 @@
     </div>
 
     <div class="col-sm-5">
-      <% if current_user.stores_id==@product.stores_id %>
+      <% if user_signed_in? and current_user.stores_id==@product.stores_id %>
         <p>
           <div class="row">
             <div class="col-6">
