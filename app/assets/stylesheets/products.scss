@@ -353,6 +353,22 @@
 
 //Catalogue
 
+.no-product-txt {
+  color: #5b5b5b;
+  width: 100%;
+  text-align: center;
+  padding: 3%;
+  border: 1px solid #5b5b5b;
+  border-radius:8px;
+  font-size: 150%;
+}
+
+.no-product-txt a, .no-product-txt a:hover{
+  text-decoration: none;
+  color: #f07e4a;
+}
+
+
 .sort-dropdown button, .sort-dropdown button:focus,.sort-dropdown button:active  {
   background: linear-gradient(to left, #f07e4a, #f0b84b) !important;
   color: white;

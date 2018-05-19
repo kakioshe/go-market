@@ -1,5 +1,10 @@
 <div id="small-page">
+
+	<% if @status == '' %>
 	<p id="page-title">Catalogue</p>
+	<% else %>
+	<p id="page-title">Search for '<%= @status %> '</p>
+	<% end %>
 
 	<div class="" style="width:40%;">
 		<% if user_signed_in? and current_user.stores_id? %>
@@ -11,47 +16,59 @@
 		<% end %>
 	</div>
 
-	<div class="dropdown sort-dropdown">
-		<button class="btn btn-default dropdown-toggle" type="button" id="sortDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-			Sort by <%= @sort_name %>
-			<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu sort-dropdown-menu" aria-labelledby="sortDropdown">
-			<a href="<%= @sort_url+"&sort=title" %>" data-value="title" class="dropdown-item">Sort by Title</a>
-			<a href="<%= @sort_url+"&sort=price" %>" data-value="price" class="dropdown-item">Sort by price</a>
-			<a href="<%= @sort_url+"&sort=availability" %>" data-value="sort by availability" class="dropdown-item">Sort by availability</a>
-		</ul>
-	</div>
+	<% if @product.count > 0 %>
+	<!-- if there are products -->
+		<div class="dropdown sort-dropdown">
+			<button class="btn btn-default dropdown-toggle" type="button" id="sortDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				Sort by <%= @sort_name %>
+				<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu sort-dropdown-menu" aria-labelledby="sortDropdown">
+				<a href="<%= @sort_url+"&sort=title" %>" data-value="title" class="dropdown-item">Sort by Title</a>
+				<a href="<%= @sort_url+"&sort=price" %>" data-value="price" class="dropdown-item">Sort by price</a>
+				<a href="<%= @sort_url+"&sort=availability" %>" data-value="sort by availability" class="dropdown-item">Sort by availability</a>
+			</ul>
+		</div>
 
 
 
-	<% @product.each_slice(4) do |group_product| %>
-	<div class="row">
-		<% group_product.each do |each_product| %>
-				<div class="col-6 col-sm-3" id="cat-card">
-					<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
-					<div id="cat-div-image">
-						<% pic = [] %>
-						<% for picture in each_product.pictures %>
-				          <% pic << picture %>
-				        <% end %>
-				        <% if pic === [] %>
-				          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
-				        <% else %>
-				          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
-				        <% end %>
+		<% @product.each_slice(4) do |group_product| %>
+		<div class="row">
+			<% group_product.each do |each_product| %>
+					<div class="col-6 col-sm-3" id="cat-card">
+						<%= link_to product_path(each_product), {:id => 'cat-product-card'} do %>
+						<div id="cat-div-image">
+							<% pic = [] %>
+							<% for picture in each_product.pictures %>
+					          <% pic << picture %>
+					        <% end %>
+					        <% if pic === [] %>
+					          <%= image_tag( "products/p-camera.png", id: 'cat-front-image') %>
+					        <% else %>
+					          <%= image_tag( each_product.pictures[0].image.url, id: 'cat-front-image') %>
+					        <% end %>
+						</div>
+
+						<div id="cat-desc">
+							<p class="cat-desc-title"><%= each_product.title %></p>
+							<p class="cat-desc-price">$ <%= each_product.price %> </p>
+							<p>Deco Deco Shop </p>
+							<p>Toowong, 2 km</p>
+						</div>
+						<% end %>
 					</div>
 
-					<div id="cat-desc">
-						<p class="cat-desc-title"><%= each_product.title %></p>
-						<p class="cat-desc-price">$ <%= each_product.price %> </p>
-						<p>Deco Deco Shop </p>
-						<p>Toowong, 2 km</p>
-					</div>
-					<% end %>
-				</div>
-
+			<% end %>
+		</div>
 		<% end %>
+
+
+	<!-- if there is no product -->
+	<% else %>
+	<div class="no-product-txt">
+		Sorry :( There is no product
+		<br/>Go back to <%= link_to root_path do%> home <% end %>
 	</div>
+
 	<% end %>
 </div>
