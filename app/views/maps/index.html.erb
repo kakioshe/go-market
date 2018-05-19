@@ -69,12 +69,14 @@
                               'Error: Your browser doesn\'t support geolocation.');
         currentInfo.open(map);
       }
-
       var locations = [
-      {lat: -27.484760, lng: 152.992868, label:"Test", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br />Just testing"},
-      {lat: -27.482114, lng: 152.996837, label:"Hello", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br /> Heyy!"},
-      {lat: -27.482029, lng: 153.004090, label:"Info", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br />FYI"},
-      {lat: -27.495360, lng: 153.012149, label:"Abcd", info:"<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Coles_in_Chadstone_Shopping_Centre_201708.JPG/250px-Coles_in_Chadstone_Shopping_Centre_201708.JPG' /><br />alphabet"}
+      <% @product.each do |each_product| %>
+      <% position = each_product.maps %>
+      <% position = position.split(',') %>
+
+      {lat: <%= position[0] %>, lng: <%= position[1] %>, label:"<%= each_product.title %>", info:"<br />Just testing"},
+
+      <% end %>
       ]
       google.maps.event.addDomListener(window, "load", initMap);
     </script>
