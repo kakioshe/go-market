@@ -340,36 +340,6 @@ h1{
   width: 100% !important;
 }
 
-.cart-button{
-  color: white !important;
-  font-weight: 800 !important;
-  width: 100%;
-  border-color: transparent !important;
-  border-radius: 10px;
-}
-
-.cart-price{
-  background-color: white;
-  border-radius: 10px 10px 0px 0px;
-}
-
-.cart_product_name{
-  font-weight: 700;
-}
-
-.cart-quantity{
-  background-color: white;
-}
-
-.cart-image{
-  width: 100%;
-}
-
-.cart-item{
-  padding-top:50px;
-  padding-bottom: 50px;
-
-}
 
 .item-row{
   padding-bottom: 20px;

@@ -1,13 +1,13 @@
 <div class="well item-row">
 
-	<div class="row">
-		<div class="col-md-2">
-          <%= image_tag( product.pictures[0].image.url, id: 'pd-clicked-image', class: 'pd-clicked-image cart-image') %>
+	<div class="row carts-row ">
+		<div class="col-md-2 col-6">
+          <%= image_tag( product.pictures[0].image.url, id: 'pd-image', class: 'pd-image cart-image') %>
          </div>
 
 
 
-		<div class="col-md-4 col-4">
+		<div class="col-md-4 col-6">
 			<p class="cart_product_name"><%= product.title %></p>
 
 			<p> Price: <span style="color: green"><%= number_to_currency item.unit_price %></span></p>
@@ -17,23 +17,23 @@
 
 			<%= form_for item, remote: true do |f| %>
 
-				<div class="row">
+				<div class="row" style="margin-top:2%;">
 
 					<div class="col-md-4 col-4">
-						<%= f.number_field :quantity, value: item.quantity.to_i, class: "form-control", min: 1 %>
+						<%= f.number_field :quantity, value: item.quantity.to_i, class: "form-control cart-price", min: 1 %>
 						<%= f.hidden_field :product_id, value: product.id %>
 					</div>
 
 					<div class="col-4 text-right">
 						<div class="btn-group">
-							<%= f.submit "Update", class: "btn btn-primary" %>
-							<%= link_to "Delete", item, { data: { confirm: "Delete '#{item.product.title}' from your cart?" }, method: :delete, class: "btn btn-danger" } %>
+							<%= f.submit "Update", class: "btn cart-update" %>
+							<%= link_to "Delete", item, { data: { confirm: "Delete '#{item.product.title}' from your cart?" }, method: :delete, class: "btn cart-delete" } %>
 						</div>
 
 					</div>
 
 					<div class="col-4">
-						<p class="cart_total text-right"> Total Price: <span style="color: green"><%= number_to_currency item.total_price %></span></p>
+						<p class="cart_total text-center"><span style="color: green; text-align:center !important"><%= number_to_currency item.total_price %></span></p>
 					</div>
 
 				</div>
