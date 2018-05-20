@@ -94,7 +94,16 @@
         seller information
       </div>
       <div id="pd-div-sellerinfo">
-        Change This
+        <% if @store.avatar? %>
+            <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+          <% else %>
+        <%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
+        <% end %>
+
+        <div id="store-information">
+          <p id="store-name"><%= @store.name.upcase %></p>
+          <p id="store-description"><%= @store.description %></p>
+        </div>
       </div>
     </div>
 
