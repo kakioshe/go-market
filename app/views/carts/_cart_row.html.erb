@@ -2,11 +2,8 @@
 
 	<div class="row carts-row ">
 		<div class="col-md-2 col-6">
-          <%= image_tag( product.pictures[0].image.url, id: 'pd-image', class: 'pd-image cart-image') %>
-         </div>
-
-
-
+      <%= image_tag( product.pictures[0].image.url, id: 'pd-image', class: 'pd-image cart-image') %>
+     </div>
 		<div class="col-md-4 col-6">
 			<p class="cart_product_name"><%= product.title %></p>
 
@@ -33,11 +30,10 @@
 					</div>
 
 					<div class="col-4">
-						<p class="cart_total text-center"><span style="color: green; text-align:center !important"><%= number_to_currency item.total_price %></span></p>
+						<p class="cart_total text-center"><%= number_to_currency item.total_price %></p>
 					</div>
 
 				</div>
-
 			<% end %>
 		</div>
 	</div>

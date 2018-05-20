@@ -21,5 +21,9 @@
 		<%= render 'carts/cart_row', product: item.product, item: item, show_total: true %>
 	<% end %>
 	<p class="text-right cart-total-price"> Total Price	: <%= number_to_currency current_order.subtotal %> </p>
-	<%= link_to "Checkout", transactions_checkout_url %>
+	<%= link_to transactions_checkout_url do %>
+	<div class="checkout-button">
+		Checkout
+	</div>
+	<% end %>
 <% end %>
