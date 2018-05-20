@@ -30,7 +30,7 @@
   border-radius: 10px;
   padding: 5%;
   text-align: center;
-  font-size: 150%;
+  font-size: 90%;
   text-decoration: none;
   -webkit-transition: all 250ms ease-out;
    -moz-transition: all 250ms ease-out;
@@ -44,10 +44,13 @@
 }
 
 .h-text-cat img{
-  width: 150px;
+  width: 100px;
   margin-left: auto;
 	margin-right: auto;
 	display: block;
+}
+
+.h-text-cat .row .col-6 {
 }
 
 .h-text-1 { font-size: 120%; margin-top: 2%; margin-bottom: 1%;}

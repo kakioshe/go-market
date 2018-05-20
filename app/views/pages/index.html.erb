@@ -45,62 +45,75 @@
   <div class="h-text-cat" style="margin-top:5%">
     <div class="main">Categories</div>
 
-    <div class="row" style="margin-top:0%;">
+    <div class="row" style="margin-top:2%;">
 
-      <div class="col-3">
-        <a href="/category/1"><div class="cat-border">
-          <%= image_tag( "category/category-01.png", class: 'h-why-img') %>
-          Furniture
-        </div></a>
-      </div>
+      <div class="col-md-3 col-6">
+        <div class="row">
+          <div class="col-6">
+            <a href="/category/1"><div class="cat-border">
+              <%= image_tag( "category/category-01.png", class: 'h-why-img') %>
+              Furniture
+            </div></a>
+          </div>
 
-      <div class="col-3">
-        <a href="/category/2"><div class="cat-border">
-          <%= image_tag( "category/category-02.png", class: 'h-why-img') %>
-          Fashion
+          <div class="col-6">
+            <a href="/category/2"><div class="cat-border">
+              <%= image_tag( "category/category-02.png", class: 'h-why-img') %>
+              Fashion
+            </div></a>
+          </div>
         </div>
-      </div></a>
-
-      <div class="col-3">
-        <a href="/category/3"><div class="cat-border">
-          <%= image_tag( "category/category-03.png", class: 'h-why-img') %>
-          Office & Stationary
-        </div></a>
       </div>
 
-      <div class="col-3">
-        <a href="/category/4"><div class="cat-border">
-          <%= image_tag( "category/category-04.png", class: 'h-why-img') %>
-          Foods & Drink
-        </div></a>
+      <div class="col-md-3 col-6">
+        <div class="row">
+          <div class="col-6">
+            <a href="/category/3"><div class="cat-border">
+              <%= image_tag( "category/category-03.png", class: 'h-why-img') %>
+              Stationary
+            </div></a>
+          </div>
+          <div class="col-6">
+            <a href="/category/4"><div class="cat-border">
+              <%= image_tag( "category/category-04.png", class: 'h-why-img') %>
+              Foods & Drink
+            </div></a>
+          </div>
+        </div>
       </div>
 
-      <div class="col-3">
-        <a href="/category/5"><div class="cat-border">
-          <%= image_tag( "category/category-05.png", class: 'h-why-img') %>
-          Kitchen Tools
-        </div></a>
+      <div class="col-md-3 col-6">
+        <div class="row">
+          <div class="col-6">
+            <a href="/category/5"><div class="cat-border">
+              <%= image_tag( "category/category-05.png", class: 'h-why-img') %>
+              Kitchen Tools
+            </div></a>
+          </div>
+          <div class="col-6">
+            <a href="/category/6"><div class="cat-border">
+              <%= image_tag( "category/category-06.png", class: 'h-why-img') %>
+              Tools
+            </div></a>
+          </div>
+        </div>
       </div>
 
-      <div class="col-3">
-        <a href="/category/6"><div class="cat-border">
-          <%= image_tag( "category/category-06.png", class: 'h-why-img') %>
-          Tools
-        </div></a>
-      </div>
-
-      <div class="col-3">
-        <a href="/category/7"><div class="cat-border">
-          <%= image_tag( "category/category-07.png", class: 'h-why-img') %>
-          Automative
-        </div></a>
-      </div>
-
-      <div class="col-3">
-        <a href="/category/8"><div class="cat-border">
-          <%= image_tag( "category/category-08.png", class: 'h-why-img') %>
-          Hobby
-        </div></a>
+      <div class="col-md-3 col-6">
+        <div class="row">
+          <div class="col-6">
+            <a href="/category/7"><div class="cat-border">
+              <%= image_tag( "category/category-07.png", class: 'h-why-img') %>
+              Automative
+            </div></a>
+          </div>
+          <div class="col-6">
+            <a href="/category/8"><div class="cat-border">
+              <%= image_tag( "category/category-08.png", class: 'h-why-img') %>
+              Hobby
+            </div></a>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -156,9 +169,9 @@
       <div class="h-text-1">
         <div class="main">You have your own industry?</div>
         <div class="context">Register your home industry here!</div>
-        <div class="h-btn-register">
-          <%= link_to 'FREE REGISTER', new_user_registration_path, class: 'h-btn-register-text' %>
-        </div>
+          <div class="h-btn-register">
+            <%= link_to 'FREE REGISTER', new_user_registration_path, class: 'h-btn-register-text' %>
+          </div>
       </div>
     </div>
     <div class="col-sm-3">
