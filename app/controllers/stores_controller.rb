@@ -1,6 +1,6 @@
 class StoresController < ApplicationController
 
-	def new 
+	def new
 		if current_user.stores_id?
 			redirect_to store_path(current_user.stores_id)
 		end
@@ -37,13 +37,18 @@ class StoresController < ApplicationController
 	def history
 		@store = Store.find(current_user.stores_id)
 		@transaction = Transaction.where(stores_id: current_user.stores_id).all.order('id DESC')
+		@month = []
+		@monthDict = {1 =>'January', 2 =>'February', 3 =>'March', 4 =>'April', 5 =>'May', 6 =>'June', 7 =>'July', 8 =>'August', 9 =>'September', 10 =>'October', 11 =>'November', 12 =>'December'}
+		for i in 0..12
+			@month << @transaction.where('extract(month from created_at) = ?', i+1)
+		end
 	end
 
 	def execute
 		@order = Order.find(params[:order_id])
 		@item = @order.order_items.find_by(product_id: params[:product])
 		@transaction = Transaction.find_by(order_id: params[:order_id])
-		
+
 		@item.update!(status: "Shipped")
 		@transaction.update!(status: "Shipped")
 		redirect_to store_history_path

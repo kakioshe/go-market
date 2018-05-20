@@ -36,7 +36,7 @@ gem 'devise'
 gem 'paypal-sdk-rest'
 
 gem 'delayed_job_active_record'
-	
+
 gem 'wkhtmltopdf-binary'
 
 gem 'wicked_pdf'
@@ -68,3 +68,6 @@ gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 
 #ransack
 gem 'ransack', github: 'activerecord-hackery/ransack'
+
+#smseasy
+gem 'sms-easy'
