@@ -25,10 +25,19 @@ $(document).on('turbolinks:load', function(){
   });
 
   $('.pd-image-small').click( function (){
+    event.preventDefault();
     var index=$(this).index();
     var targetedsrc = $("img", this).prop("src");
     $('#pd-clicked-image').attr('src', targetedsrc);
-    event.preventDefault();
+    if ($('#pd-clicked-image').get(0).nodeName == 'CANVAS') {
+      document
+      .querySelector('#pd-clicked-image')
+      .removeAttribute('data-caman-id');
+      Caman("#pd-clicked-image", targetedsrc, function() {
+        this.render();
+      });
+
+    }
   });
 
   $('.cp-div-remove').click( function (){
@@ -42,4 +51,32 @@ $(document).on('turbolinks:load', function(){
     $(this).closest('.cp-div-remove').find('img').attr('src','#');
 
   });
+
+  var $reset = $('#resetbtn');
+
+  $reset.on('click', function(e) {
+    $('input[type=range]').val(0);
+    Caman('#pd-clicked-image', function() {
+     this.revert(false);
+     this.render();
+    });
+  });
+
+
 });
+
+ $(document).on('change', 'input[type=range]', function() {
+   var bright = parseInt($('#bright').val());
+   var contr = parseInt($('#contrast').val());
+   var satr = parseInt($('#satr').val());
+   var exp = parseInt($('#expos').val());
+   Caman("#pd-clicked-image", function () {
+     this.revert(false);
+     this.brightness(bright);
+     this.contrast(contr);
+     this.saturation(satr);
+     this.exposure(exp);
+     this.render();
+   });
+
+ });
