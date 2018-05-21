@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
   def index
     @status = ''
+    @store = Store.all
     if params[:term]
       @product = Product.active.where('title LIKE ?', "%#{params[:term]}%")
       @status = params[:term]
