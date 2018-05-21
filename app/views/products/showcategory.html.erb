@@ -1,8 +1,7 @@
 <div id="small-page">
 	<p id="page-title">Category "<%= @category["title"] %>"</p>
 
-
-  <% @prod_cat %>
+	<% if @prod_cat.count > 0 %>
 
 	<% @prod_cat.each_slice(4) do |group_product| %>
 	<div class="row">
@@ -33,6 +32,15 @@
 
 		<% end %>
 	</div>
+	<% end %>
+
+	<% else %>
+
+	<div class="no-product-txt">
+		Sorry :( There is no product
+		<br/>Go back to <%= link_to root_path do%> home <% end %>
+	</div>
+
 	<% end %>
 
 </div>
