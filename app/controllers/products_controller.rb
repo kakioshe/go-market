@@ -56,6 +56,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @category = Category.all
     pic = []
     for picture in @product.pictures
       pic << picture
