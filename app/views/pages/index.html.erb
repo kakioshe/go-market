@@ -47,7 +47,7 @@
 
     <div class="row" style="margin-top:2%;">
 
-      <div class="col-md-3 col-6">
+      <div class="col-lg-3 col-6">
         <div class="row">
           <div class="col-6">
             <a href="/category/1"><div class="cat-border">
@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="col-md-3 col-6">
+      <div class="col-lg-3 col-6">
         <div class="row">
           <div class="col-6">
             <a href="/category/3"><div class="cat-border">
@@ -82,7 +82,7 @@
         </div>
       </div>
 
-      <div class="col-md-3 col-6">
+      <div class="col-lg-3 col-6">
         <div class="row">
           <div class="col-6">
             <a href="/category/5"><div class="cat-border">
@@ -99,7 +99,7 @@
         </div>
       </div>
 
-      <div class="col-md-3 col-6">
+      <div class="col-lg-3 col-6">
         <div class="row">
           <div class="col-6">
             <a href="/category/7"><div class="cat-border">
@@ -123,7 +123,7 @@
     <div class="main">Catalogue</div>
     <div class="context">Dozens of catalogues!</div>
     <div class="row" style="margin-top:2%;">
-      <div class="col-11">
+      <div class="col-md-11 col-9">
 
         <section class="horizontal-scroll">
           <% @product.each do |each_product| %>
@@ -155,7 +155,7 @@
 
       </div>
 
-      <div class="col-1 hc-see-more" onclick="window.location.href = '/catalogue'">
+      <div class="col-md-1 col-3 hc-see-more" onclick="window.location.href = '/catalogue'">
         see
         <br/>more
       </div>
@@ -164,6 +164,9 @@
 
   </div>
 
+  <% if current_user %>
+
+  <% else %>
   <div class="row" style="margin:10% 0%">
     <div class="col-sm-3">
       <div class="h-text-1">
@@ -196,5 +199,6 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>
 <% end %>
