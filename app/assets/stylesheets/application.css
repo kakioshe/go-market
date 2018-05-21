@@ -22,6 +22,8 @@ body {
   font-family: 'Open Sans', sans-serif !important;
 }
 
+
+
 .cart-text a {
   text-decoration: none;
   color: #f07e4a;
@@ -276,6 +278,10 @@ body{
   .verticalLine {display: none}
   .btn-sign-up {margin-left: 0px;}
   .nav-form-search {width: auto}
+  .easy-autocomplete {width: 100% !important}
+  .nav-form-search, .easy-autocomplete input {border-radius: 10px !important; }
+  #nav-form {width: 100%}
+  .nav-btn-search {width: 100%; border-radius: 10px !important;}
 }
 
 @media (max-width: 992px) {
@@ -285,6 +291,7 @@ body{
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
   .nav-form-search {width: 50%;}
+
 }
 
 

@@ -71,3 +71,6 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 
 #smseasy
 gem 'sms-easy'
+
+#calendar
+gem 'google-api-client', require: 'google/apis/calendar_v3'
