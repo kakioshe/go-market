@@ -29,9 +29,13 @@
     </div>
 
     <%= link_to store_path(current_user.stores_id), {:id => 'button-link'} do %>
-      <div class="store-button">
-        <p> Manage Store </p>
+    <div class="row" style="margin-top:5%;">
+      <div class="col-md-12 mx-auto">
+        <div class="store-button">
+          <p> Manage Store </p>
+        </div>
       </div>
+    </div>
     <% end %>
 
 
@@ -72,7 +76,7 @@
       }
     </script>
 
-    <div id="piechart" style="width: 900px; height: 350px;"></div>
+    <div id="piechart" style="width: 100%; height: 350px;"></div>
 
     <div class="row">
       <div class="col-md-12">

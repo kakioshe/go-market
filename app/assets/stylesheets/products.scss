@@ -371,7 +371,11 @@ button:focus, input[type=range]:focus{
   #pd-div-price { height: 20%}
   #pd-div-addtocart { height: 20%}
   #pd-div-seller { height: 20%}
-  #pd-div-sellerinfo { height: 200%}
+  #pd-div-sellerinfo { height: 100%; margin-bottom: 30%}
+}
+
+@media (max-width: 575.98px) {
+
 }
 
 //Catalogue
