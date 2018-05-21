@@ -20,6 +20,14 @@ class StoresController < ApplicationController
 		@store = Store.find(params[:id])
 		@store_products = Product.active.where(stores_id: @store.id).all
 		@store_inactive = Product.inactive.where(stores_id: @store.id).all
+
+		@categories = Category.all
+		@categoryDict = {'Furniture'=>0, 'Fashion'=>0, 'Office & Stationary'=>0, 'Foods & Drinks'=>0, 'Kitchen Tools'=>0, 'Tools'=>0, 'Automative'=>0, 'Hobby'=>0}
+
+		for i in 0..(@categoryDict.count-1)
+			title = @categories.find(i+1).title
+			@categoryDict[title] = @store_products.where(categories_id: i+1).count
+		end
 	end
 
 
