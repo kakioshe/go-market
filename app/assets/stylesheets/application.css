@@ -283,28 +283,6 @@ body{
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#000000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
-@media (max-width: 575.98px) {
-  .verticalLine {display: none}
-  .btn-sign-up {margin-left: 0px;}
-  .nav-form-search {width: auto}
-  .easy-autocomplete {width: 100% !important}
-  .nav-form-search, .easy-autocomplete input {border-radius: 10px !important; }
-  #nav-form {width: 100%}
-  .nav-btn-search {width: 100%; border-radius: 10px !important;}
-}
-
-@media (max-width: 992px) {
-  .nav-btn-allcategory {margin-left: 0px; border-radius: 10px 0px 0px 10px;}
-  .nav-form-search {width: 100%; border-radius: 10px;}
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .nav-form-search {width: 50%;}
-
-}
-
-
-
 h1{
   font-family: 'lato', sans-serif !important;
   font-weight: 800 !important;
@@ -398,4 +376,33 @@ h1{
 .information{
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.navbar-logo{
+  width: 45%;
+}
+
+@media (max-width: 575.98px) {
+  .verticalLine {display: none}
+  .btn-sign-up {margin-left: 0px;}
+  .nav-form-search {width: auto}
+  .easy-autocomplete {width: 100% !important}
+  .nav-form-search, .easy-autocomplete input {border-radius: 10px !important; }
+  #nav-form {width: 100%}
+  .nav-btn-search {width: 100%; border-radius: 10px !important;}
+  .navbar-logo{
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-btn-allcategory {margin-left: 0px; border-radius: 10px 0px 0px 10px;}
+  .nav-form-search {width: 100%; border-radius: 10px;}
+  .navbar-logo{
+    width: 80% !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nav-form-search {width: 50%;}
 }
