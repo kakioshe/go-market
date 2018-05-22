@@ -7,6 +7,7 @@
       }
       /* Optional: Makes the sample page fill the window. */
     </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initMap" async defer></script>
   </head>
   <body>
     <div id="map"></div>
@@ -69,7 +70,6 @@
                               'Error: Your browser doesn\'t support geolocation.');
         currentInfo.open(map);
       }
-
       var locations = [
       <% @product.each do |each_product| %>
       <% position = each_product.maps %>
@@ -79,8 +79,6 @@
 
       <% end %>
       ]
-      google.maps.event.addDomListener(window, "load", initMap);
     </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initMap" async defer></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 <% end %>
