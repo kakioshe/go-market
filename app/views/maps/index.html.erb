@@ -1,0 +1,84 @@
+<% content_for :top_content do %>
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100vh;
+      }
+      /* Optional: Makes the sample page fill the window. */
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initMap" async defer></script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      function initMap() {
+        var brisbane = {lat: -27.4698, lng: 153.0251};
+        var map = new google.maps.Map(document.getElementById('map'), {
+         zoom: 13,
+         center: brisbane
+        });
+        currentInfo = new google.maps.InfoWindow();
+
+        // Try HTML5 geolocation.
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+
+            currentInfo.setPosition(pos);
+            currentInfo.setContent('Your location');
+            currentInfo.open(map);
+            map.setCenter(pos);
+          }, function() {
+            handleLocationError(true, currentInfo, map.getCenter());
+          });
+        } else {
+          // Browser doesn't support Geolocation
+          handleLocationError(false, currentInfo, map.getCenter());
+        }
+
+        // Create an array of alphabetical characters used to label the markers.
+        var productInfo = new google.maps.InfoWindow();
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          var marker = new google.maps.Marker({
+            position: location,
+            label: location.label
+          });
+          google.maps.event.addListener(marker, 'click', function(evt) {
+            productInfo.setContent(location.info);
+            productInfo.open(map, marker);
+          })
+          return marker;
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+           {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+
+      function handleLocationError(browserHasGeolocation, currentInfo, pos) {
+        currentInfo.setPosition(pos);
+        currentInfo.setContent(browserHasGeolocation ?
+                              'Error: The Geolocation service failed.' :
+                              'Error: Your browser doesn\'t support geolocation.');
+        currentInfo.open(map);
+      }
+      var locations = [
+      <% @product.each do |each_product| %>
+      <% position = each_product.maps %>
+      <% position = position.split(',') %>
+
+      {lat: <%= position[0] %>, lng: <%= position[1] %>, label:"<%= each_product.title %>", info:"<a href='<%= request.base_url + product_path(each_product) %>' >See product</a>"},
+
+      <% end %>
+      ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<% end %>

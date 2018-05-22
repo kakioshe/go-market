@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
+  get '/maps', to: 'maps#index'
 
   resource :products
 
