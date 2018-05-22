@@ -2,7 +2,7 @@
   margin-top:3%;
 }
 
-.user-form input {
+.user-form input, .user-form textarea {
   border-radius:5px!important;
   width: 100%;
   padding: .375rem .75rem;
@@ -11,7 +11,7 @@
   transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.user-form input:focus{
+.user-form input:focus, .user-form textarea:focus{
   border-color: #f07e4a !important;
   outline: 0 none !important;
   outline-width: 0 !important;
@@ -29,6 +29,19 @@
       transition: all 250ms ease-out;
 }
 
+.profile-trans-btn {
+  background-image: linear-gradient(to right, #27a8e1, #0173bc);
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 100%;
+  color: white;
+  text-decoration: none;
+}
+
 .user-form a:hover {text-decoration: none; color: #f07e4a; font-weight: 700;}
 
 .user-form input[type=submit] {
@@ -37,10 +50,38 @@
   color: white;
 }
 
-.alert-notice {
+.cssHeaderRow {
+  background-color: white;
+}
+.cssTableRow {
+  background-color: #f2f2f2;
+}
+.cssOddTableRow {
+  background-color: white !important;
+}
+.cssSelectedTableRow {
+  font-weight:bold;
+}
+.cssHoverTableRow {
+  background: #ccc;
+}
+.cssHeaderCell:focus{
+  box-shadow: 0 0 0 0 !important;
+  outline: none;
+  background: rgba(240, 126, 74, 0.2);
+}
 
-  margin-top: 5%;
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
+.cssHeaderCell {
+  color: black;
+  padding: 1% !important;
+  text-align: center;
+  font-size: 120%;
+  transition:  all 250ms ease-out !important;
+}
+.cssTableCell {
+  padding: 10px !important;
+  text-align: center;
+}
+.cssRowNumberCell {
+  text-align: center;
 }

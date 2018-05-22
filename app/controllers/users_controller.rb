@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	def show 
+	def show
 		@user = User.find(params[:id])
 		@transactions = Order.where(:user_id => @user.id).all
 		@name = @user.firstName+" "+@user.lastName
@@ -18,6 +18,8 @@ class UsersController < ApplicationController
 			@flag = false
 		end
 
+		
+
 	end
 
 	def history
@@ -25,12 +27,12 @@ class UsersController < ApplicationController
 		@transactions = Order.where(:user_id => @user.id).where("order_status_id > ?",1).all.order('id DESC')
 	end
 
-	
+
 	def execute
 		@order = Order.find(params[:order_id])
 		@item = @order.order_items.find_by(product_id: params[:product])
 		@transaction = Transaction.find_by(order_id: params[:order_id])
-		
+
 		@item.update!(status: "Finished")
 		@transaction.update!(status: "Finished")
 		redirect_to user_history_path

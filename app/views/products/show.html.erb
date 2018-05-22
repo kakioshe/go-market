@@ -29,10 +29,22 @@
           </div>
       	<% end %>
       </div>
+      <p style="font-weight:700">Do more with the image!</p>
+      Contrast<br/>
+      <input type="range" name="contrast" class="custom-range" min="-100" max="100" id="contrast" value="0">
+      Brightness<br/>
+      <input id="bright" name="bright" class="custom-range" type="range" min="-100" max="100" value="0">
+      Saturation<br/>
+      <input id="satr" name="satr" class="custom-range" type="range" min="-100" max="100" value="0">
+      Exposure<br/>
+      <input id="expos" name="expos" class="custom-range" type="range" min="-100" max="100" value="0">
+
+      <button id="resetbtn" class="btn btn-for-caman">Reset Photo</button>
+
     </div>
 
     <div class="col-sm-5">
-      <% if current_user.stores_id==@product.stores_id %>
+      <% if user_signed_in? and current_user.stores_id==@product.stores_id %>
         <p>
           <div class="row">
             <div class="col-6">
@@ -94,7 +106,17 @@
         seller information
       </div>
       <div id="pd-div-sellerinfo">
-        Change This
+        <% if @store.avatar? %>
+            <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+          <% else %>
+        <%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
+        <% end %>
+
+        <div id="store-information">
+          <p id="store-name"><%= @store.name.upcase %></p>
+          <p id="store-description"><%= @store.description %></p>
+          <br/>
+        </div>
       </div>
     </div>
 

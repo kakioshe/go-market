@@ -1,3 +1,5 @@
+<p id="page-title">Your Cart</p>
+
 <% if !@order_item.nil? && @order_item.errors.any? %>
 	<div class="alert alert-danger">
 		<ul>
@@ -8,19 +10,20 @@
 	</div>
 <% end %>
 
-
 <% if @items.size == 0 %>
 	<p class="cart-information">
 		There are no items in your Cart. Please <%= link_to "add some items", catalogue_path %> to your cart.
   	</p>
 
-<% else %> 
+<% else %>
 	<% @items.size %>
 	<% @items.each do |item| %>
 		<%= render 'carts/cart_row', product: item.product, item: item, show_total: true %>
 	<% end %>
-	<hr />
-	<p class="text-right"> Total Price	: <%= number_to_currency current_order.subtotal %> </p>
-	<%= link_to "Checkout", transactions_checkout_url %>
+	<p class="text-right cart-total-price"> Total Price	: <%= number_to_currency current_order.subtotal %> </p>
+	<%= link_to transactions_checkout_url do %>
+	<div class="checkout-button">
+		Checkout
+	</div>
+	<% end %>
 <% end %>
-

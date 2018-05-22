@@ -30,11 +30,17 @@
 		<% else %>
 
 			<% if current_user.id==@user.id %>
-				<p> Please update your personal information 
+				<p> Please update your personal information
 					<%= link_to 'here'.html_safe, edit_user_registration_path %> </p>
 			<% else %>
 				<p> This user hasn't updated their information </p>
 			<% end %>
+		<% end %>
+
+		<%= link_to user_history_path(@user), {:id => 'button-link'} do %>
+			<div class="profile-trans-btn">
+				<p> See My Orders </p>
+			</div>
 		<% end %>
 
 	</div>
