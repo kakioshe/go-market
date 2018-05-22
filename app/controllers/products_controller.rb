@@ -1,8 +1,11 @@
 class ProductsController < ApplicationController
 
   def index
+    @status = ''
+    @store = Store.all
     if params[:term]
       @product = Product.active.where('title LIKE ?', "%#{params[:term]}%")
+      @status = params[:term]
     else
       @product = Product.active.all
     end
@@ -44,6 +47,7 @@ class ProductsController < ApplicationController
 
   def show
     @product = Product.find(params[:id])
+    @store = Store.find(@product.stores_id)
     @order_item = current_order.order_items.new
     @pictureslink = []
     for picture in @product.pictures
@@ -53,6 +57,7 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @category = Category.all
     pic = []
     for picture in @product.pictures
       pic << picture

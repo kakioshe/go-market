@@ -7,6 +7,13 @@
     <div class="col-sm-3 cp-form-name">Poduct Name </div>
     <div class="col-sm-9"><%= f.text_field :title, class: 'cp-text-field'%></div>
   </div>
+
+  <div class="row cp-form-row">
+    <div class="col-sm-3 cp-form-name">Product Category </div>
+    <div class="col-sm-9">
+      <%= f.collection_select(:categories_id, Category.all, :id, :title, {}, class: "custom-select") %>
+    </div>
+  </div>
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Poduct Picture </div>
     <div class="col-sm-9">
@@ -66,9 +73,5 @@
     <%= f.submit :class => 'cp-submit' %>
 
   <% end %>
-
-  <div class="coba">
-    <button name="button" class="cobacoba">Click me</button>
-  </div>
 
 </div>

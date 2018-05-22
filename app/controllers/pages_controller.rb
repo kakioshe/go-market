@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   before_action :force_json, only: :search
   def index
+    @product = Product.active.all
+    @store = Store.all
   end
 
   def search

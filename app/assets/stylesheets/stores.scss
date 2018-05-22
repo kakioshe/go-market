@@ -2,6 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.add-store {
+  margin: 0% 20%;
+}
+
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -189,6 +194,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 @media (max-width: 575.98px) {
   #s-cat-card {max-width: 48%; margin-top: 3%}
+  .add-store {margin: 0% 10%;}
 }
 
 #s-cat-front-image {

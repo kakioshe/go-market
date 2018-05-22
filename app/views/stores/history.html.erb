@@ -29,12 +29,16 @@
     </div>
 
     <%= link_to store_path(current_user.stores_id), {:id => 'button-link'} do %>
-      <div class="store-button">
-        <p> Manage Store </p>
+    <div class="row" style="margin-top:5%;">
+      <div class="col-md-12 mx-auto">
+        <div class="store-button">
+          <p> Manage Store </p>
+        </div>
       </div>
+    </div>
     <% end %>
 
-    
+
 
   </div>
 
@@ -43,8 +47,36 @@
     <div class="row">
       <div class="col-md-8" id="title-item">
         <p> Transaction </p>
+
       </div>
     </div>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+
+          ['Task', 'Hours per Day'],
+          <% for i in 0..(@month.count-2) %>
+          ['<%= @monthDict[i+1] %>', <%= @month[i].count.to_i %>],
+          <% end %>
+        ]);
+
+        var options = {
+          title: 'Transaction Summary Per Month'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <div id="piechart" style="width: 100%; height: 350px;"></div>
 
     <div class="row">
       <div class="col-md-12">
