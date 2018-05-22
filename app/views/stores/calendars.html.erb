@@ -1,0 +1,11 @@
+<ul style="margin-top:5%;">
+  <% @calendar_list.items.each do |calendar| %>
+    <li><%= calendar.summary %> (<%= calendar.id %>)</li>
+
+    <%= form_tag new_event_url(calendar.id) do %>
+      <%= submit_tag 'Add event' %>
+    <% end %>
+  <% end %>
+
+
+</ul>
