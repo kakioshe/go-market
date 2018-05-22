@@ -3,11 +3,12 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
       #map {
-        height: 100vh;
+        height: 80vh;
       }
       /* Optional: Makes the sample page fill the window. */
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initMap" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div id="map"></div>
