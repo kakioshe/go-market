@@ -324,7 +324,7 @@ button:focus, input[type=range]:focus{
   background-clip: padding-box;
   background: white;
   position: relative;
-  height: 70%;
+  //height: 70%;
   padding: 5% 5%;
   text-align: left;
 }
@@ -350,7 +350,7 @@ button:focus, input[type=range]:focus{
   position: relative;
 }
 
-.pd-div-image img {
+.pd-div-image img, .pd-div-image canvas {
   position: absolute;
     margin: auto;
     top: 0;

@@ -70,6 +70,15 @@ body {
   @extend .alert-info;
 }
 
+.alert-alert, .alert-notice {
+  background: #94d183;
+  width: 100%;
+  padding: 1% 5%;
+  margin: 3% 0% 0% 0%;
+  color: white;
+  font-weight: 700;
+}
+
 .nav-search-bar {
   padding: 10px 16px;
   border: 1px solid #000;

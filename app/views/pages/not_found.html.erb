@@ -8,8 +8,9 @@
 
 <p style="margin-top: 5%;">
 <%= link_to  "/catalogue" do %>
-	<div class="error-button">
-		See GoMarket catalogues
-	</div>
+<div class="no-product-txt">
+	Sorry :(
+	<br/>Go back to <%= link_to root_path do%> home <% end %>
+</div>
 <% end %>
 </p>
