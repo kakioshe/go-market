@@ -116,6 +116,8 @@
         <div id="pd-div-seller">
           seller information
         </div>
+
+        <%= link_to store_path(@product.stores_id) do %>
         <div id="pd-div-sellerinfo">
           <% if @store.avatar? %>
               <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
@@ -129,6 +131,7 @@
             <br/>
           </div>
         </div>
+        <% end %>
       </div>
     <% end %>
   </div>
