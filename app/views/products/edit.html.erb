@@ -162,7 +162,7 @@ function initAutocomplete() {
         title: place.name,
         position: place.geometry.location
       }));
-
+      
       var geoloc = document.getElementById('geoloc');
       var latlang = place.geometry.location.lat() + ',' + place.geometry.location.lng();
       geoloc.value = latlang;

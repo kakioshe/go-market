@@ -49,7 +49,7 @@
 
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Price </div>
-    <div class="col-sm-3"><%= f.text_field :price, class: 'cp-text-field', required: true %></div>
+    <div class="col-sm-3"><%= f.number_field :price, class: 'cp-text-field', required: true %></div>
     <div class="col-sm-3 cp-form-name">Availability</div>
     <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1", required: true %></div>
   </div>
@@ -61,7 +61,6 @@
 
   <div class="col-sm-5 cp-form-name">Location</div>
   <%= f.hidden_field :maps, id:'geoloc' %>
-  <!-- <%= f.text_field :maps, class: 'controls', id:'pac-input', placeholder:'Search box' %> -->
   <input id="pac-input" class="controls" type="text" placeholder="Search Box">
   <div id="map"></div>
 
@@ -81,14 +80,7 @@
 // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 function initAutocomplete() {
-  var geoloc = document.getElementById('geoloc');
-  var geoloc = geoloc.value.split(",");
-  if (isNaN(parseFloat(geoloc[0]))) {
-    var currentloc = {lat: -25.274398, lng: 133.77513599999997};
-  }
-  else {
-    var currentloc = {lat: parseFloat(geoloc[0]), lng: parseFloat(geoloc[1])};
-  }
+  var currentloc = {lat: -25.274398, lng: 133.77513599999997};
   var map = new google.maps.Map(document.getElementById('map'), {
     center: currentloc,
     zoom: 5,
