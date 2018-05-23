@@ -50,7 +50,7 @@
               <div class="cp-picture_field">
                 <%= picture_field.file_field(:image, accept: 'image/png,image/gif,image/jpeg', id: 'cp-picture') %>
               </div>
-              <div class="cp-choose-pic">Remove</div>
+              <div class="cp-choose-pic">Change</div>
               <div class='clearfix'></div>
             </div>
           </div>
@@ -64,8 +64,7 @@
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Price </div>
     <div class="col-sm-3"><%= f.number_field :price, class: 'cp-text-field', required: true, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %></div>
-    <div class="col-sm-3 cp-form-name">Availability</div>
-    <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1" %></div>
+      <%= f.hidden_field :availability, value:'1' %>
   </div>
 
   <div class="row cp-form-row">
