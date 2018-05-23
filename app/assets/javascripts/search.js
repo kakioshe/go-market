@@ -17,6 +17,5 @@ document.addEventListener("turbolinks:load", function() {
       }
     }
 };
-  console.log(options);
   $input.easyAutocomplete(options);
 });
