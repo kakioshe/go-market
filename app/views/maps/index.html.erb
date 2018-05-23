@@ -72,11 +72,13 @@
                               'Error: Your browser doesn\'t support geolocation.');
         currentInfo.open(map);
       }
+
       var locations = [
       <% @product.each do |each_product| %>
       <% position = each_product.maps %>
       <% next if position.nil? %>
       <% position = position.split(',') %>
+      <% next if position[0].nil? %>
 
       {lat: <%= position[0] %>, lng: <%= position[1] %>, label:"<%= each_product.title %>", info:"<a href='<%= request.base_url + product_path(each_product) %>' >See product</a>"},
 

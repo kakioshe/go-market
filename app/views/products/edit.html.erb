@@ -95,6 +95,7 @@
 
 function initAutocomplete() {
   var geoloc = document.getElementById('geoloc');
+  console.log(geoloc.value);
   var geoloc = geoloc.value.split(",");
   if (isNaN(parseFloat(geoloc[0]))) {
     var currentloc = {lat: -27.4698, lng: 153.0251};
@@ -162,7 +163,7 @@ function initAutocomplete() {
         title: place.name,
         position: place.geometry.location
       }));
-      
+
       var geoloc = document.getElementById('geoloc');
       var latlang = place.geometry.location.lat() + ',' + place.geometry.location.lng();
       geoloc.value = latlang;
