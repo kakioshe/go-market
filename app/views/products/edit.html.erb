@@ -62,7 +62,7 @@
 
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Price </div>
-    <div class="col-sm-3"><%= f.text_field :price, class: 'cp-text-field' %></div>
+    <div class="col-sm-3"><%= f.number_field :price, class: 'cp-text-field', required: true, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %></div>
     <div class="col-sm-3 cp-form-name">Availability</div>
     <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1" %></div>
   </div>
@@ -95,20 +95,29 @@
 
 function initAutocomplete() {
   var geoloc = document.getElementById('geoloc');
+  console.log(geoloc.value);
   var geoloc = geoloc.value.split(",");
-  var currentloc = {lat: parseFloat(geoloc[0]), lng: parseFloat(geoloc[1])};
-  console.log(currentloc);
+  if (isNaN(parseFloat(geoloc[0]))) {
+    var currentloc = {lat: -25.274398, lng: 133.77513599999997};
+    var zoomnumber = 5;
+  }
+  else {
+    var currentloc = {lat: parseFloat(geoloc[0]), lng: parseFloat(geoloc[1])};
+    var zoomnumber = 16;
+  }
   var map = new google.maps.Map(document.getElementById('map'), {
     center: currentloc,
-    zoom: 16,
+    zoom: zoomnumber,
     mapTypeId: 'roadmap'
   });
 
-  var marker = new google.maps.Marker({
-    position: currentloc,
-    map: map,
-    label: 'Current product location'
-  });
+  if (currentloc['lat'] != -25.274398 && currentloc['lng'] != 133.77513599999997){
+    var marker = new google.maps.Marker({
+      position: currentloc,
+      map: map,
+      label: 'Current product location'
+    });
+  }
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');

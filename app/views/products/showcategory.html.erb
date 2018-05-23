@@ -24,8 +24,7 @@
 					<div id="cat-desc">
 						<p class="cat-desc-title"><%= each_product.title %></p>
 						<p class="cat-desc-price">$ <%= each_product.price %> </p>
-						<p>Deco Deco Shop </p>
-						<p>Toowong, 2 km</p>
+						<br/><p class="h-cat-desc-store"><%= @store.find(each_product.stores_id).name %></p>
 					</div>
 					<% end %>
 				</div>

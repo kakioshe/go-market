@@ -78,7 +78,9 @@
            <% end %>
           <!-- </form>-->
 
-          <%= render 'layouts/cart_text' %>
+          <% if user_signed_in? %>
+            <%= render 'layouts/cart_text' %>
+          <% end %>
 
           <ul class="navbar-nav mr-auto profile">
             <% if user_signed_in? %>
