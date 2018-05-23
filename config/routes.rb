@@ -39,6 +39,13 @@ get '/store/history', to: 'stores#history'
 get '/user/history', to: 'users#history'
 post '/store/history/execute', to: 'stores#execute'
 post '/user/history/execute', to: 'users#execute'
+
+get '/redirect', to: 'stores#redirect', as: 'redirect'
+get '/calendarcallback', to: 'stores#callback', as: 'callback'
+get '/stores/:id/calendars', to: 'stores#calendars', as: 'calendars'
+get '/events/:calendar_id', to: 'stores#events', as: 'events', calendar_id: /[^\/]+/
+post '/events/:calendar_id', to: 'stores#new_event', as: 'new_event', calendar_id: /[^\/]+/
+
   match "404", :to => "pages#not_found", :via => :all
   match "500", :to => "pages#internal_server_error", :via => :all
 end

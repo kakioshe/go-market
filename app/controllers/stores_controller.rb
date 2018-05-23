@@ -20,6 +20,7 @@ class StoresController < ApplicationController
 		@store = Store.find(params[:id])
 		@store_products = Product.active.where(stores_id: @store.id).all
 		@store_inactive = Product.inactive.where(stores_id: @store.id).all
+		@check = session[:authorization]
 
 		@categories = Category.all
 		@categoryDict = {'Furniture'=>0, 'Fashion'=>0, 'Office & Stationary'=>0, 'Foods & Drinks'=>0, 'Kitchen Tools'=>0, 'Tools'=>0, 'Automative'=>0, 'Hobby'=>0}
@@ -60,8 +61,88 @@ class StoresController < ApplicationController
 		@item.update!(status: "Shipped")
 		@transaction.update!(status: "Shipped")
 		redirect_to store_history_path
-
 	end
+
+	def redirect
+    client = Signet::OAuth2::Client.new(client_options)
+
+    redirect_to client.authorization_uri.to_s
+  end
+
+	def callback
+    client = Signet::OAuth2::Client.new(client_options)
+		client.update!(session[:authorization])
+    client.code = params[:code]
+
+    response = client.fetch_access_token!
+
+    session[:authorization] = response
+
+    redirect_to calendars_path(current_user.stores_id)
+  end
+
+	def calendars
+		@store = Store.find(params[:id])
+    client = Signet::OAuth2::Client.new(client_options)
+    client.update!(session[:authorization])
+
+    service = Google::Apis::CalendarV3::CalendarService.new
+    service.authorization = client
+
+    @calendar_list = service.list_calendar_lists
+  rescue Google::Apis::AuthorizationError
+    response = client.refresh!
+
+    session[:authorization] = session[:authorization].merge(response)
+
+    retry
+  end
+
+	def events
+    client = Signet::OAuth2::Client.new(client_options)
+    client.update!(session[:authorization])
+
+    service = Google::Apis::CalendarV3::CalendarService.new
+    service.authorization = client
+
+    @event_list = service.list_events(params[:calendar_id])
+  end
+
+	def new_event
+    client = Signet::OAuth2::Client.new(client_options)
+    client.update!(session[:authorization])
+
+    service = Google::Apis::CalendarV3::CalendarService.new
+    service.authorization = client
+
+		cal_name = params[:event][:name]
+		cal_date = params[:event][:date].to_date
+
+    today = Date.today
+
+    event = Google::Apis::CalendarV3::Event.new({
+      start: Google::Apis::CalendarV3::EventDateTime.new(date: cal_date),
+			end: Google::Apis::CalendarV3::EventDateTime.new(date: cal_date + 1),
+      summary: cal_name
+    })
+
+    service.insert_event(params[:calendar_id], event)
+
+		redirect_to calendars_path(current_user.stores_id), :notice => "Successfully create event"
+  end
+
+  private
+
+  def client_options
+    {
+      client_id: Rails.application.secrets.google_client_id,
+      client_secret: Rails.application.secrets.google_client_secret,
+      authorization_uri: 'https://accounts.google.com/o/oauth2/auth',
+      token_credential_uri: 'https://accounts.google.com/o/oauth2/token',
+      scope: Google::Apis::CalendarV3::AUTH_CALENDAR,
+      redirect_uri: 'http://localhost:3000/calendarcallback'
+    }
+  end
 
 	private
 
