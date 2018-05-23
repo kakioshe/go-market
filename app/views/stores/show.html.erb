@@ -44,6 +44,23 @@
 						</div>
 					<% end %>
 
+					<% if @check %>
+
+					<%= link_to calendars_path(@store), {:id => 'button-link'} do %>
+						<div class="store-button">
+							<p> See Calendars </p>
+						</div>
+					<% end %>
+
+					<% else %>
+					<%= link_to redirect_path, {:id => 'button-link'} do %>
+						<div class="store-button">
+							<p> Link your Calendars </p>
+						</div>
+					<% end %>
+
+					<% end %>
+
 				</div>
 			</div>
 		<% end %>

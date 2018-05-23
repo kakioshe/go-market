@@ -42,7 +42,7 @@ post '/user/history/execute', to: 'users#execute'
 
 get '/redirect', to: 'stores#redirect', as: 'redirect'
 get '/calendarcallback', to: 'stores#callback', as: 'callback'
-get '/calendars', to: 'stores#calendars', as: 'calendars'
+get '/stores/:id/calendars', to: 'stores#calendars', as: 'calendars'
 get '/events/:calendar_id', to: 'stores#events', as: 'events', calendar_id: /[^\/]+/
 post '/events/:calendar_id', to: 'stores#new_event', as: 'new_event', calendar_id: /[^\/]+/
 

@@ -20,6 +20,7 @@ class StoresController < ApplicationController
 		@store = Store.find(params[:id])
 		@store_products = Product.active.where(stores_id: @store.id).all
 		@store_inactive = Product.inactive.where(stores_id: @store.id).all
+		@check = session[:authorization]
 
 		@categories = Category.all
 		@categoryDict = {'Furniture'=>0, 'Fashion'=>0, 'Office & Stationary'=>0, 'Foods & Drinks'=>0, 'Kitchen Tools'=>0, 'Tools'=>0, 'Automative'=>0, 'Hobby'=>0}
@@ -60,7 +61,6 @@ class StoresController < ApplicationController
 		@item.update!(status: "Shipped")
 		@transaction.update!(status: "Shipped")
 		redirect_to store_history_path
-
 	end
 
 	def redirect
@@ -82,6 +82,7 @@ class StoresController < ApplicationController
   end
 
 	def calendars
+		@store = Store.find(params[:id])
     client = Signet::OAuth2::Client.new(client_options)
     client.update!(session[:authorization])
 

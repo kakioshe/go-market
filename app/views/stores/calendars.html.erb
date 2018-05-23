@@ -1,11 +1,77 @@
-<ul style="margin-top:5%;">
-  <% @calendar_list.items.each do |calendar| %>
-    <li><%= calendar.summary %> (<%= calendar.id %>)</li>
-
-    <%= form_tag new_event_url(calendar.id) do %>
-      <%= submit_tag 'Add event' %>
-    <% end %>
-  <% end %>
 
 
-</ul>
+<div class="row" style="margin-top:5%;">
+	<div class="col-md-3">
+		<div class="row">
+			<div class="col-md-12" id="seller-card">
+				<div id="st-info">
+					Seller Information
+				</div>
+
+
+				<div id="st-storeinfo">
+					<% if @store.avatar? %>
+				      <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+				    <% else %>
+					<%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
+				    <% end %>
+					<div id="store-information">
+						<p id="store-name"><%= @store.name.upcase %></p>
+						<p id="store-description"><%= @store.description %></p>
+
+						<% if current_user.stores_id==@store.id %>
+							<div class="col-md-2 right-align-card">
+								<%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
+							</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<% if current_user.stores_id==@store.id %>
+			<div class="row" style="margin-top:5%;">
+				<div class="col-md-12 mx-auto">
+					<%= link_to store_path(@store), {:id => 'button-link'} do %>
+						<div class="store-button">
+							<p> Manage Store </p>
+						</div>
+					<% end %>
+
+				</div>
+			</div>
+		<% end %>
+	</div>
+
+
+	<div class="col-md-8">
+    <div class="" id="title-item">
+
+      <p> Your Google Calendar </p>
+    </div>
+
+    <div class="row">
+      <% @calendar_list.items.each do |calendar| %>
+      <div class="col-6">
+        <div class="calendar-title">
+          <%= calendar.summary %>
+        </div>
+
+        <%= form_for(@event, url: new_event_url(calendar.id) ) do |f| %>
+
+          <div class="calendar-div">
+            <%= f.text_field :name, class: 'calendar-field', required: true, placeholder: "Your Event Name" %>
+          </div>
+
+          <div class="calendar-div">
+            <%= f.date_field :date, min: Date.today,  class: 'calendar-field', required: true %>
+          </div>
+
+          <%= f.submit 'Add event', class: 'str-submit-btn' %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+
+  </div>
