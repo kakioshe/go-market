@@ -1,1 +1,12 @@
-<%= @message %>
+<h1 style="font-weight: 700; margin-top: 5%;">
+	Whoops!
+</h1>
+
+<h3> <%= @message['details'][0]['issue'] %> </h3>
+
+<p style="margin-top: 5%;">
+<div class="no-product-txt">
+	Sorry :(
+	<br/>Go back to <%= link_to root_path do%> home <% end %>
+</div>
+</p>
