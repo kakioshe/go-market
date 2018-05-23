@@ -2,7 +2,9 @@
 
 	<div class="row carts-row ">
 		<div class="col-md-2 col-6">
-      <%= image_tag( product.pictures[0].image.url, id: 'pd-image', class: 'pd-image cart-image') %>
+			<% unless product.pictures[0].nil? %>
+      	<%= image_tag( product.pictures[0].image.url, id: 'pd-image', class: 'pd-image cart-image') %>
+			<% end %>
      </div>
 		<div class="col-md-4 col-6">
 			<p class="cart_product_name"><%= product.title %></p>
