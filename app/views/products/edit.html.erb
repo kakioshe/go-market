@@ -98,22 +98,26 @@ function initAutocomplete() {
   console.log(geoloc.value);
   var geoloc = geoloc.value.split(",");
   if (isNaN(parseFloat(geoloc[0]))) {
-    var currentloc = {lat: -27.4698, lng: 153.0251};
+    var currentloc = {lat: -25.274398, lng: 133.77513599999997};
+    var zoomnumber = 5;
   }
   else {
     var currentloc = {lat: parseFloat(geoloc[0]), lng: parseFloat(geoloc[1])};
+    var zoomnumber = 16;
   }
   var map = new google.maps.Map(document.getElementById('map'), {
     center: currentloc,
-    zoom: 16,
+    zoom: zoomnumber,
     mapTypeId: 'roadmap'
   });
 
-  var marker = new google.maps.Marker({
-    position: currentloc,
-    map: map,
-    label: 'Current product location'
-  });
+  if (currentloc['lat'] != -25.274398 && currentloc['lng'] != 133.77513599999997){
+    var marker = new google.maps.Marker({
+      position: currentloc,
+      map: map,
+      label: 'Current product location'
+    });
+  }
 
   // Create the search box and link it to the UI element.
   var input = document.getElementById('pac-input');
