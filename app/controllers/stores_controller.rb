@@ -78,7 +78,7 @@ class StoresController < ApplicationController
 
     session[:authorization] = response
 
-    redirect_to calendars_url
+    redirect_to calendars_path(current_user.stores_id)
   end
 
 	def calendars
@@ -115,17 +115,20 @@ class StoresController < ApplicationController
     service = Google::Apis::CalendarV3::CalendarService.new
     service.authorization = client
 
+		cal_name = params[:event][:name]
+		cal_date = params[:event][:date].to_date
+
     today = Date.today
 
     event = Google::Apis::CalendarV3::Event.new({
-      start: Google::Apis::CalendarV3::EventDateTime.new(date: today),
-      end: Google::Apis::CalendarV3::EventDateTime.new(date: today + 1),
-      summary: 'New event!'
+      start: Google::Apis::CalendarV3::EventDateTime.new(date: cal_date),
+			end: Google::Apis::CalendarV3::EventDateTime.new(date: cal_date + 1),
+      summary: cal_name
     })
 
     service.insert_event(params[:calendar_id], event)
 
-    redirect_to events_url(calendar_id: params[:calendar_id])
+		redirect_to calendars_path(current_user.stores_id), :notice => "Successfully create event"
   end
 
   private

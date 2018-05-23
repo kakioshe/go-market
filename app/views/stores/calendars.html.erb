@@ -1,6 +1,6 @@
 
 
-<div class="row" style="margin-top:5%;">
+<div class="row" style="margin-top:5%; margin-bottom: 3%">
 	<div class="col-md-3">
 		<div class="row">
 			<div class="col-md-12" id="seller-card">
@@ -57,7 +57,7 @@
           <%= calendar.summary %>
         </div>
 
-        <%= form_for(@event, url: new_event_url(calendar.id) ) do |f| %>
+        <%= form_for(:event, url: new_event_url(calendar.id) ) do |f| %>
 
           <div class="calendar-div">
             <%= f.text_field :name, class: 'calendar-field', required: true, placeholder: "Your Event Name" %>
