@@ -1,3 +1,4 @@
+<% content_for :title, "Product - " %>
 <div class="error-text">
 
 </div>
@@ -29,6 +30,8 @@
           </div>
       	<% end %>
       </div>
+      <% picture = @product.pictures[0] %>
+      <% unless picture.nil? %>
       <p style="font-weight:700">Do more with the image!</p>
       Contrast<br/>
       <input type="range" name="contrast" class="custom-range" min="-100" max="100" id="contrast" value="0">
@@ -40,7 +43,7 @@
       <input id="expos" name="expos" class="custom-range" type="range" min="-100" max="100" value="0">
 
       <button id="resetbtn" class="btn btn-for-caman">Reset Photo</button>
-
+      <% end %>
     </div>
 
     <div class="col-sm-5">
@@ -97,7 +100,11 @@
         <%= f.hidden_field :order_status_id, value: 1 %>
       </div>
       <div id="pd-div-addtocart">
-        <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+        <% if user_signed_in? %>
+          <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+        <% else %>
+          <a href="/users/sign_up"><input name="commit" value="REGISTER TO BUY" class="btn btn-outline-primary cart-button" data-disable-with="REGISTER"></a>
+        <% end %>
       </div>
       <%end%>
 

@@ -92,6 +92,7 @@ class ProductsController < ApplicationController
   def showcategory
     @category = Category.find(params[:id])
     @product = Product.all
+    @store = Store.all
     @prod_cat = []
     for product in @product
       if product["categories_id"].to_s == params[:id].to_s

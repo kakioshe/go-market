@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GoMarket</title>
+    <title><%= yield(:title) %> Go Market</title>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Logo on tab -->
+    <%= favicon_link_tag 'logo-05.png' %>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -78,7 +81,9 @@
            <% end %>
           <!-- </form>-->
 
-          <%= render 'layouts/cart_text' %>
+          <% if user_signed_in? %>
+            <%= render 'layouts/cart_text' %>
+          <% end %>
 
           <ul class="navbar-nav mr-auto profile">
             <% if user_signed_in? %>

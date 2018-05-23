@@ -1,3 +1,126 @@
+/* line 5, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.carts-row {
+  border-bottom: 0.5px solid #f07e4a;
+  padding-bottom: 2%;
+}
+
+/* line 10, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-price:focus {
+  border-color: #f07e4a !important;
+  outline: 0 none;
+  box-shadow: 0 0 0 0 !important;
+}
+
+/* line 16, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-update {
+  font-size: 100% !important;
+  border-color: #f07e4a !important;
+  border: 1px solid;
+  background-color: #f07e4a !important;
+  color: white;
+  opacity: 1;
+  transition: all 0.25s ease !important;
+}
+
+/* line 26, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-delete {
+  font-size: 100% !important;
+  border-color: #f07e4a !important;
+  border: 1px solid;
+  color: black;
+  text-decoration: none;
+}
+
+/* line 34, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-update:focus, .cart-delete:focus {
+  box-shadow: 0 0 0 0 !important;
+}
+
+/* line 38, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-update:hover {
+  opacity: 0.7;
+}
+
+/* line 42, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-delete:hover {
+  background-color: rgba(240, 126, 74, 0.3) !important;
+  color: black;
+}
+
+/* line 47, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-button {
+  color: white !important;
+  font-weight: 800 !important;
+  width: 100%;
+  border-color: transparent !important;
+  border-radius: 10px;
+}
+
+/* line 55, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-price {
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+}
+
+/* line 60, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart_product_name {
+  font-weight: 700;
+  font-size: 150%;
+}
+
+/* line 65, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-quantity {
+  background-color: white;
+}
+
+/* line 69, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-item {
+  padding-bottom: 50px;
+}
+
+/* line 73, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart_total {
+  object-fit: fill;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: green;
+  text-align: center !important;
+  font-weight: 700;
+  font-size: 120%;
+}
+
+/* line 87, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.cart-total-price {
+  font-size: 150%;
+  font-weight: 700;
+}
+
+/* line 92, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.checkout-button {
+  background-image: linear-gradient(to right, #27a8e1, #0173bc);
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 100%;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 0;
+  transition: all 0.25s ease !important;
+}
+
+/* line 107, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/carts.scss */
+.checkout-button:hover {
+  text-decoration: none;
+  color: white;
+  opacity: 0.9;
+}
 /*
  * easy-autocomplete
  * jQuery plugin for autocompletion
@@ -594,7 +717,7 @@
   border-radius: 10px;
   padding: 5%;
   text-align: center;
-  font-size: 150%;
+  font-size: 90%;
   text-decoration: none;
   -webkit-transition: all 250ms ease-out;
   -moz-transition: all 250ms ease-out;
@@ -610,27 +733,27 @@
 
 /* line 46, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-text-cat img {
-  width: 150px;
+  width: 100px;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
 
-/* line 53, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 56, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-text-1 {
   font-size: 120%;
   margin-top: 2%;
   margin-bottom: 1%;
 }
 
-/* line 54, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 57, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-text-c {
   margin-top: 2%;
   margin-bottom: 1%;
   padding: 0;
 }
 
-/* line 56, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 59, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-text-c .horizontal-scroll {
   background-color: white;
   overflow: hidden;
@@ -640,7 +763,7 @@
   padding: 10px 0px;
 }
 
-/* line 65, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 68, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .hc-item {
   border: 1px solid #dddcdc;
   border-radius: 10px 10px 10px 10px;
@@ -656,13 +779,13 @@
   transition: all 250ms ease-out;
 }
 
-/* line 80, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 83, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .hc-item:hover {
   transform: scale(1.02);
   box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 85, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 88, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .hc-see-more {
   padding: 30px 0;
   background: linear-gradient(to left, #0071bc, #29abe2);
@@ -671,12 +794,12 @@
   color: white;
 }
 
-/* line 93, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 96, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .hc-see-more:hover {
   cursor: pointer;
 }
 
-/* line 95, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 98, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-btn-register {
   width: 80%;
   background: linear-gradient(to left, #f07e4a, #f0b84b);
@@ -685,25 +808,25 @@
   margin-top: 4%;
 }
 
-/* line 103, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 106, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-btn-register:hover {
   cursor: pointer;
 }
 
-/* line 104, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 107, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-btn-register-text {
   color: white;
   font-weight: 700;
   text-decoration: none;
 }
 
-/* line 105, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 108, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-btn-register-text:hover {
   text-decoration: none;
   color: white;
 }
 
-/* line 107, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 110, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-why-img {
   width: 100px;
   margin-left: auto;
@@ -711,7 +834,7 @@
   display: block;
 }
 
-/* line 114, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 117, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 #h-cat-div-image {
   background-color: #f1f1f1;
   border-radius: 10px 10px 0px 0px;
@@ -723,7 +846,7 @@
   line-height: 200px;
 }
 
-/* line 125, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 128, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 #h-cat-desc {
   background: white;
   padding: 5% 8%;
@@ -731,41 +854,54 @@
   border-radius: 0px 0px 10px 10px;
 }
 
-/* line 132, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 135, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 #h-cat-desc p {
   margin: 0;
 }
 
-/* line 133, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 136, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 .h-cat-desc-title {
   font-weight: 700;
 }
 
+/* line 138, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+.h-cat-desc-store {
+  font-weight: 700;
+  color: #707070;
+  font-size: 90%;
+}
+
 @media (max-width: 575.98px) {
-  /* line 136, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+  /* line 141, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
   #h-cat-card {
     max-width: 48%;
     margin-top: 3%;
   }
 
-  /* line 137, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+  /* line 142, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
   .h-text-cat img {
     width: 100px;
   }
 
-  /* line 138, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+  /* line 143, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
   .h-text-cat .cat-border {
     font-size: 80%;
   }
 }
-/* line 142, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+@media (max-width: 575.98px) {
+  /* line 148, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+  .h-text-cat img {
+    width: 60px;
+  }
+}
+/* line 155, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 #cat-front-image {
   max-width: 100%;
   max-height: 200px;
   vertical-align: middle;
 }
 
-/* line 148, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
+/* line 161, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/pages.scss */
 #cat-product-card {
   color: inherit;
   text-decoration: none;
@@ -787,17 +923,42 @@
 }
 
 /* line 21, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.btn-for-caman {
+  padding: 2% 2%;
+  margin: 8% 3%;
+  background: white;
+  border: 1px solid #f07e4a !important;
+  font-size: 100% !important;
+  -webkit-transition: all 250ms ease-out;
+  -moz-transition: all 250ms ease-out;
+  -ms-transition: all 250ms ease-out;
+  -o-transition: all 250ms ease-out;
+  transition: all 250ms ease-out;
+}
+
+/* line 35, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.btn-for-caman:hover {
+  background: rgba(240, 126, 74, 0.2);
+}
+
+/* line 39, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+button:focus, input[type=range]:focus {
+  box-shadow: 0 0 0 0 !important;
+  outline: 0 !important;
+}
+
+/* line 44, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-pic {
   width: 50%;
 }
 
-/* line 25, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 48, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-pic::after {
   content: "";
   display: block;
 }
 
-/* line 30, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 53, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-pic .cp-pic-button {
   -webkit-transition: .3s;
   transation: .3s;
@@ -812,18 +973,18 @@
   cursor: pointer;
 }
 
-/* line 44, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 67, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-pic .cp-pic-button:hover {
   background-color: #263238;
   color: #aaa;
 }
 
-/* line 49, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 72, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-pic .cp-pic-button:hover i {
   color: #aaa;
 }
 
-/* line 53, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 76, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-pic .cp-pic-button #cp-picture {
   width: 100%;
   opacity: 0;
@@ -832,12 +993,12 @@
   left: 0;
 }
 
-/* line 61, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 84, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-picture-field {
   display: none;
 }
 
-/* line 66, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 89, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-picupload {
   width: 100%;
   height: 200px;
@@ -847,7 +1008,7 @@
   border-radius: 5px 5px 0px 0px;
 }
 
-/* line 75, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 98, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-div-picupload img {
   object-fit: fill;
   margin: auto;
@@ -856,12 +1017,12 @@
   width: auto;
 }
 
-/* line 83, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 106, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-miss-pic {
   display: none;
 }
 
-/* line 87, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 110, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-text-field {
   border-radius: 5px;
   width: 100%;
@@ -871,13 +1032,13 @@
   transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-/* line 96, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 119, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-text-field:focus {
   border-color: #f07e4a;
   outline: 0 none;
 }
 
-/* line 101, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 124, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-submit {
   border-radius: 5px;
   display: inline-block;
@@ -901,30 +1062,30 @@
   box-shadow: 3px 3px 18px 0px rgba(0, 0, 0, 0.25);
 }
 
-/* line 124, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 147, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-submit:focus {
   border-color: #f07e4a;
   outline: 0 none;
 }
 
-/* line 129, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 152, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-form-name {
   font-weight: 700;
   font-size: 120%;
 }
 
-/* line 130, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 153, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-form-row {
   margin-bottom: 2%;
 }
 
-/* line 131, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 154, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cp-choose-pic {
   font-weight: 400;
   font-style: italic;
 }
 
-/* line 136, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 159, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-image-small {
   max-width: 30%;
   height: 100px;
@@ -941,16 +1102,17 @@
   transition: all 250ms ease-out;
 }
 
-/* line 152, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 175, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-image-small:hover {
   opacity: 0.8;
   background-color: rgba(0, 0, 0, 0.1);
 }
 
-/* line 157, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 180, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-image {
-  width: 100%;
-  height: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: fill;
   position: absolute;
   margin: auto;
@@ -960,7 +1122,7 @@
   bottom: 0;
 }
 
-/* line 169, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 193, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-price {
   max-width: 100%;
   border-radius: 10px 10px 0px 0px;
@@ -973,7 +1135,7 @@
   text-align: left;
 }
 
-/* line 181, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 205, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-price::after {
   position: absolute;
   background: linear-gradient(to left, #3284c7 1%, #45B7E7 100%);
@@ -986,7 +1148,7 @@
   border-radius: 10px 10px 0px 0px;
 }
 
-/* line 192, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 216, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .product-button {
   background-image: linear-gradient(to right, #27a8e1, #0173bc);
   padding: 10px;
@@ -1000,12 +1162,12 @@
   text-decoration: none;
 }
 
-/* line 205, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 229, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .de-ac .product-button {
   background-image: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
 }
 
-/* line 209, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 233, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #p-button-link, .de-ac a {
   font-weight: 700;
   font-size: 100%;
@@ -1014,17 +1176,17 @@
   width: 100%;
 }
 
-/* line 217, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 241, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #p-button-link p, .de-ac p {
   margin: 0px !important;
 }
 
-/* line 221, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 245, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .de-ac a:hover {
   text-decoration: none;
 }
 
-/* line 223, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 247, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .pd-price-txt {
   text-align: center;
   font-weight: 700;
@@ -1032,7 +1194,7 @@
   margin-bottom: 2%;
 }
 
-/* line 230, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 254, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cart-button {
   color: white !important;
   font-weight: 800 !important;
@@ -1042,7 +1204,7 @@
   border-radius: 10px;
 }
 
-/* line 239, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 263, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-addtocart {
   max-width: 100%;
   position: relative;
@@ -1060,7 +1222,7 @@
   color: white;
 }
 
-/* line 257, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 281, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-addtocart::after {
   position: absolute;
   background: linear-gradient(to left, #3284c7 1%, #45B7E7 100%);
@@ -1073,7 +1235,7 @@
   border-radius: 0px 0px 10px 10px;
 }
 
-/* line 267, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 291, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-seller {
   margin-top: 10%;
   max-width: 100%;
@@ -1092,7 +1254,7 @@
   color: white;
 }
 
-/* line 286, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 310, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-seller::after {
   position: absolute;
   background: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
@@ -1105,7 +1267,7 @@
   border-radius: 10px 10px 0px 0px;
 }
 
-/* line 296, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 320, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-sellerinfo {
   max-width: 100%;
   border-radius: 0px 0px 10px 10px;
@@ -1113,12 +1275,11 @@
   background-clip: padding-box;
   background: white;
   position: relative;
-  height: 70%;
   padding: 5% 5%;
   text-align: left;
 }
 
-/* line 308, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 332, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #pd-div-sellerinfo::after {
   position: absolute;
   background: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
@@ -1131,7 +1292,7 @@
   border-radius: 0px 0px 10px 10px;
 }
 
-/* line 319, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 343, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .pd-div-image {
   width: 100%;
   height: 350px;
@@ -1142,8 +1303,8 @@
   position: relative;
 }
 
-/* line 329, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
-.pd-div-image img {
+/* line 353, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.pd-div-image img, .pd-div-image canvas {
   position: absolute;
   margin: auto;
   top: 0;
@@ -1152,44 +1313,62 @@
   bottom: 0;
 }
 
-/* line 338, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 362, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .pd-clicked-image {
   max-height: 350px;
   max-width: 100%;
 }
 
-/* line 344, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 367, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #small-page {
   margin: 5% 4%;
 }
 
 @media (max-width: 575.98px) {
-  /* line 347, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+  /* line 370, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
   #small-page {
     margin: 3% 4%;
   }
 
-  /* line 348, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+  /* line 371, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
   #pd-div-price {
     height: 20%;
   }
 
-  /* line 349, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+  /* line 372, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
   #pd-div-addtocart {
     height: 20%;
   }
 
-  /* line 350, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+  /* line 373, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
   #pd-div-seller {
     height: 20%;
   }
 
-  /* line 351, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+  /* line 374, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
   #pd-div-sellerinfo {
-    height: 200%;
+    height: 100%;
+    margin-bottom: 30%;
   }
 }
-/* line 356, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 383, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.no-product-txt {
+  color: #5b5b5b;
+  width: 100%;
+  text-align: center;
+  padding: 3%;
+  border: 1px solid #5b5b5b;
+  border-radius: 8px;
+  font-size: 150%;
+}
+
+/* line 393, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.no-product-txt a, .no-product-txt a:hover {
+  text-decoration: none;
+  color: #f07e4a;
+}
+
+/* line 399, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .sort-dropdown button, .sort-dropdown button:focus, .sort-dropdown button:active {
   background: linear-gradient(to left, #f07e4a, #f0b84b) !important;
   color: white;
@@ -1200,29 +1379,29 @@
   width: 200px;
 }
 
-/* line 366, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 409, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .sort-dropdown {
-  float: right;
+  right: 0;
   margin-top: 2%;
 }
 
-/* line 368, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 411, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .sort-dropdown ul {
   width: 200px;
 }
 
-/* line 370, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 413, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .sort-dropdown ul a {
   font-size: 100%;
   padding: 0 10%;
 }
 
-/* line 375, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 418, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-card {
   padding: 0px 0px;
   margin-top: 1.5%;
   margin-left: 2%;
-  max-width: 20%;
+  max-width: 23%;
   border: 1px solid #dddcdc;
   border-radius: 10px 10px 10px 10px;
   box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.1);
@@ -1233,13 +1412,13 @@
   transition: all 250ms ease-out;
 }
 
-/* line 391, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 434, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-card:hover {
   transform: scale(1.02);
   box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 396, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 439, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-div-image {
   background-color: #f1f1f1;
   border-radius: 10px 10px 0px 0px;
@@ -1251,60 +1430,216 @@
   line-height: 200px;
 }
 
-/* line 407, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 450, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-desc {
   padding: 5% 8%;
   position: relative;
   border-radius: 0px 0px 10px 10px;
 }
 
-/* line 413, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 456, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-desc p {
   margin: 0;
 }
 
-/* line 414, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 457, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 .cat-desc-title {
   font-weight: 700;
 }
 
 @media (max-width: 575.98px) {
-  /* line 417, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+  /* line 460, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
   #cat-card {
     max-width: 48%;
     margin-top: 3%;
   }
 }
-/* line 420, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 463, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-front-image {
   max-width: 100%;
   max-height: 200px;
   vertical-align: middle;
 }
 
-/* line 426, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+/* line 469, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
 #cat-product-card {
   color: inherit;
   text-decoration: none;
 }
+
+/* line 476, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 2px;
+  background: #3284c7;
+  background-repeat: no-repeat;
+  top: 0px;
+  bottoM: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+}
+
+/* line 489, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: white;
+  position: relative;
+  border: 3px solid #f07e4a;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+/* line 503, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#description {
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+/* line 509, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#infowindow-content .title {
+  font-weight: bold;
+}
+
+/* line 513, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#infowindow-content {
+  display: none;
+}
+
+/* line 517, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#map #infowindow-content {
+  display: inline;
+}
+
+/* line 521, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.pac-card {
+  margin: 10px 10px 0 0;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  font-family: Roboto;
+}
+
+/* line 532, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#pac-container {
+  padding-bottom: 12px;
+  margin-right: 12px;
+}
+
+/* line 537, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.pac-controls {
+  display: inline-block;
+  padding: 5px 11px;
+}
+
+/* line 542, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+.pac-controls label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* line 548, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#pac-input {
+  background-color: #fff;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  margin-left: 12px;
+  padding: 0 11px 0 13px;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+/* line 559, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#pac-input:focus {
+  border-color: #4d90fe;
+}
+
+/* line 563, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#title {
+  color: #fff;
+  background-color: #4d90fe;
+  font-size: 25px;
+  font-weight: 500;
+  padding: 6px 12px;
+}
+
+/* line 570, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/products.scss */
+#target {
+  width: 345px;
+}
 /* line 5, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+.add-store {
+  margin: 0% 20%;
+}
+
+/* line 10, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-/* line 10, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 15, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 th, td {
   text-align: left;
   padding: 8px;
 }
 
-/* line 15, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 20, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 17, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 22, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+.str-submit-btn {
+  border-radius: 10px;
+  background: linear-gradient(to left, #f07e4a, #f0b84b);
+  border: 0px solid;
+  padding: 1% 2%;
+  color: white;
+  font-weight: 700;
+}
+
+/* line 31, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+.calendar-div {
+  margin: 2% 0%;
+}
+
+/* line 35, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+.calendar-title {
+  margin: 2% 0%;
+  font-size: 150%;
+  font-weight: 700;
+}
+
+/* line 41, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+.calendar-field {
+  border-radius: 5px;
+  width: 100%;
+  padding: .375rem .75rem;
+  border: 1px solid #ced4da;
+  background-clip: padding-box;
+  transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+/* line 50, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+.calendar-field:focus {
+  border-color: #f07e4a;
+  outline: 0 none;
+}
+
+/* line 55, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #st-info {
   margin-top: 10%;
   padding: 10%;
@@ -1324,7 +1659,7 @@ tr:nth-child(even) {
   color: white;
 }
 
-/* line 37, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 75, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #st-info::after {
   position: absolute;
   background: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
@@ -1337,7 +1672,7 @@ tr:nth-child(even) {
   border-radius: 10px 10px 0px 0px;
 }
 
-/* line 47, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 85, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #st-storeinfo {
   max-width: 100%;
   border-radius: 0px 0px 10px 10px;
@@ -1350,7 +1685,7 @@ tr:nth-child(even) {
   text-align: left;
 }
 
-/* line 59, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 97, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #st-storeinfo::after {
   position: absolute;
   background: linear-gradient(to left, #f07e4a 1%, #f0b84b 100%);
@@ -1363,14 +1698,14 @@ tr:nth-child(even) {
   border-radius: 0px 0px 10px 10px;
 }
 
-/* line 70, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 108, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #store-information {
   margin-left: 2em;
   margin-right: 1.5em;
   padding-top: 20px;
 }
 
-/* line 76, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 114, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #seller-card-temp {
   border-radius: 15px 15px 15px 15px;
   border-color: #ef7b48;
@@ -1380,12 +1715,12 @@ tr:nth-child(even) {
   padding-left: 0px !important;
 }
 
-/* line 86, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 124, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #seller-card-picture {
   width: 100%;
 }
 
-/* line 90, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 128, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #title-information {
   background-image: linear-gradient(to left, #f07e4a, #f0b84b);
   width: 100%;
@@ -1396,20 +1731,20 @@ tr:nth-child(even) {
   color: white;
 }
 
-/* line 100, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 138, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #store-name {
   font-weight: 700;
   margin-bottom: 0px;
   font-size: 130%;
 }
 
-/* line 106, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 144, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #title-item {
   font-weight: 700;
   font-size: 200%;
 }
 
-/* line 111, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 149, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 .right-align-card {
   float: right;
   width: 300px;
@@ -1417,13 +1752,13 @@ tr:nth-child(even) {
   margin-right: 20px;
 }
 
-/* line 118, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 156, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #edit-link {
   font-weight: 700 !important;
   color: black;
 }
 
-/* line 123, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 161, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 .store-button {
   background-image: linear-gradient(to right, #27a8e1, #0173bc);
   padding: 10px;
@@ -1437,7 +1772,7 @@ tr:nth-child(even) {
   text-decoration: none;
 }
 
-/* line 136, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 174, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #button-link {
   font-weight: 700;
   font-size: 100%;
@@ -1445,12 +1780,12 @@ tr:nth-child(even) {
   text-decoration: none;
 }
 
-/* line 143, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 181, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #button-link p {
   margin: 0px !important;
 }
 
-/* line 147, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 185, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-card {
   padding: 0px 0px;
   margin-top: 1.5%;
@@ -1466,13 +1801,13 @@ tr:nth-child(even) {
   transition: all 250ms ease-out;
 }
 
-/* line 165, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 203, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-card:hover {
   transform: scale(1.02);
   box-shadow: 0 1px 11px 0 rgba(0, 0, 0, 0.2);
 }
 
-/* line 170, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 208, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-div-image {
   background-color: #f1f1f1;
   border-radius: 10px 10px 0px 0px;
@@ -1484,38 +1819,43 @@ tr:nth-child(even) {
   line-height: 200px;
 }
 
-/* line 181, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 219, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-desc {
   padding: 5% 8%;
   position: relative;
   border-radius: 0px 0px 10px 10px;
 }
 
-/* line 187, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 225, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-desc p {
   margin: 0;
 }
 
-/* line 188, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 226, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 .s-cat-desc-title {
   font-weight: 700;
 }
 
 @media (max-width: 575.98px) {
-  /* line 191, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+  /* line 229, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
   #s-cat-card {
     max-width: 48%;
     margin-top: 3%;
   }
+
+  /* line 230, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+  .add-store {
+    margin: 0% 10%;
+  }
 }
-/* line 194, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 233, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-front-image {
   max-width: 100%;
   max-height: 200px;
   vertical-align: middle;
 }
 
-/* line 200, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
+/* line 239, /Users/keynekassapa/Documents/SEM1-UQ/INFS3202/Repo/go-market/app/assets/stylesheets/stores.scss */
 #s-cat-product-card {
   color: inherit;
   text-decoration: none;
@@ -1524,7 +1864,7 @@ tr:nth-child(even) {
   margin-top:3%;
 }
 
-.user-form input {
+.user-form input, .user-form textarea {
   border-radius:5px!important;
   width: 100%;
   padding: .375rem .75rem;
@@ -1533,7 +1873,7 @@ tr:nth-child(even) {
   transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.user-form input:focus{
+.user-form input:focus, .user-form textarea:focus{
   border-color: #f07e4a !important;
   outline: 0 none !important;
   outline-width: 0 !important;
@@ -1551,6 +1891,19 @@ tr:nth-child(even) {
       transition: all 250ms ease-out;
 }
 
+.profile-trans-btn {
+  background-image: linear-gradient(to right, #27a8e1, #0173bc);
+  padding: 10px;
+  margin: 10px 0px 10px 0px;
+  border-radius: 10px;
+  text-align: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 100%;
+  color: white;
+  text-decoration: none;
+}
+
 .user-form a:hover {text-decoration: none; color: #f07e4a; font-weight: 700;}
 
 .user-form input[type=submit] {
@@ -1559,12 +1912,40 @@ tr:nth-child(even) {
   color: white;
 }
 
-.alert-notice {
+.cssHeaderRow {
+  background-color: white;
+}
+.cssTableRow {
+  background-color: #f2f2f2;
+}
+.cssOddTableRow {
+  background-color: white !important;
+}
+.cssSelectedTableRow {
+  font-weight:bold;
+}
+.cssHoverTableRow {
+  background: #ccc;
+}
+.cssHeaderCell:focus{
+  box-shadow: 0 0 0 0 !important;
+  outline: none;
+  background: rgba(240, 126, 74, 0.2);
+}
 
-  margin-top: 5%;
-  color: #155724;
-  background-color: #d4edda;
-  border-color: #c3e6cb;
+.cssHeaderCell {
+  color: black;
+  padding: 1% !important;
+  text-align: center;
+  font-size: 120%;
+  transition:  all 250ms ease-out !important;
+}
+.cssTableCell {
+  padding: 10px !important;
+  text-align: center;
+}
+.cssRowNumberCell {
+  text-align: center;
 }
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
@@ -1590,6 +1971,8 @@ tr:nth-child(even) {
 body {
   font-family: 'Open Sans', sans-serif !important;
 }
+
+
 
 .cart-text a {
   text-decoration: none;
@@ -1635,6 +2018,15 @@ body {
 
 .alert-notice {
   @extend .alert-info;
+}
+
+.alert-alert, .alert-notice {
+  background: #94d183;
+  width: 100%;
+  padding: 1% 5%;
+  margin: 3% 0% 0% 0%;
+  color: white;
+  font-weight: 700;
 }
 
 .nav-search-bar {
@@ -1841,23 +2233,6 @@ body{
     background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#000000' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
 }
 
-@media (max-width: 575.98px) {
-  .verticalLine {display: none}
-  .btn-sign-up {margin-left: 0px;}
-  .nav-form-search {width: auto}
-}
-
-@media (max-width: 992px) {
-  .nav-btn-allcategory {margin-left: 0px; border-radius: 10px 0px 0px 10px;}
-  .nav-form-search {width: 100%; border-radius: 10px;}
-}
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  .nav-form-search {width: 50%;}
-}
-
-
-
 h1{
   font-family: 'lato', sans-serif !important;
   font-weight: 800 !important;
@@ -1909,36 +2284,6 @@ h1{
   width: 100% !important;
 }
 
-.cart-button{
-  color: white !important;
-  font-weight: 800 !important;
-  width: 100%;
-  border-color: transparent !important;
-  border-radius: 10px;
-}
-
-.cart-price{
-  background-color: white;
-  border-radius: 10px 10px 0px 0px;
-}
-
-.cart_product_name{
-  font-weight: 700;
-}
-
-.cart-quantity{
-  background-color: white;
-}
-
-.cart-image{
-  width: 100%;
-}
-
-.cart-item{
-  padding-top:50px;
-  padding-bottom: 50px;
-
-}
 
 .item-row{
   padding-bottom: 20px;
@@ -1981,4 +2326,33 @@ h1{
 .information{
   padding-top: 50px;
   padding-bottom: 50px;
+}
+
+.navbar-logo{
+  width: 45%;
+}
+
+@media (max-width: 575.98px) {
+  .verticalLine {display: none}
+  .btn-sign-up {margin-left: 0px;}
+  .nav-form-search {width: auto}
+  .easy-autocomplete {width: 100% !important}
+  .nav-form-search, .easy-autocomplete input {border-radius: 10px !important; }
+  #nav-form {width: 100%}
+  .nav-btn-search {width: 100%; border-radius: 10px !important;}
+  .navbar-logo{
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .nav-btn-allcategory {margin-left: 0px; border-radius: 10px 0px 0px 10px;}
+  .nav-form-search {width: 100%; border-radius: 10px;}
+  .navbar-logo{
+    width: 80% !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .nav-form-search {width: 50%;}
 }
