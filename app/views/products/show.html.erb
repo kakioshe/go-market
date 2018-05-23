@@ -103,10 +103,12 @@
       </div>
 
       <div id="pd-div-addtocart">
-        <% if user_signed_in? %>
-          <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
-        <% else %>
-          <a href="/users/sign_up"><input name="commit" value="REGISTER TO BUY" class="btn btn-outline-primary cart-button" data-disable-with="REGISTER"></a>
+        <% if not current_user.stores_id==@product.stores_id %>
+          <% if user_signed_in? %>
+            <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+          <% else %>
+            <a href="/users/sign_up"><input name="commit" value="REGISTER TO BUY" class="btn btn-outline-primary cart-button" data-disable-with="REGISTER"></a>
+          <% end %>
         <% end %>
       </div>
       <%end%>
