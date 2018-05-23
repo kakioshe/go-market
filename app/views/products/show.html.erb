@@ -99,7 +99,11 @@
         <%= f.hidden_field :order_status_id, value: 1 %>
       </div>
       <div id="pd-div-addtocart">
-        <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+        <% if user_signed_in? %>
+          <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+        <% else %>
+          <a href="/users/sign_up"><input name="commit" value="REGISTER" class="btn btn-outline-primary cart-button" data-disable-with="REGISTER"></a>
+        <% end %>
       </div>
       <%end%>
 
