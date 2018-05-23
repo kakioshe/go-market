@@ -19,6 +19,39 @@ th, td {
 
 tr:nth-child(even) {background-color: #f2f2f2;}
 
+.str-submit-btn {
+  border-radius: 10px;
+  background: linear-gradient(to left,#f07e4a, #f0b84b);
+  border: 0px solid;
+  padding: 1% 2%;
+  color: white;
+  font-weight: 700;
+}
+
+.calendar-div {
+  margin: 2% 0%;
+}
+
+.calendar-title {
+  margin: 2% 0%;
+  font-size: 150%;
+  font-weight: 700;
+}
+
+.calendar-field {
+  border-radius:5px;
+  width: 100%;
+  padding: .375rem .75rem;
+  border: 1px solid #ced4da;
+  background-clip: padding-box;
+  transation: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.calendar-field:focus{
+  border-color: #f07e4a;
+  outline: 0 none;
+}
+
 #st-info {
   margin-top: 10%;
 	padding: 10%;

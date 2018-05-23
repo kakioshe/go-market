@@ -71,16 +71,19 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
-  config.action_mailer.default_url_options = { host: ENV['MAIL_HOST'] }
-  config.action_mailer.smtp_settings = {
-    user_name:      ENV['SENDMAIL_USERNAME'],
-    password:       ENV['SENDMAIL_PASSWORD'],
-    domain:        'https://go-market.herokuapp.com/',
-    address:       'smtp.gmail.com',
-    port:          '587',
-    authentication: :plain,
-    enable_starttls_auto: true
+  config.action_mailer.default_url_options = { host: 'go-market.herokuapp.com' }
+
+
+  ActionMailer::Base.smtp_settings = {
+      :address        => 'smtp.gmail.com',
+      :port           => '587',
+      :authentication => :plain,
+      :user_name      => ENV['SENDMAIL_USERNAME'],
+      :password       => ENV['SENDMAIL_PASSWORD'],
+      :domain         => 'go-market.herokuapp.com',
+      :enable_starttls_auto => true
   }
+
   #config.action_mailer.default_url_options = { host: 'sitepoint-devise.herokuapp.com' }
 
  # ActionMailer::Base.smtp_settings = {
