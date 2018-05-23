@@ -11,7 +11,7 @@
 if Rails.env.development?
   wkhtmltopdf_path = '/usr/local/bin/wkhtmltopdf'
 elsif Rails.env.production?
-  wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf-amd64"
+  wkhtmltopdf_path = "#{Rails.root}/bin/wkhtmltopdf"
 else
   wkhtmltopdf_path = "/usr/local/bin/wkhtmltopdf"
 end
