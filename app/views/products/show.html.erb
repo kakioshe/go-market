@@ -93,44 +93,44 @@
       <div id="map"></div>
     </div>
 
-    <div class="col-sm-3">
-      <%= form_for @order_item, remote: true do |f| %>
-      <div id="pd-div-price">
-        <div class="pd-price-txt">$ <%= @product.price %></div>
-        Quantity: <%= f.number_field :quantity, value: 1, class: "form-control quantity-form", min: 1 %>
-        <%= f.hidden_field :product_id, value: @product.id %>
-        <%= f.hidden_field :order_status_id, value: 1 %>
-      </div>
 
-      <div id="pd-div-addtocart">
-        <% if not current_user.stores_id==@product.stores_id %>
-          <% if user_signed_in? %>
-            <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
-          <% else %>
-            <a href="/users/sign_up"><input name="commit" value="REGISTER TO BUY" class="btn btn-outline-primary cart-button" data-disable-with="REGISTER"></a>
+    <% if not current_user.stores_id==@product.stores_id %>
+      <div class="col-sm-3">
+        <%= form_for @order_item, remote: true do |f| %>
+        <div id="pd-div-price">
+          <div class="pd-price-txt">$ <%= @product.price %></div>
+          Quantity: <%= f.number_field :quantity, value: 1, class: "form-control quantity-form", min: 1 %>
+          <%= f.hidden_field :product_id, value: @product.id %>
+          <%= f.hidden_field :order_status_id, value: 1 %>
+        </div>
+
+        <div id="pd-div-addtocart">
+            <% if user_signed_in? %>
+              <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
+            <% else %>
+              <a href="/users/sign_up"><input name="commit" value="REGISTER TO BUY" class="btn btn-outline-primary cart-button" data-disable-with="REGISTER"></a>
+            <% end %>
           <% end %>
-        <% end %>
-      </div>
-      <%end%>
+        </div>
 
-      <div id="pd-div-seller">
-        seller information
-      </div>
-      <div id="pd-div-sellerinfo">
-        <% if @store.avatar? %>
-            <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
-          <% else %>
-        <%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
-        <% end %>
+        <div id="pd-div-seller">
+          seller information
+        </div>
+        <div id="pd-div-sellerinfo">
+          <% if @store.avatar? %>
+              <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
+            <% else %>
+          <%= image_tag( "products/p-camera.png", id: 'seller-card-picture', alt: 'store picture', style: "display: inline;", class: "img-frame") %>
+          <% end %>
 
-        <div id="store-information">
-          <p id="store-name"><%= @store.name.upcase %></p>
-          <p id="store-description"><%= @store.description %></p>
-          <br/>
+          <div id="store-information">
+            <p id="store-name"><%= @store.name.upcase %></p>
+            <p id="store-description"><%= @store.description %></p>
+            <br/>
+          </div>
         </div>
       </div>
-    </div>
-
+    <% end %>
   </div>
 </div>
 
