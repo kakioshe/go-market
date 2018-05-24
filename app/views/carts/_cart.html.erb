@@ -21,9 +21,15 @@
 		<%= render 'carts/cart_row', product: item.product, item: item, show_total: true %>
 	<% end %>
 	<p class="text-right cart-total-price"> Total Price	: <%= number_to_currency current_order.subtotal %> </p>
-	<%= link_to transactions_checkout_url do %>
-	<div class="checkout-button">
-		Checkout
-	</div>
+
+	<% if @flag %>
+		<%= link_to transactions_checkout_url do %>
+		<div class="checkout-button">
+			Checkout
+		</div>
+		<% end %>
+	<% else %>
+			<p> Please update your personal information
+				<%= link_to 'first'.html_safe, edit_user_registration_path %> </p>
 	<% end %>
 <% end %>
