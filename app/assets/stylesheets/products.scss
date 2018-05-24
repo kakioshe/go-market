@@ -131,6 +131,7 @@ button:focus, input[type=range]:focus{
   border: 0px solid transparent;
   padding: .375rem .75rem;
   line-height: 1.5;
+  margin: 3% 0%;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   background-image: linear-gradient(to left, #f07e4a, #f0b84b);
   color: white;
