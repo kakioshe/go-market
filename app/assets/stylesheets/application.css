@@ -54,6 +54,10 @@ body {
   width: 80% !important;
 }
 
+seller-info-button{
+  color: black;
+  text-decoration: none;
+}
 
 #page-title {
   margin-top: 5%;
