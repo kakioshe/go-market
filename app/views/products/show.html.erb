@@ -117,7 +117,7 @@
           seller information
         </div>
 
-        <%= link_to store_path(@product.stores_id) do %>
+        <%= link_to store_path(@product.stores_id), class: 'seller-info-button' do %>
         <div id="pd-div-sellerinfo">
           <% if @store.avatar? %>
               <%= image_tag(@store.avatar.url, :class => "profile-picture") %>
