@@ -29,18 +29,24 @@ class UsersController < ApplicationController
 		@user = User.find(current_user.id)
 		@store = Store.find_by(id:current_user.stores_id)
 
-		Transaction.where(stores_id: current_user.stores_id).destroy_all
-		@store_products = Product.active.where(stores_id: @store.id).all
-		@store_inactive = Product.inactive.where(stores_id: @store.id).all
-		for product in @store_products
-			Cart.where(products_id: product.id).destroy_all
-			OrderItem.where(product_id: product.id).destroy_all
+		if @store
+			Transaction.where(stores_id: current_user.stores_id).destroy_all
+			@store_products = Product.active.where(stores_id: @store.id).all
+			@store_inactive = Product.inactive.where(stores_id: @store.id).all
+			for product in @store_products
+				Cart.where(products_id: product.id).destroy_all
+				OrderItem.where(product_id: product.id).destroy_all
+			end
+			Product.active.where(stores_id: @store.id).destroy_all
+			Product.inactive.where(stores_id: @store.id).destroy_all
+			@user.destroy
+			Store.find_by(id:current_user.stores_id).destroy
+			redirect_to root_path, :notice => "Successfully delete account"
+		else
+			Cart.where(users_id: @user.id).destroy_all
+			Transaction.where(users_id: @user.id).destroy_all
+			redirect_to root_path, :notice => "Successfully delete account"
 		end
-		Product.active.where(stores_id: @store.id).destroy_all
-		Product.inactive.where(stores_id: @store.id).destroy_all
-		@user.destroy
-		Store.find_by(id:current_user.stores_id).destroy
-		redirect_to root, :notice => "Successfully delete account"
 	end
 
 
