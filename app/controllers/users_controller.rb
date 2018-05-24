@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 		@store = Store.find_by(id:current_user.stores_id)
 
 		if @store
-			Transaction.where(stores_id: current_user.stores_id).destroy_all
 			@store_products = Product.active.where(stores_id: @store.id).all
 			@store_inactive = Product.inactive.where(stores_id: @store.id).all
 			for product in @store_products
@@ -39,16 +38,23 @@ class UsersController < ApplicationController
 			end
 			Product.active.where(stores_id: @store.id).destroy_all
 			Product.inactive.where(stores_id: @store.id).destroy_all
-			@user.destroy
-			Store.find_by(id:current_user.stores_id).destroy
-			redirect_to root_path, :notice => "Successfully delete account"
-		else
+
+		end 
+
 			Cart.where(users_id: @user.id).destroy_all
 			Transaction.where(users_id: @user.id).destroy_all
-			Order.where(user_id:@user.id).destroy_all
+			@order = Order.where(user_id:@user.id)
+			for order in @order
+			   OrderItem.where(order_id: order.id).destroy_all
+			end
+			@order.destroy_all
 			@user.destroy
+
+		if @store
+			Store.find_by(id:current_user.stores_id).destroy
+		end 
+
 			redirect_to root_path, :notice => "Successfully delete account"
-		end
 	end
 
 
