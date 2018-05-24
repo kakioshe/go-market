@@ -1,8 +1,8 @@
-test:
-  <<: *default
+test: &default
+
   # Credentials for REST APIs
-  client_id: ARH3iOHB8I5OiBqGIo22nky0Nzh9_QgDWSUC_SLfmkPFo_PwMTRoFsRLixXo2XRGC0Uxi3bw1MhSW9KL
-  client_secret: EA9Gbp6x5AIlzqn9tdYuu1rsnU-coptK3a3T5M9thU7TPhHSAZe170WC-QTqC2RuJRzBcsgNUxD44Dye
+  client_id: <%= ENV['PAYPAL_ID'] %>
+  client_secret: <%= ENV['PAYPAL_SECRET'] %>
 
   # Mode can be 'live' or 'sandbox'
   mode: sandbox
@@ -26,6 +26,4 @@ development:
 
 production:
   <<: *default
-  client_id: ARH3iOHB8I5OiBqGIo22nky0Nzh9_QgDWSUC_SLfmkPFo_PwMTRoFsRLixXo2XRGC0Uxi3bw1MhSW9KL
-  client_secret: EA9Gbp6x5AIlzqn9tdYuu1rsnU-coptK3a3T5M9thU7TPhHSAZe170WC-QTqC2RuJRzBcsgNUxD44Dye
   mode: sandbox
