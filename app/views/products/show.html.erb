@@ -1,4 +1,8 @@
 <% content_for :title, "Product - " %>
+<% content_for :head do %>
+<!-- CamanJs -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js"></script>
+<% end %>
 <style>
 /* Always set the map height explicitly to define the size of the div
 * element that contains the map. */
@@ -94,7 +98,7 @@
     </div>
 
 
-    <% if not current_user.stores_id==@product.stores_id %>
+    <% unless user_signed_in? and current_user.stores_id==@product.stores_id %>
       <div class="col-sm-3">
         <%= form_for @order_item, remote: true do |f| %>
         <div id="pd-div-price">
