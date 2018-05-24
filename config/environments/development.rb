@@ -10,7 +10,7 @@ Rails.application.configure do
   config.eager_load = false
 
   # Show full error reports.
-  config.consider_all_requests_local = true
+  config.consider_all_requests_local = false
 
   #Force SSL
   # config.force_ssl = true
@@ -44,7 +44,7 @@ Rails.application.configure do
   config.action_mailer.smtp_settings = {
     user_name:      ENV['SENDMAIL_USERNAME'],
     password:       ENV['SENDMAIL_PASSWORD'],
-    domain:        'https://go-market.herokuapp.com/',
+    domain:         ENV['MAIL_HOST'] ,
     address:       'smtp.gmail.com',
     port:          '587',
     authentication: :plain,

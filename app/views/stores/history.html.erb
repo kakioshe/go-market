@@ -1,4 +1,4 @@
-
+<% content_for :title, "Transaction History - " %>
 
 <div class="row" style="margin-top:5%;">
   <div class="col-md-3">
@@ -46,7 +46,7 @@
   <div class="col-md-8">
     <div class="row">
       <div class="col-md-8" id="title-item">
-        <p> Transaction </p>
+        <p> Transaction History </p>
 
       </div>
     </div>
@@ -80,38 +80,48 @@
 
     <div class="row">
       <div class="col-md-12">
-        <table class="transaction-history">
-          <tr>
-            <td class="transaction-title text-center"> Order ID </td>
-            <td class="transaction-title text-center"> Item Name </td>
-            <td class="transaction-title text-center"> Quantity </td>
-            <td class="transaction-title text-center"> Buyer </td>
-            <td class="transaction-title text-center"> Status </td>
-            <td class="transaction-title text-center"> Action </td>
-          </tr>
-        <% @transaction.each do |transaction| %>
-          <div class="row">
-            <div class="col-12">
-              <tr>
-                <td class="transaction-item text-center"> <%= transaction.order_id %> </td>
-                <td class="transaction-item text-center"> <%= transaction.title %> </td>
-                <td class="transaction-item text-center"> <%= transaction.quantity %> </td>
-                <td class="transaction-item text-center"> <%= transaction.buyer %> </td>
-                <td class="transaction-item text-center"> <%= transaction.status %> </td>
-                <td class="transaction-item text-center">
-                <% if transaction.status=="Paid" %>
-                  <%= link_to "Action", store_history_execute_path(:order_id => transaction.order_id, :product => transaction.products_id), method: :post %>
-                <% else %>
-                  Done
-                <% end %> </td>
-              </tr>
-            </div>
-          </div>
-        <% end %>
-      </table>
+        <script type="text/javascript">
+          google.charts.load('current', {'packages':['table']});
+          google.charts.setOnLoadCallback(drawTable);
+
+          var cssClassNames = {
+            'headerRow': 'cssHeaderRow',
+            'tableRow': 'cssTableRow',
+            'oddTableRow': 'cssOddTableRow',
+            'selectedTableRow': 'cssSelectedTableRow',
+            'hoverTableRow': 'cssHoverTableRow',
+            'headerCell': 'cssHeaderCell',
+            'tableCell': 'cssTableCell',
+            'rowNumberCell': 'cssRowNumberCell'
+          };
+
+          function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Order Id');
+            data.addColumn('string', 'Item Name');
+            data.addColumn('string', 'Quantity');
+            data.addColumn('string', 'Buyer');
+            data.addColumn('string', 'Status');
+            data.addColumn('string', 'Action');
+            data.addRows([
+              <% @transaction.each do |item| %>
+              [ '<%= item.order_id %>', '<%= item.title %>', '<%= item.quantity.to_i %>', '<%= item.buyer %>', '<%= item.status %>',
+              '<% if item.status=="Paid" %><%= link_to "Action", store_history_execute_path(:order_id => item.order_id, :product => item.products_id), method: :post %><% else %>Done<% end %>' ],
+              <% end %>
+            ]);
+
+            var table = new google.visualization.Table(document.getElementById('table_div'));
+
+            table.draw(data, {width: '100%', height: '100%', 'allowHtml': true, 'cssClassNames': cssClassNames});
+          }
+        </script>
+
+        <div id="table_div"></div>
 
       </div>
     </div>
+
+
 
   </div>
 </div>
