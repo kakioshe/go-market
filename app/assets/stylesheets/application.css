@@ -59,6 +59,10 @@ seller-info-button{
   text-decoration: none;
 }
 
+seller-info-button a{
+  color: black !important;
+}
+
 #page-title {
   margin-top: 5%;
   margin-bottom: 5%;
