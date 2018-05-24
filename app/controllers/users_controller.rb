@@ -40,6 +40,7 @@ class UsersController < ApplicationController
 		Product.inactive.where(stores_id: @store.id).destroy_all
 		@user.destroy
 		Store.find_by(id:current_user.stores_id).destroy
+		redirect_to root, :notice => "Successfully delete account"
 	end
 
 
