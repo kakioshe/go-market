@@ -18,14 +18,43 @@ class UsersController < ApplicationController
 		else
 			@flag = false
 		end
-
-
-
 	end
 
 	def history
 		@user = User.find(current_user.id)
 		@transactions = Order.where(:user_id => @user.id).where("order_status_id > ?",1).all.order('id DESC')
+	end
+
+	def delete
+		@user = User.find(current_user.id)
+		@store = Store.find_by(id:current_user.stores_id)
+
+		if @store
+			@store_products = Product.active.where(stores_id: @store.id).all
+			@store_inactive = Product.inactive.where(stores_id: @store.id).all
+			for product in @store_products
+				Cart.where(products_id: product.id).destroy_all
+				OrderItem.where(product_id: product.id).destroy_all
+			end
+			Product.active.where(stores_id: @store.id).destroy_all
+			Product.inactive.where(stores_id: @store.id).destroy_all
+
+		end 
+
+			Cart.where(users_id: @user.id).destroy_all
+			Transaction.where(users_id: @user.id).destroy_all
+			@order = Order.where(user_id:@user.id)
+			for order in @order
+			   OrderItem.where(order_id: order.id).destroy_all
+			end
+			@order.destroy_all
+			@user.destroy
+
+		if @store
+			Store.find_by(id:current_user.stores_id).destroy
+		end 
+
+			redirect_to root_path, :notice => "Successfully delete account"
 	end
 
 
@@ -37,7 +66,6 @@ class UsersController < ApplicationController
 		@item.update!(status: "Finished")
 		@transaction.update!(status: "Finished")
 		redirect_to user_history_path
-
 	end
 
 
