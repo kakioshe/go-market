@@ -51,8 +51,7 @@
   <div class="row cp-form-row">
     <div class="col-sm-3 cp-form-name">Price </div>
     <div class="col-sm-3"><%= f.number_field :price, class: 'cp-text-field', required: true, value: number_to_currency(f.object.price.to_f, delimiter: '', unit: ''), step: :any %></div>
-    <div class="col-sm-3 cp-form-name">Availability</div>
-    <div class="col-sm-3"><%= f.number_field :availability, class: 'cp-text-field', min: "1", required: true %></div>
+      <%= f.hidden_field :availability, value:'1' %>
   </div>
 
   <div class="row cp-form-row">
@@ -62,7 +61,7 @@
 
   <div class="col-sm-5 cp-form-name">Location</div>
   <%= f.hidden_field :maps, id:'geoloc' %>
-  <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+  <input id="pac-input" class="controls" type="text" placeholder="Search Box" required>
   <div id="map"></div>
 
   <%= f.submit :class => 'cp-submit' %>
