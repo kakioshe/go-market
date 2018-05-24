@@ -45,6 +45,8 @@ class UsersController < ApplicationController
 		else
 			Cart.where(users_id: @user.id).destroy_all
 			Transaction.where(users_id: @user.id).destroy_all
+			Order.where(user_id:@user.id).destroy_all
+			@user.destroy
 			redirect_to root_path, :notice => "Successfully delete account"
 		end
 	end
