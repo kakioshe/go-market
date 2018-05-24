@@ -20,3 +20,4 @@ Rails.application.config.assets.precompile += %w( easy-autocomplete.css )
 Rails.application.config.assets.precompile += %w( easy-autocomplete.min.css )
 
 Rails.application.config.assets.precompile += %w( users.css )
+Rails.application.config.assets.precompile += %w( loader.js )
