@@ -1,13 +1,18 @@
 <% content_for :title, "Product - " %>
+<style>
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+ height: 50vh;
+}
+</style>
 <div class="error-text">
-
 </div>
-
 
 <div id="small-page">
 
   <p style="margin-top:5%;"> </p>
-<% pic = [] %>
+  <% pic = [] %>
   <div class="row">
     <div class="col-sm-4">
       <div class="pd-div-image">
@@ -83,15 +88,12 @@
       <p id="page-title"><%= @product.title %></p>
       <p>
         <%= @product.description %>
-
-
       </p>
+
+      <div id="map"></div>
     </div>
 
     <div class="col-sm-3">
-
-
-
       <%= form_for @order_item, remote: true do |f| %>
       <div id="pd-div-price">
         <div class="pd-price-txt">$ <%= @product.price %></div>
@@ -99,6 +101,7 @@
         <%= f.hidden_field :product_id, value: @product.id %>
         <%= f.hidden_field :order_status_id, value: 1 %>
       </div>
+
       <div id="pd-div-addtocart">
         <% if user_signed_in? %>
           <%= f.submit "ADD TO CART", class: 'btn btn-outline-primary cart-button'%>
@@ -107,7 +110,6 @@
         <% end %>
       </div>
       <%end%>
-
 
       <div id="pd-div-seller">
         seller information
@@ -128,8 +130,42 @@
     </div>
 
   </div>
-
-
-
-
 </div>
+
+<script>
+// This example adds a search box to a map, using the Google Place Autocomplete
+// feature. People can enter geographical searches. The search box will return a
+// pick list containing a mix of places and predicted search terms.
+
+// This example requires the Places library. Include the libraries=places
+// parameter when you first load the API. For example:
+// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+function initAutocomplete() {
+  var geoloc = '<%= @product.maps %>'
+  var geoloc = geoloc.split(",");
+  if (isNaN(parseFloat(geoloc[0]))) {
+    var currentloc = {lat: -25.274398, lng: 133.77513599999997};
+    var zoomnumber = 5;
+  }
+  else {
+    var currentloc = {lat: parseFloat(geoloc[0]), lng: parseFloat(geoloc[1])};
+    var zoomnumber = 16;
+  }
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: currentloc,
+    zoom: zoomnumber,
+    mapTypeId: 'roadmap'
+  });
+
+  if (currentloc['lat'] != -25.274398 && currentloc['lng'] != 133.77513599999997){
+    var marker = new google.maps.Marker({
+      position: currentloc,
+      map: map,
+      label: 'Product location'
+    });
+  }
+
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initAutocomplete&libraries=places" async defer></script>
