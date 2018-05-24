@@ -54,12 +54,12 @@ body {
   width: 80% !important;
 }
 
-seller-info-button{
+.seller-info-button{
   color: black;
   text-decoration: none;
 }
 
-seller-info-button a{
+.seller-info-button a{
   color: black !important;
 }
 
