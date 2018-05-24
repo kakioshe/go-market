@@ -127,6 +127,13 @@
       <% end %>
 
       <h3 style="margin-top:5%;">Delete my account</h3>
+
+      <%= link_to user_delete_path, {:id => 'button-link'} do %>
+        <div class="profile-trans-btn">
+          <p> delete store </p>
+        </div>
+      <% end %>
+
         <%= button_to "Delete my account", registration_path(resource_name), class: 'btn btn-danger',
                       data: { confirm: "Are you sure?" }, method: :delete %>
     </div>

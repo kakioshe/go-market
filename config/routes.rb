@@ -45,6 +45,7 @@ get '/calendarcallback', to: 'stores#callback', as: 'callback'
 get '/stores/:id/calendars', to: 'stores#calendars', as: 'calendars'
 get '/events/:calendar_id', to: 'stores#events', as: 'events', calendar_id: /[^\/]+/
 post '/events/:calendar_id', to: 'stores#new_event', as: 'new_event', calendar_id: /[^\/]+/
+get '/user/delete', to: 'users#delete'
 
   match "404", :to => "pages#not_found", :via => :all
   match "500", :to => "pages#internal_server_error", :via => :all
