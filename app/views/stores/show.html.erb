@@ -21,7 +21,7 @@
 						<p id="store-name"><%= @store.name.upcase %></p>
 						<p id="store-description"><%= @store.description %></p>
 
-						<% if current_user.stores_id==@store.id %>
+						<% if  user_signed_in? and current_user.stores_id==@store.id %>
 							<div class="col-md-2 right-align-card">
 								<%= link_to 'Edit', edit_store_path, {:id => 'edit-link'} %>
 							</div>
@@ -31,7 +31,7 @@
 			</div>
 		</div>
 
-		<% if current_user.stores_id==@store.id %>
+		<% if user_signed_in? and current_user.stores_id==@store.id %>
 			<div class="row" style="margin-top:5%;">
 				<div class="col-md-12 mx-auto">
 					<%= link_to new_product_path, {:id => 'button-link'} do %>
@@ -115,7 +115,7 @@
 		</div>
 
 
-		<% if current_user.stores_id==@store.id %>
+		<% if user_signed_in? and current_user.stores_id==@store.id %>
 
 			<% if @store_inactive.exists? %>
 				<hr />
