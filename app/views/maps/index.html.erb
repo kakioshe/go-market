@@ -9,15 +9,17 @@
   /* Optional: Makes the sample page fill the window. */
 </style>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV["MAPS_API"] %>&callback=initMap" async defer></script>
-<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<!-- <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script> -->
+<%= javascript_include_tag('marker.js') %>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <% end %>
 <% content_for :top_content do %>
   <div id="map"></div>
   <script>
+    var map, infoWindow;
     function initMap() {
       var brisbane = {lat: -27.4698, lng: 153.0251};
-      var map = new google.maps.Map(document.getElementById('map'), {
+      map = new google.maps.Map(document.getElementById('map'), {
        zoom: 13,
        center: brisbane
       });
