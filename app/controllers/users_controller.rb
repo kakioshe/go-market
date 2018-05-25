@@ -44,11 +44,6 @@ class UsersController < ApplicationController
 
 			Cart.where(users_id: @user.id).destroy_all
 			Transaction.where(users_id: @user.id).destroy_all
-			@order = Order.where(user_id:@user.id)
-			for order in @order
-			   OrderItem.where(order_id: order.id).destroy_all
-			end
-			@order.destroy_all
 			@user.destroy
 
 		if @store
