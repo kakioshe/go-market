@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :force_json, only: :search
   def index
-    @product = Product.active.all
+    @product = Product.active.all.find(:all, :order => "id desc", :limit => 10)
     @store = Store.all
   end
 
