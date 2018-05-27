@@ -74,3 +74,7 @@ gem 'sms-easy'
 
 #calendar
 gem 'google-api-client', require: 'google/apis/calendar_v3'
+
+#aws storage
+gem 'aws-sdk'
+gem 'aws-sdk-s3', '~> 1'
