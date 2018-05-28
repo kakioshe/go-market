@@ -7,6 +7,7 @@ $(document).on('turbolinks:load', function(){
       picture_reader.onload = function(event) {
         $(picture).closest('.cp-div-pic').find('#pic-uploaded').css('display', 'block');
         $(picture).closest('.cp-div-pic').find('#pic-uploaded').attr('src', event.target.result);
+        console.log(event.target.result);
         $(picture).closest('.cp-div-pic').find('#pic-uploaded').removeAttr('id');
         $(picture).closest('.cp-div-pic').find('.cp-choose-pic').html('Remove');
 
