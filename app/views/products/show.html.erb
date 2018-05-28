@@ -27,7 +27,7 @@
         <% if pic === [] %>
           <%= image_tag( "products/p-camera.png", id: 'pd-clicked-image', class: 'pd-clicked-image') %>
         <% else %>
-          <%= image_tag( @product.pictures[0].image.url, id: 'pd-clicked-image', class: 'pd-clicked-image') %>
+          <%= image_tag( @product.pictures[0].image.url, id: 'pd-clicked-image', class: 'pd-clicked-image', crossorigin:'anonymous') %>
         <% end %>
 
       </div>
