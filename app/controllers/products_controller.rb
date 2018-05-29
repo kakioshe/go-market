@@ -91,7 +91,7 @@ class ProductsController < ApplicationController
 
   def showcategory
     @category = Category.find(params[:id])
-    @product = Product.all
+    @product = Product.active
     @store = Store.all
     @prod_cat = []
     for product in @product
